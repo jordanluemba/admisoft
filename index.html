@@ -590,7 +590,28 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <div class="position-fixed bottom-0 end-0 p-3">
+            <button id="chatToggle" class="btn btn-primary rounded-circle">
+              <i class="fas fa-comment"></i>
+            </button>
+          </div>
+          <div id="chatBox" class="d-flex flex-column">
+            <div class="chat-header">
+              <strong>Chat Support</strong>
+              <span class="close-chat" id="chatClose">&times;</span>
+            </div>
+            <div id="chatMessages" class="d-flex flex-column">
+              <div class="message">Bonjour, comment pouvons-nous vous aider ?</div>
+              <div class="message me">J’ai une question concernant ma commande.</div>
+              <div class="message">D’accord, pouvez-vous me donner votre numéro ?</div>
+            </div>
+            <div id="chatInput">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Écrire un message...">
+                <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
     </div>
 
     <!-- JavaScript Libraries -->

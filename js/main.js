@@ -92,3 +92,14 @@
     
 })(jQuery);
 
+const chatToggle = document.getElementById('chatToggle');
+  const chatBox = document.getElementById('chatBox');
+  const chatClose = document.getElementById('chatClose');
+
+  chatToggle.addEventListener('click', () => {
+    chatBox.style.display = 'flex';
+  });
+
+  chatClose.addEventListener('click', () => {
+    chatBox.style.display = 'none';
+  });

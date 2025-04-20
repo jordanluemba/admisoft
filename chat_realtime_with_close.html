@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat en temps réel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    #chatBox {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #chatMessages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    .message {
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      max-width: 80%;
+    }
+    .message.me {
+      background-color: #d1e7dd;
+      align-self: end;
+    }
+    #chatInput {
+      border-top: 1px solid #ddd;
+      padding: 10px;
+    }
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0d6efd;
+      color: white;
+      padding: 0.5rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .chat-header .close-chat {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Contenu principal de la page -->
+<div class="container mt-5">
+  <h1>Bienvenue sur notre site</h1>
+  <p>Vous pouvez poser vos questions via le chat en bas à droite de l'écran.</p>
+</div>
+
+<!-- Bouton de chat -->
+<div class="position-fixed bottom-0 end-0 p-3">
+  <button id="chatToggle" class="btn btn-primary rounded-circle">
+    <i class="fas fa-comment"></i>
+  </button>
+</div>
+
+<!-- Boîte de chat -->
+<div id="chatBox" class="d-flex flex-column">
+  <div class="chat-header">
+    <strong>Chat Support</strong>
+    <span class="close-chat" id="chatClose">&times;</span>
+  </div>
+  <div id="chatMessages" class="d-flex flex-column">
+    <div class="message">Bonjour, comment pouvons-nous vous aider ?</div>
+    <div class="message me">J’ai une question concernant ma commande.</div>
+    <div class="message">D’accord, pouvez-vous me donner votre numéro ?</div>
+  </div>
+  <div id="chatInput">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Écrire un message...">
+      <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const chatToggle = document.getElementById('chatToggle');
+  const chatBox = document.getElementById('chatBox');
+  const chatClose = document.getElementById('chatClose');
+
+  chatToggle.addEventListener('click', () => {
+    chatBox.style.display = 'flex';
+  });
+
+  chatClose.addEventListener('click', () => {
+    chatBox.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
