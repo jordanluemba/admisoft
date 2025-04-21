@@ -99,3 +99,74 @@ document.getElementById("openChatBtn").addEventListener("click", function() {
 document.getElementById("closeChatBtn").addEventListener("click", function()  {
     document.getElementById("chatBox").style.display = "none";
 });
+
+// Gestion du chat
+document.addEventListener('DOMContentLoaded', function() {
+    const chatIcon = document.getElementById('chatIcon');
+    const chatContainer = document.getElementById('chatContainer');
+    const closeChat = document.getElementById('closeChat');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatMessages = document.getElementById('chatMessages');
+    
+    // Ouvrir le chat
+    chatIcon.addEventListener('click', function() {
+        chatContainer.style.display = 'flex';
+    });
+    
+    // Fermer le chat
+    closeChat.addEventListener('click', function() {
+        chatContainer.style.display = 'none';
+    });
+    
+    // Envoyer un message
+    function sendNewMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText) {
+            // Ajouter le message envoyé
+            const sentMessage = document.createElement('div');
+            sentMessage.className = 'message sent';
+            sentMessage.textContent = messageText;
+            chatMessages.appendChild(sentMessage);
+            
+            // Réponse automatique après un délai
+            setTimeout(() => {
+                const responses = [
+                    "Merci pour votre message. Comment puis-je vous aider ?",
+                    "Je vais vérifier cela pour vous.",
+                    "Nous avons bien reçu votre demande.",
+                    "Un conseiller va vous répondre sous peu.",
+                    "Avez-vous besoin d'autres informations ?"
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                const receivedMessage = document.createElement('div');
+                receivedMessage.className = 'message received';
+                receivedMessage.textContent = randomResponse;
+                chatMessages.appendChild(receivedMessage);
+                
+                // Faire défiler vers le bas
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+            
+            // Effacer le champ de saisie
+            messageInput.value = '';
+            
+            // Faire défiler vers le bas
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+    
+    // Envoyer avec le bouton
+    sendMessage.addEventListener('click', sendNewMessage);
+    
+    // Envoyer avec Entrée
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendNewMessage();
+        }
+    });
+    
+    // Faire défiler les messages vers le bas au chargement
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+});

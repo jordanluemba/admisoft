@@ -592,29 +592,35 @@
 
 
         <!-- Back to Top -->
-        <div class="position-fixed bottom-0 end-0 p-3" id="chatIcon">
-            <button id="openChatBtn" class="btn btn-primary rounded-circle">
-              <i class="fas fa-comment"></i>
-            </button>
-          </div>
-          <div id="chatBox" class="d-flex flex-column">
+        <div class="chat-icon" id="chatIcon">
+            <i class="fas fa-comment-dots fa-2x"></i>
+        </div>
+        
+        <!-- Container du chat -->
+        <div class="chat-container" id="chatContainer">
             <div class="chat-header">
-              <strong>Chat Support</strong>
-              <span class="closeChatBtn" id="chatClose">&times;</span>
+                <span>Chat en direct</span>
+                <button class="close-chat" id="closeChat">&times;</button>
             </div>
-            <div id="chatMessages" class="d-flex flex-column">
-              <div class="message">Bonjour, c'est AdmiSoft. Comment pouvons-nous vous aider ?</div>
-              <div class="message me">J’ai une question concernant ma commande.</div>
-              <div class="message">D’accord, pouvez-vous me donner votre numéro ?</div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages pré-remplis -->
+                <div class="message received">
+                    Bonjour ! Comment puis-je vous aider aujourd'hui ?
+                </div>
+                <div class="message sent">
+                    Bonjour, je souhaite avoir des informations sur vos services.
+                </div>
+                <div class="message received">
+                    Bien sûr ! Nous proposons plusieurs services. Lequel vous intéresse ?
+                </div>
             </div>
-            <div id="chatInput">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Écrire un message...">
-                <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
-              </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Tapez votre message...">
+                <button class="btn btn-primary" id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
             </div>
-          </div>
-    </div>
+        </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -629,6 +635,78 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        // Gestion du chat
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatIcon = document.getElementById('chatIcon');
+            const chatContainer = document.getElementById('chatContainer');
+            const closeChat = document.getElementById('closeChat');
+            const messageInput = document.getElementById('messageInput');
+            const sendMessage = document.getElementById('sendMessage');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Ouvrir le chat
+            chatIcon.addEventListener('click', function() {
+                chatContainer.style.display = 'flex';
+            });
+            
+            // Fermer le chat
+            closeChat.addEventListener('click', function() {
+                chatContainer.style.display = 'none';
+            });
+            
+            // Envoyer un message
+            function sendNewMessage() {
+                const messageText = messageInput.value.trim();
+                if (messageText) {
+                    // Ajouter le message envoyé
+                    const sentMessage = document.createElement('div');
+                    sentMessage.className = 'message sent';
+                    sentMessage.textContent = messageText;
+                    chatMessages.appendChild(sentMessage);
+                    
+                    // Réponse automatique après un délai
+                    setTimeout(() => {
+                        const responses = [
+                            "Merci pour votre message. Comment puis-je vous aider ?",
+                            "Je vais vérifier cela pour vous.",
+                            "Nous avons bien reçu votre demande.",
+                            "Un conseiller va vous répondre sous peu.",
+                            "Avez-vous besoin d'autres informations ?"
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        
+                        const receivedMessage = document.createElement('div');
+                        receivedMessage.className = 'message received';
+                        receivedMessage.textContent = randomResponse;
+                        chatMessages.appendChild(receivedMessage);
+                        
+                        // Faire défiler vers le bas
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                    
+                    // Effacer le champ de saisie
+                    messageInput.value = '';
+                    
+                    // Faire défiler vers le bas
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+            
+            // Envoyer avec le bouton
+            sendMessage.addEventListener('click', sendNewMessage);
+            
+            // Envoyer avec Entrée
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendNewMessage();
+                }
+            });
+            
+            // Faire défiler les messages vers le bas au chargement
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+    </script>
 </body>
 
 </html>
