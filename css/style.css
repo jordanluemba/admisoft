@@ -1166,7 +1166,7 @@ h6,
 
 .message {
     margin-bottom: 15px;
-    max-width: 80%;
+    max-width: 100%;
     padding: 10px 15px;
     border-radius: 18px;
     word-wrap: break-word;
@@ -1176,6 +1176,7 @@ h6,
     background-color: #e9ecef;
     align-self: flex-start;
     border-bottom-left-radius: 5px;
+    margin-right: 20%;
 }
 
 .sent {
@@ -1183,6 +1184,7 @@ h6,
     color: white;
     align-self: flex-end;
     border-bottom-right-radius: 5px;
+    margin-left: 20%;
 }
 
 .chat-input {
