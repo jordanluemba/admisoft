@@ -1113,7 +1113,7 @@ h6,
     background: color-mix(in srgb, var(--accent-color), transparent 20%);
   }
 
-
+/* Début du chat */
 
   .chat-icon {
     position: fixed;
@@ -1218,3 +1218,5 @@ h6,
     font-size: 1.2rem;
     cursor: pointer;
 }
+
+/* Fin chat */
