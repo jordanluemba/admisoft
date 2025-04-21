@@ -1,265 +1,189 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site avec Chat</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            padding-bottom: 80px;
-        }
-        
-        .chat-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0d6efd;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-        
-        .chat-container {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 350px;
-            height: 450px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            overflow: hidden;
-        }
-        
-        .chat-header {
-            background-color: #0d6efd;
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .chat-messages {
-            flex-grow: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background-color: #f8f9fa;
-        }
-        
-        .message {
-            margin-bottom: 15px;
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            word-wrap: break-word;
-        }
-        
-        .received {
-            background-color: #e9ecef;
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
-        
-        .sent {
-            background-color: #0d6efd;
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-        }
-        
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            background-color: white;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .chat-input input {
-            flex-grow: 1;
-            border: 1px solid #ced4da;
-            border-radius: 20px;
-            padding: 10px 15px;
-            margin-right: 10px;
-        }
-        
-        .chat-input button {
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .close-chat {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Animée</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      padding-top: 56px;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 56px);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: all 0.5s ease;
+    }
+
+    .menu-overlay.opacity-100 {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger span {
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 3px;
+      left: 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 9px;
+    }
+
+    .hamburger span:nth-child(3) {
+      bottom: 0;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+
+    .nav-link {
+      position: relative;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-menu {
+      padding: 12px 24px;
+      background-color: white;
+      color: #4c51bf;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn-menu:hover {
+      background-color: #c3bffa;
+    }
+  </style>
 </head>
-<body>
-    <!-- Contenu principal du site -->
-    <div class="container mt-5">
-        <h1 class="text-center">Bienvenue sur notre site</h1>
-        <p class="text-center">Cliquez sur l'icône en bas à droite pour ouvrir le chat</p>
-        
-        <div class="row mt-5">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Service 1</h5>
-                        <p class="card-text">Description du premier service proposé par votre entreprise.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Service 2</h5>
-                        <p class="card-text">Description du deuxième service proposé par votre entreprise.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Service 3</h5>
-                        <p class="card-text">Description du troisième service proposé par votre entreprise.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-primary fixed-top shadow-sm">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <i class="fas fa-rocket text-light fs-4"></i>
+        <span class="navbar-brand mb-0 h1">NavAnimée</span>
+      </div>
+
+      <!-- Hamburger -->
+      <div id="hamburger" class="hamburger d-md-none">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Menu desktop -->
+      <div class="d-none d-md-flex gap-4">
+        <a href="#" class="nav-link">Accueil</a>
+        <a href="#" class="nav-link">Services</a>
+        <a href="#" class="nav-link">À propos</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
     </div>
-    
-    <!-- Icône du chat -->
-    <div class="chat-icon" id="chatIcon">
-        <i class="fas fa-comment-dots fa-2x"></i>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" class="menu-overlay">
+    <div class="d-flex flex-column align-items-center gap-4">
+      <a href="#" class="nav-link">Accueil</a>
+      <a href="#" class="nav-link">Services</a>
+      <a href="#" class="nav-link">À propos</a>
+      <a href="#" class="nav-link">Contact</a>
     </div>
-    
-    <!-- Container du chat -->
-    <div class="chat-container" id="chatContainer">
-        <div class="chat-header">
-            <span>Chat en direct</span>
-            <button class="close-chat" id="closeChat">&times;</button>
-        </div>
-        <div class="chat-messages" id="chatMessages">
-            <!-- Messages pré-remplis -->
-            <div class="message received">
-                Bonjour ! Comment puis-je vous aider aujourd'hui ?
-            </div>
-            <div class="message sent">
-                Bonjour, je souhaite avoir des informations sur vos services.
-            </div>
-            <div class="message received">
-                Bien sûr ! Nous proposons plusieurs services. Lequel vous intéresse ?
-            </div>
-            <div class="message sent">
-                Je voudrais en savoir plus sur le Service 2.
-            </div>
-            <div class="message received">
-                Le Service 2 inclut [description détaillée]. Avez-vous des questions spécifiques ?
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="messageInput" placeholder="Tapez votre message...">
-            <button class="btn btn-primary" id="sendMessage">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
+
+    <div class="mt-5">
+      <button class="btn-menu">Se connecter</button>
     </div>
-    
-    <!-- Bootstrap JS et dépendances -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Gestion du chat
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatIcon = document.getElementById('chatIcon');
-            const chatContainer = document.getElementById('chatContainer');
-            const closeChat = document.getElementById('closeChat');
-            const messageInput = document.getElementById('messageInput');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatMessages = document.getElementById('chatMessages');
-            
-            // Ouvrir le chat
-            chatIcon.addEventListener('click', function() {
-                chatContainer.style.display = 'flex';
-            });
-            
-            // Fermer le chat
-            closeChat.addEventListener('click', function() {
-                chatContainer.style.display = 'none';
-            });
-            
-            // Envoyer un message
-            function sendNewMessage() {
-                const messageText = messageInput.value.trim();
-                if (messageText) {
-                    // Ajouter le message envoyé
-                    const sentMessage = document.createElement('div');
-                    sentMessage.className = 'message sent';
-                    sentMessage.textContent = messageText;
-                    chatMessages.appendChild(sentMessage);
-                    
-                    // Réponse automatique après un délai
-                    setTimeout(() => {
-                        const responses = [
-                            "Merci pour votre message. Comment puis-je vous aider ?",
-                            "Je vais vérifier cela pour vous.",
-                            "Nous avons bien reçu votre demande.",
-                            "Un conseiller va vous répondre sous peu.",
-                            "Avez-vous besoin d'autres informations ?"
-                        ];
-                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                        
-                        const receivedMessage = document.createElement('div');
-                        receivedMessage.className = 'message received';
-                        receivedMessage.textContent = randomResponse;
-                        chatMessages.appendChild(receivedMessage);
-                        
-                        // Faire défiler vers le bas
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 1000);
-                    
-                    // Effacer le champ de saisie
-                    messageInput.value = '';
-                    
-                    // Faire défiler vers le bas
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }
-            }
-            
-            // Envoyer avec le bouton
-            sendMessage.addEventListener('click', sendNewMessage);
-            
-            // Envoyer avec Entrée
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendNewMessage();
-                }
-            });
-            
-            // Faire défiler les messages vers le bas au chargement
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-    </script>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+
+      if (menuOpen) {
+        mobileMenu.classList.add('opacity-100');
+        hamburger.classList.add('open');
+      } else {
+        mobileMenu.classList.remove('opacity-100');
+        hamburger.classList.remove('open');
+      }
+    });
+  </script>
+
 </body>
 </html>
