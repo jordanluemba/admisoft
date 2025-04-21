@@ -92,14 +92,10 @@
     
 })(jQuery);
 
-const chatToggle = document.getElementById('chatToggle');
-  const chatBox = document.getElementById('chatBox');
-  const chatClose = document.getElementById('chatClose');
+document.getElementById("openChatBtn").addEventListener("click", function() {
+    document.getElementById("chatBox").style.display = "flex";
+});
 
-  chatToggle.addEventListener('click', () => {
-    chatBox.style.display = 'flex';
-  });
-
-  chatClose.addEventListener('click', () => {
-    chatBox.style.display = 'none';
-  });
+document.getElementById("closeChatBtn").addEventListener("click", function()  {
+    document.getElementById("chatBox").style.display = "none";
+});
