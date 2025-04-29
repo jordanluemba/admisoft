@@ -6,3 +6,4 @@ Travaillé réalisé par plusieurs développeurs
 Tous étudians à l'école informatique des finances
 le site web comprend un blog et un marketplace
 la section accueil
+la section services
