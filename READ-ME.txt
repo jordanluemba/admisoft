@@ -4,3 +4,4 @@ Propriétaire : Gloire
 c'est un site web permettant de présenter les différents services offerts par l'entreprise.
 Travaillé réalisé par plusieurs développeurs
 Tous étudians à l'école informatique des finances
+le site web comprend un blog et un marketplace
