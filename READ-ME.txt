@@ -8,3 +8,4 @@ le site web comprend un blog et un marketplace
 la section accueil
 la section services
 la section témoignage
+la section about
