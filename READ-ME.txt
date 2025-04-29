@@ -1,3 +1,4 @@
 Auteur : Jordane Luemba
 Nom du site : Admisoft
 Propriétaire : Gloire
+c'est un site web permettant de présenter les différents services offerts par l'entreprise.
