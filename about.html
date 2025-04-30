@@ -4,457 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechSolutions - Entreprise Informatique Professionnelle</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --dark-color: #212529;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#3B82F6',
+                            dark: '#2563EB'
+                        },
+                        secondary: '#6B7280',
+                        dark: '#1F2937'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-top: 56px;
-        }
-        
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .navbar.scrolled {
-            background-color: rgba(33, 37, 41, 0.95) !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Animation du bouton hamburger */
-        .navbar-toggler {
-            border: none;
-            padding: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-        
-        .navbar-toggler .hamburger-line {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: white;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-        
-        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-        
-        /* Menu mobile */
-        .navbar-collapse {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--dark-color);
-            z-index: 1000;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .navbar-collapse.show {
-            max-height: 500px; /* Ajustez selon la hauteur de votre menu */
-            transition: max-height 0.3s ease-in;
-        }
-        
-        .navbar-nav {
-            padding: 1rem;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color), #0b5ed7);
-            color: white;
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://via.placeholder.com/600x400') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .service-card.animated {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-        }
-        
-        .partner-logo {
-            height: 60px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            transform: scale(0.9);
-        }
-        
-        .partner-logo.animated {
-            transform: scale(1);
-        }
-        
-        .partner-logo:hover {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.05);
-        }
-        
-        .testimonial-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .testimonial-card.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .testimonial-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            transition: transform 0.3s ease;
-        }
-        
-        .testimonial-card:hover .testimonial-img {
-            transform: scale(1.1);
-        }
-        
-        .blog-card {
-            transition: all 0.3s ease;
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .blog-card.animated {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-card {
-            transition: all 0.3s ease;
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .product-card.animated {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .chat-icon {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .chat-icon:hover {
-            transform: scale(1.1);
-            background-color: #0b5ed7;
-        }
-        
-        .login-section {
-            background-color: #f8f9fa;
-            padding: 4rem 0;
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .login-section.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        /* Animation pour les titres */
-        .section-title {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .section-title.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Animation pour les images */
-        .img-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Progress bar animation */
-        .progress-bar {
-            transition: width 1.5s ease;
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-md {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 15px 30px rgba(0,0,0,0.11);
+            }
+            .text-shadow-none {
+                text-shadow: none;
+            }
+            
+            .animate-card {
+                @apply opacity-0 translate-y-5;
+            }
+            .animate-card.show {
+                @apply opacity-100 translate-y-0 transition-all duration-500 ease-out;
+            }
+            
+            .glass-effect {
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .gradient-bg {
+                background-size: 200% 200%;
+                animation: gradient 8s ease infinite;
+            }
+            
+            @keyframes gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased pt-16">
     <!-- Header/Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-laptop-code me-2"></i>
-                Admisoft
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon d-none"></span>
-                <div class="hamburger">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </div>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#marketplace">Marketplace</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fas fa-sign-in-alt me-1"></i> Connexion
+    <nav class="fixed top-0 left-0 w-full bg-dark/95 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex items-center text-white font-bold text-xl">
+                    <i class="fas fa-laptop-code mr-2"></i>
+                    <span class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Admisoft</span>
+                </a>
+                
+                <!-- Menu desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-primary transition-colors">Accueil</a>
+                    <a href="#blog" class="text-white hover:text-primary transition-colors">Blog</a>
+                    <a href="#marketplace" class="text-white hover:text-primary transition-colors">Marketplace</a>
+                    <a href="#contact" class="text-white hover:text-primary transition-colors">Contact</a>
+                    <div id="user-menu-container" class="hidden ml-4 relative">
+                        <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full">
+                            <span class="text-white">John Doe</span>
+                            <i class="fas fa-chevron-down text-xs text-gray-300"></i>
                         </button>
-                    </li>
-                </ul>
+                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Paramètres</a>
+                            <a href="#" id="logout-btn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a>
+                        </div>
+                    </div>
+                    <button id="login-btn" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Connexion
+                    </button>
+                </div>
+                
+                <!-- Bouton mobile -->
+                <button class="lg:hidden focus:outline-none" id="mobile-menu-button">
+                    <div class="space-y-2">
+                        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="line1"></span>
+                        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="line2"></span>
+                        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="line3"></span>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Menu mobile -->
+            <div class="lg:hidden bg-dark absolute left-0 w-full overflow-hidden transition-all duration-300 max-h-0" id="mobile-menu">
+                <div class="px-4 py-3 space-y-4">
+                    <a href="#home" class="block text-white hover:text-primary transition-colors">Accueil</a>
+                    <a href="#blog" class="block text-white hover:text-primary transition-colors">Blog</a>
+                    <a href="#marketplace" class="block text-white hover:text-primary transition-colors">Marketplace</a>
+                    <a href="#contact" class="block text-white hover:text-primary transition-colors">Contact</a>
+                    <div id="mobile-user-menu-container" class="hidden pt-2 border-t border-gray-700">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full">
+                            <span class="text-white">John Doe</span>
+                        </div>
+                        <a href="#" class="block text-white hover:text-primary transition-colors">Profil</a>
+                        <a href="#" class="block text-white hover:text-primary transition-colors">Paramètres</a>
+                        <a href="#" id="mobile-logout-btn" class="block text-white hover:text-primary transition-colors">Déconnexion</a>
+                    </div>
+                    <button id="mobile-login-btn" class="w-full px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Connexion
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Solutions informatiques pour votre entreprise</h1>
-                    <p class="lead mb-4">Nous accompagnons les entreprises dans leur transformation digitale avec des solutions sur mesure et une expertise reconnue.</p>
-                    <a href="#services" class="btn btn-light btn-lg me-2">Découvrez nos services</a>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Contactez-nous</a>
+    <section id="home" class="relative bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80')] bg-cover bg-center"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-24 relative z-10" data-aos="fade-up">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-shadow">
+                        Solutions informatiques <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">innovantes</span> pour votre entreprise
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 text-blue-100">
+                        Nous accompagnons les entreprises dans leur transformation digitale avec des solutions sur mesure et une expertise reconnue.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="px-8 py-3 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl">
+                            Découvrez nos services
+                        </a>
+                        <a href="#contact" class="px-8 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                            Contactez-nous
+                        </a>
+                    </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block">
-                    <img src="https://via.placeholder.com/600x400" alt="Solutions IT" class="img-fluid rounded img-float">
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Solutions IT" 
+                         class="rounded-xl shadow-2xl w-full max-w-md animate-float">
                 </div>
             </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="fill-current text-white w-full h-16">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+            </svg>
         </div>
     </section>
 
     <!-- Login Required Section -->
-    <section class="login-section my-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="mb-4">Accédez à toutes nos fonctionnalités</h2>
-                    <p class="lead mb-4">Connectez-vous pour accéder au blog, à notre marketplace et discuter en temps réel avec nos experts.</p>
-                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <i class="fas fa-sign-in-alt me-2"></i> Se connecter
-                    </button>
-                </div>
+    <section class="py-16 bg-gradient-to-r from-gray-50 to-gray-100 my-12 rounded-2xl overflow-hidden relative">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1131&q=80')] bg-cover bg-center"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Accédez à toutes nos <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">fonctionnalités</span>
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Connectez-vous pour accéder au blog, à notre marketplace et discuter en temps réel avec nos experts.
+                </p>
+                <button class="btn-login px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-lg hover:shadow-xl inline-flex items-center">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Se connecter
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Nos Services</h2>
-                <p class="lead text-muted">Découvrez notre gamme complète de services informatiques</p>
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Découvrez notre gamme complète de services informatiques
+                </p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="service-icon">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="p-6 text-center">
+                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl transition-transform duration-300 group-hover:scale-110">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
-                            <h5 class="card-title">Cybersécurité</h5>
-                            <p class="card-text">Protégez vos données et systèmes contre les cyberattaques avec nos solutions de sécurité avancées.</p>
-                            <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                            <h3 class="text-xl font-bold mb-3">Cybersécurité</h3>
+                            <p class="text-gray-600 mb-4">
+                                Protégez vos données et systèmes contre les cyberattaques avec nos solutions de sécurité avancées.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="service-icon">
+                
+                <!-- Service 2 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="p-6 text-center">
+                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl transition-transform duration-300 group-hover:scale-110">
                                 <i class="fas fa-code"></i>
                             </div>
-                            <h5 class="card-title">Développement Web</h5>
-                            <p class="card-text">Des sites web et applications sur mesure pour répondre à vos besoins spécifiques.</p>
-                            <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                            <h3 class="text-xl font-bold mb-3">Développement Web</h3>
+                            <p class="text-gray-600 mb-4">
+                                Des sites web et applications sur mesure pour répondre à vos besoins spécifiques.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="service-icon">
+                
+                <!-- Service 3 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="p-6 text-center">
+                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl transition-transform duration-300 group-hover:scale-110">
                                 <i class="fas fa-cloud"></i>
                             </div>
-                            <h5 class="card-title">Infogérance</h5>
-                            <p class="card-text">Externalisez la gestion de votre infrastructure IT et concentrez-vous sur votre cœur de métier.</p>
-                            <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                            <h3 class="text-xl font-bold mb-3">Infogérance</h3>
+                            <p class="text-gray-600 mb-4">
+                                Externalisez la gestion de votre infrastructure IT et concentrez-vous sur votre cœur de métier.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="service-icon">
+                
+                <!-- Service 4 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="p-6 text-center">
+                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl transition-transform duration-300 group-hover:scale-110">
                                 <i class="fas fa-robot"></i>
                             </div>
-                            <h5 class="card-title">Intelligence Artificielle</h5>
-                            <p class="card-text">Intégrez l'IA dans vos processus pour gagner en efficacité et en compétitivité.</p>
-                            <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                            <h3 class="text-xl font-bold mb-3">Intelligence Artificielle</h3>
+                            <p class="text-gray-600 mb-4">
+                                Intégrez l'IA dans vos processus pour gagner en efficacité et en compétitivité.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -463,227 +292,227 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Nos Partenaires</h2>
-                <p class="lead text-muted">Ils nous font confiance</p>
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Partenaires</h2>
+                <p class="text-lg text-gray-600">Ils nous font confiance</p>
             </div>
-            <div class="row justify-content-center align-items-center g-4">
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 1" class="img-fluid partner-logo">
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 1" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 2" class="img-fluid partner-logo">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 2" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 3" class="img-fluid partner-logo">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 3" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 4" class="img-fluid partner-logo">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 4" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="500">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 5" class="img-fluid partner-logo">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 5" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-delay="600">
-                    <img src="https://via.placeholder.com/120x60" alt="Partner 6" class="img-fluid partner-logo">
+                <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://via.placeholder.com/120x60" alt="Partner 6" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Témoignages</h2>
-                <p class="lead text-muted">Ce que nos clients disent de nous</p>
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Témoignages</h2>
+                <p class="text-lg text-gray-600">Ce que nos clients disent de nous</p>
             </div>
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="testimonial-card card">
-                                    <div class="card-body p-4 text-center">
-                                        <img src="https://via.placeholder.com/100" alt="Client 1" class="testimonial-img mb-3">
-                                        <h5 class="card-title">Marie Dupont</h5>
-                                        <p class="text-muted mb-3">Directrice Marketing, Entreprise X</p>
-                                        <p class="card-text">"AdmiSoft a révolutionné notre infrastructure IT. Leur équipe est réactive, compétente et toujours disponible pour nous conseiller."</p>
-                                        <div class="text-warning mb-3">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
+            
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="relative">
+                    <!-- Testimonial 1 -->
+                    <div class="animate-card">
+                        <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1" class="w-20 h-20 rounded-full border-4 border-primary mx-auto mb-4 object-cover transition-transform duration-300 hover:scale-110">
+                            <h4 class="text-xl font-bold mb-1">Marie Dupont</h4>
+                            <p class="text-gray-500 mb-4">Directrice Marketing, Entreprise X</p>
+                            <p class="text-gray-700 mb-4 italic">
+                                "AdmiSoft a révolutionné notre infrastructure IT. Leur équipe est réactive, compétente et toujours disponible pour nous conseiller."
+                            </p>
+                            <div class="flex justify-center space-x-1 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="testimonial-card card">
-                                    <div class="card-body p-4 text-center">
-                                        <img src="https://via.placeholder.com/100" alt="Client 2" class="testimonial-img mb-3">
-                                        <h5 class="card-title">Jean Martin</h5>
-                                        <p class="text-muted mb-3">PDG, Société Y</p>
-                                        <p class="card-text">"La migration vers le cloud avec AdmiSoft s'est déroulée sans aucun problème. Nous avons gagné en flexibilité et en performance."</p>
-                                        <div class="text-warning mb-3">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="testimonial-card card">
-                                    <div class="card-body p-4 text-center">
-                                        <img src="https://via.placeholder.com/100" alt="Client 3" class="testimonial-img mb-3">
-                                        <h5 class="card-title">Sophie Leroy</h5>
-                                        <p class="text-muted mb-3">Responsable IT, Groupe Z</p>
-                                        <p class="card-text">"Leur solution de cybersécurité nous a permis de sécuriser nos données sensibles tout en restant conformes aux réglementations."</p>
-                                        <div class="text-warning mb-3">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <!-- Navigation -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button class="w-3 h-3 rounded-full bg-primary"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300"></button>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-5">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Notre Blog</h2>
-                <p class="lead text-muted">Dernières actualités et conseils IT</p>
+    <section id="blog" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Notre Blog</h2>
+                <p class="text-lg text-gray-600">Dernières actualités et conseils IT</p>
             </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="row g-4">
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="blog-card card h-100">
-                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Article 1">
-                                <div class="card-body">
-                                    <span class="badge bg-primary mb-2">Cybersécurité</span>
-                                    <h5 class="card-title">Comment protéger votre entreprise contre les ransomwares</h5>
-                                    <p class="card-text text-muted">Les attaques par ransomware sont en hausse. Découvrez les bonnes pratiques pour protéger vos données.</p>
-                                    <a href="#" class="btn btn-outline-primary">Lire l'article</a>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Publié il y a 3 jours</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="blog-card card h-100">
-                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Article 2">
-                                <div class="card-body">
-                                    <span class="badge bg-success mb-2">Cloud</span>
-                                    <h5 class="card-title">Migration vers le cloud : les erreurs à éviter</h5>
-                                    <p class="card-text text-muted">Tout ce que vous devez savoir pour réussir votre migration vers le cloud sans surprises.</p>
-                                    <a href="#" class="btn btn-outline-primary">Lire l'article</a>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Publié il y a 1 semaine</small>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Article 1 -->
+                        <div class="animate-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Article 1" 
+                                     class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-3">
+                                        Cybersécurité
+                                    </span>
+                                    <h3 class="text-xl font-bold mb-3">Comment protéger votre entreprise contre les ransomwares</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Les attaques par ransomware sont en hausse. Découvrez les bonnes pratiques pour protéger vos données.
+                                    </p>
+                                    <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                        Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                    <div class="mt-4 text-sm text-gray-500">
+                                        Publié il y a 3 jours
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="blog-card card h-100">
-                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Article 3">
-                                <div class="card-body">
-                                    <span class="badge bg-warning text-dark mb-2">IA</span>
-                                    <h5 class="card-title">L'IA au service de la productivité</h5>
-                                    <p class="card-text text-muted">Comment les outils d'intelligence artificielle peuvent booster la productivité de votre équipe.</p>
-                                    <a href="#" class="btn btn-outline-primary">Lire l'article</a>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Publié il y a 2 semaines</small>
+                        
+                        <!-- Article 2 -->
+                        <div class="animate-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" 
+                                     alt="Article 2" 
+                                     class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-3">
+                                        Cloud
+                                    </span>
+                                    <h3 class="text-xl font-bold mb-3">Migration vers le cloud : les erreurs à éviter</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Tout ce que vous devez savoir pour réussir votre migration vers le cloud sans surprises.
+                                    </p>
+                                    <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                        Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                    <div class="mt-4 text-sm text-gray-500">
+                                        Publié il y a 1 semaine
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="blog-card card h-100">
-                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Article 4">
-                                <div class="card-body">
-                                    <span class="badge bg-info mb-2">DevOps</span>
-                                    <h5 class="card-title">Les tendances DevOps en 2023</h5>
-                                    <p class="card-text text-muted">Découvrez les nouvelles pratiques DevOps qui révolutionnent le développement logiciel.</p>
-                                    <a href="#" class="btn btn-outline-primary">Lire l'article</a>
+                        
+                        <!-- Article 3 -->
+                        <div class="animate-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                                <img src="https://images.unsplash.com/photo-1677442135136-760c813a743e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Article 3" 
+                                     class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full mb-3">
+                                        IA
+                                    </span>
+                                    <h3 class="text-xl font-bold mb-3">L'IA au service de la productivité</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Comment les outils d'intelligence artificielle peuvent booster la productivité de votre équipe.
+                                    </p>
+                                    <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                        Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                    <div class="mt-4 text-sm text-gray-500">
+                                        Publié il y a 2 semaines
+                                    </div>
                                 </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Publié il y a 3 semaines</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 4 -->
+                        <div class="animate-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                                <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Article 4" 
+                                     class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
+                                        DevOps
+                                    </span>
+                                    <h3 class="text-xl font-bold mb-3">Les tendances DevOps en 2023</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Découvrez les nouvelles pratiques DevOps qui révolutionnent le développement logiciel.
+                                    </p>
+                                    <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-dark">
+                                        Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                    <div class="mt-4 text-sm text-gray-500">
+                                        Publié il y a 3 semaines
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="card mb-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="card-body">
-                            <h5 class="card-title">Catégories</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="#" class="text-decoration-none">Cybersécurité</a>
-                                    <span class="badge bg-primary rounded-pill">14</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="#" class="text-decoration-none">Cloud Computing</a>
-                                    <span class="badge bg-primary rounded-pill">8</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="#" class="text-decoration-none">Intelligence Artificielle</a>
-                                    <span class="badge bg-primary rounded-pill">5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="#" class="text-decoration-none">Développement Web</a>
-                                    <span class="badge bg-primary rounded-pill">12</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="#" class="text-decoration-none">Infogérance</a>
-                                    <span class="badge bg-primary rounded-pill">7</span>
-                                </li>
-                            </ul>
-                        </div>
+                
+                <div class="lg:w-1/3 space-y-6">
+                    <!-- Catégories -->
+                    <div class="animate-card bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="text-xl font-bold mb-4">Catégories</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Cybersécurité</a>
+                                <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">14</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Cloud Computing</a>
+                                <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">8</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Intelligence Artificielle</a>
+                                <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">5</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Développement Web</a>
+                                <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">12</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2">
+                                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Infogérance</a>
+                                <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">7</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card" data-aos="fade-up" data-aos-delay="600">
-                        <div class="card-body">
-                            <h5 class="card-title">Newsletter</h5>
-                            <p class="card-text">Abonnez-vous pour recevoir nos derniers articles et offres spéciales.</p>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Votre email">
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">S'abonner</button>
-                            </form>
-                        </div>
+                    
+                    <!-- Newsletter -->
+                    <div class="animate-card bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                        <p class="text-gray-600 mb-4">
+                            Abonnez-vous pour recevoir nos derniers articles et offres spéciales.
+                        </p>
+                        <form>
+                            <div class="mb-4">
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Votre email">
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark transition-colors">
+                                S'abonner
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -691,226 +520,308 @@
     </section>
 
     <!-- Marketplace Section -->
-    <section id="marketplace" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Marketplace</h2>
-                <p class="lead text-muted">Nos produits et services</p>
+    <section id="marketplace" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Marketplace</h2>
+                <p class="text-lg text-gray-600">Nos produits et services</p>
             </div>
             
-            <div class="row mb-4" data-aos="fade-up">
-                <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
-                    <select class="form-select">
+            <div class="mb-8" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <select class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                         <option selected>Toutes les catégories</option>
                         <option>Matériel</option>
                         <option>Logiciels</option>
                         <option>Services Cloud</option>
                         <option>Formations</option>
                     </select>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
-                    <select class="form-select">
+                    <select class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                         <option selected>Trier par</option>
                         <option>Prix croissant</option>
                         <option>Prix décroissant</option>
                         <option>Meilleures notes</option>
                         <option>Plus récents</option>
                     </select>
-                </div>
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Rechercher un produit...">
-                        <button class="btn btn-primary" type="button">
+                    <div class="flex-1 flex">
+                        <input type="text" class="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Rechercher un produit...">
+                        <button class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary-dark transition-colors">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
             </div>
             
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-card card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Produit 1">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-success">En stock</span>
-                                <div class="text-warning">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Produit 1 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Produit 1" 
+                                 class="w-full h-48 object-cover">
+                            <span class="absolute top-2 left-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
+                                En stock
+                            </span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
-                                    <span class="text-muted small ms-1">(12)</span>
+                                    <span class="text-gray-500 text-xs ml-1">(12)</span>
                                 </div>
                             </div>
-                            <h5 class="card-title">Antivirus Professionnel</h5>
-                            <p class="card-text text-muted small">Protection complète pour votre entreprise contre les virus, malware et ransomwares.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <h5 class="mb-0 text-primary">99€ <small class="text-muted text-decoration-line-through">129€</small></h5>
-                                <button class="btn btn-sm btn-primary">Acheter</button>
+                            <h3 class="text-lg font-bold mb-2">Antivirus Professionnel</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Protection complète pour votre entreprise contre les virus, malware et ransomwares.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-primary font-bold">
+                                    99€ <span class="text-gray-400 text-sm line-through">129€</span>
+                                </div>
+                                <button class="bg-primary text-white px-3 py-1 rounded-lg text-sm hover:bg-primary-dark transition-colors">
+                                    Acheter
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-card card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Produit 2">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-success">En stock</span>
-                                <div class="text-warning">
+                
+                <!-- Produit 2 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Produit 2" 
+                                 class="w-full h-48 object-cover">
+                            <span class="absolute top-2 left-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
+                                En stock
+                            </span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                    <span class="text-muted small ms-1">(24)</span>
+                                    <span class="text-gray-500 text-xs ml-1">(24)</span>
                                 </div>
                             </div>
-                            <h5 class="card-title">Serveur Cloud Pro</h5>
-                            <p class="card-text text-muted small">Solution cloud performante avec stockage SSD et bande passante illimitée.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <h5 class="mb-0 text-primary">49€<small class="text-muted">/mois</small></h5>
-                                <button class="btn btn-sm btn-primary">Souscrire</button>
+                            <h3 class="text-lg font-bold mb-2">Serveur Cloud Pro</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Solution cloud performante avec stockage SSD et bande passante illimitée.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-primary font-bold">
+                                    49€<span class="text-gray-500 text-sm">/mois</span>
+                                </div>
+                                <button class="bg-primary text-white px-3 py-1 rounded-lg text-sm hover:bg-primary-dark transition-colors">
+                                    Souscrire
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-card card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Produit 3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-warning text-dark">Stock limité</span>
-                                <div class="text-warning">
+                
+                <!-- Produit 3 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Produit 3" 
+                                 class="w-full h-48 object-cover">
+                            <span class="absolute top-2 left-2 bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded">
+                                Stock limité
+                            </span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
-                                    <span class="text-muted small ms-1">(8)</span>
+                                    <span class="text-gray-500 text-xs ml-1">(8)</span>
                                 </div>
                             </div>
-                            <h5 class="card-title">Formation Cybersécurité</h5>
-                            <p class="card-text text-muted small">Formation complète en ligne pour sécuriser votre infrastructure informatique.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <h5 class="mb-0 text-primary">299€</h5>
-                                <button class="btn btn-sm btn-primary">S'inscrire</button>
+                            <h3 class="text-lg font-bold mb-2">Formation Cybersécurité</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Formation complète en ligne pour sécuriser votre infrastructure informatique.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-primary font-bold">
+                                    299€
+                                </div>
+                                <button class="bg-primary text-white px-3 py-1 rounded-lg text-sm hover:bg-primary-dark transition-colors">
+                                    S'inscrire
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="product-card card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Produit 4">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-danger">Rupture</span>
-                                <div class="text-warning">
+                
+                <!-- Produit 4 -->
+                <div class="animate-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1126&q=80" 
+                                 alt="Produit 4" 
+                                 class="w-full h-48 object-cover">
+                            <span class="absolute top-2 left-2 bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">
+                                Rupture
+                            </span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
-                                    <span class="text-muted small ms-1">(15)</span>
+                                    <span class="text-gray-500 text-xs ml-1">(15)</span>
                                 </div>
                             </div>
-                            <h5 class="card-title">Workstation Pro</h5>
-                            <p class="card-text text-muted small">Station de travail haute performance pour professionnels de la création.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <h5 class="mb-0 text-primary">1 899€</h5>
-                                <button class="btn btn-sm btn-outline-secondary" disabled>En rupture</button>
+                            <h3 class="text-lg font-bold mb-2">Workstation Pro</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Station de travail haute performance pour professionnels de la création.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-primary font-bold">
+                                    1 899€
+                                </div>
+                                <button class="bg-gray-200 text-gray-500 px-3 py-1 rounded-lg text-sm cursor-not-allowed" disabled>
+                                    En rupture
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-5" data-aos="fade-up">
-                <a href="#" class="btn btn-primary btn-lg">Voir tous les produits</a>
+            <div class="text-center mt-10" data-aos="fade-up">
+                <a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-lg hover:shadow-xl">
+                    Voir tous les produits
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Contactez-nous</h2>
-                <p class="lead text-muted">Nous sommes à votre écoute pour répondre à vos questions</p>
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-nous</h2>
+                <p class="text-lg text-gray-600">Nous sommes à votre écoute pour répondre à vos questions</p>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h5 class="card-title mb-4">Nos coordonnées</h5>
-                            <div class="d-flex mb-4">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-map-marker-alt fa-2x"></i>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <div class="bg-white rounded-xl shadow-md h-full p-6">
+                        <h3 class="text-xl font-bold mb-6">Nos coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="mr-4 text-primary text-2xl">
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <h6>Adresse</h6>
-                                    <p class="mb-0 text-muted">123 Rue de la Technologie, 75000 Paris</p>
+                                    <h4 class="font-semibold mb-1">Adresse</h4>
+                                    <p class="text-gray-600">123 Rue de la Technologie, 75000 Paris</p>
                                 </div>
                             </div>
-                            <div class="d-flex mb-4">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-phone-alt fa-2x"></i>
+                            
+                            <div class="flex">
+                                <div class="mr-4 text-primary text-2xl">
+                                    <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div>
-                                    <h6>Téléphone</h6>
-                                    <p class="mb-0 text-muted">+33 1 23 45 67 89</p>
+                                    <h4 class="font-semibold mb-1">Téléphone</h4>
+                                    <p class="text-gray-600">+33 1 23 45 67 89</p>
                                 </div>
                             </div>
-                            <div class="d-flex mb-4">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-envelope fa-2x"></i>
+                            
+                            <div class="flex">
+                                <div class="mr-4 text-primary text-2xl">
+                                    <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h6>Email</h6>
-                                    <p class="mb-0 text-muted">contact@techsolutions.fr</p>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-gray-600">contact@techsolutions.fr</p>
                                 </div>
                             </div>
-                            <div class="d-flex">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-clock fa-2x"></i>
+                            
+                            <div class="flex">
+                                <div class="mr-4 text-primary text-2xl">
+                                    <i class="fas fa-clock"></i>
                                 </div>
                                 <div>
-                                    <h6>Horaires</h6>
-                                    <p class="mb-0 text-muted">Lundi - Vendredi : 9h - 18h</p>
+                                    <h4 class="font-semibold mb-1">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi : 9h - 18h</p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h5 class="card-title mb-4">Envoyez-nous un message</h5>
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="name" class="form-label">Nom complet</label>
-                                        <input type="text" class="form-control" id="name" required>
+                
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="bg-white rounded-xl shadow-md h-full p-6">
+                        <h3 class="text-xl font-bold mb-6">Envoyez-nous un message</h3>
+                        <form>
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
+                                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="subject" class="form-label">Sujet</label>
-                                        <input type="text" class="form-control" id="subject" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="message" class="form-label">Message</label>
-                                        <textarea class="form-control" id="message" rows="4" required></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Sujet</label>
+                                    <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                                </div>
+                                
+                                <div>
+                                    <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                                        Envoyer le message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -918,191 +829,204 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up">
-                    <h5 class="text-white mb-4">
-                        <i class="fas fa-laptop-code me-2"></i> TechSolutions
-                    </h5>
-                    <p>Votre partenaire informatique pour des solutions sur mesure et une expertise reconnue dans le domaine des technologies de l'information.</p>
-                    <div class="mt-4">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl mr-2"></i>
+                        <span class="text-xl font-bold bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Admisoft</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Votre partenaire informatique pour des solutions sur mesure et une expertise reconnue dans le domaine des technologies de l'information.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <h5 class="text-white mb-4">Liens rapides</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-2"><a href="#home">Accueil</a></li>
-                        <li class="mb-2"><a href="#services">Services</a></li>
-                        <li class="mb-2"><a href="#blog">Blog</a></li>
-                        <li class="mb-2"><a href="#marketplace">Marketplace</a></li>
-                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#marketplace" class="text-gray-400 hover:text-white transition-colors">Marketplace</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="text-white mb-4">Services</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-2"><a href="#">Cybersécurité</a></li>
-                        <li class="mb-2"><a href="#">Développement Web</a></li>
-                        <li class="mb-2"><a href="#">Infogérance</a></li>
-                        <li class="mb-2"><a href="#">Cloud Computing</a></li>
-                        <li class="mb-2"><a href="#">Formations IT</a></li>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cybersécurité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Développement Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Infogérance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cloud Computing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Formations IT</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <h5 class="text-white mb-4">Newsletter</h5>
-                    <p>Abonnez-vous à notre newsletter pour recevoir les dernières actualités et offres spéciales.</p>
-                    <form class="mt-3">
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Abonnez-vous à notre newsletter pour recevoir les dernières actualités et offres spéciales.
+                    </p>
+                    <form class="flex">
+                        <input type="email" class="flex-1 px-4 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Votre email">
+                        <button type="submit" class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary-dark transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
-            <hr class="mt-4 mb-3" style="border-color: rgba(255,255,255,0.1);">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2023 TechSolutions. Tous droits réservés.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#" class="footer-links">Mentions légales</a></li>
-                        <li class="list-inline-item"><a href="#" class="footer-links">Politique de confidentialité</a></li>
-                        <li class="list-inline-item"><a href="#" class="footer-links">CGV</a></li>
-                    </ul>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 TechSolutions. Tous droits réservés.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">CGV</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Chat Icon -->
-    <div class="chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal">
-        <i class="fas fa-comment-dots fa-lg"></i>
+    <div class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-xl hover:bg-primary-dark transition-colors cursor-pointer z-40" id="chat-icon">
+        <i class="fas fa-comment-dots text-xl"></i>
     </div>
 
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden" id="login-modal">
+        <div class="bg-white rounded-xl max-w-md w-full mx-4">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h3 class="text-xl font-bold">Connexion</h3>
+                <button class="text-gray-500 hover:text-gray-700" id="close-login-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="login-form">
+                    <div class="mb-4">
+                        <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="login-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required value="admin@example.com">
+                    </div>
+                    <div class="mb-4">
+                        <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
+                        <input type="password" id="login-password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required value="password123">
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <input type="checkbox" id="remember-me" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-700">Se souvenir de moi</label>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark transition-colors">
+                        Se connecter
+                    </button>
+                </form>
+                <div class="text-center mt-4">
+                    <a href="#" class="text-sm text-primary hover:text-primary-dark">Mot de passe oublié ?</a>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="loginEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" id="loginPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
-                    </form>
-                    <div class="text-center mt-3">
-                        <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
-                    </div>
-                    <hr class="my-4">
-                    <div class="text-center">
-                        <p class="mb-2">Pas encore de compte ?</p>
-                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
-                            Créer un compte
-                        </button>
-                    </div>
+                <div class="border-t border-gray-200 my-6"></div>
+                <div class="text-center">
+                    <p class="text-sm text-gray-600 mb-3">Pas encore de compte ?</p>
+                    <button class="w-full border border-primary text-primary py-2 px-4 rounded-lg hover:bg-primary hover:text-white transition-colors" id="open-register-modal">
+                        Créer un compte
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Register Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Créer un compte</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="firstName" class="form-label">Prénom</label>
-                                <input type="text" class="form-control" id="firstName" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="lastName" class="form-label">Nom</label>
-                                <input type="text" class="form-control" id="lastName" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="registerEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="registerEmail" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="registerPassword" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control" id="registerPassword" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
-                                <input type="password" class="form-control" id="confirmPassword" required>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="acceptTerms" required>
-                                    <label class="form-check-label" for="acceptTerms">
-                                        J'accepte les <a href="#" class="text-decoration-none">conditions générales</a>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
-                            </div>
+    <!-- Chat Modal (version connectée) -->
+    <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden" id="chat-modal-connected">
+        <div class="bg-white rounded-xl max-w-md w-full mx-4 flex flex-col" style="max-height: 80vh;">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h3 class="text-xl font-bold">Chat en direct</h3>
+                <button class="text-gray-500 hover:text-gray-700" id="close-chat-modal-connected">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Messages préremplis -->
+                <div class="flex items-start space-x-3">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Support" class="w-8 h-8 rounded-full mt-1">
+                    <div>
+                        <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                            <p class="text-sm">Bonjour ! Comment puis-je vous aider aujourd'hui ?</p>
                         </div>
-                    </form>
-                    <hr class="my-4">
-                    <div class="text-center">
-                        <p class="mb-0">Déjà un compte ? <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal">Se connecter</a></p>
+                        <p class="text-xs text-gray-500 mt-1">10:24 AM</p>
                     </div>
+                </div>
+                
+                <div class="flex items-start space-x-3 justify-end">
+                    <div class="text-right">
+                        <div class="bg-primary text-white rounded-lg p-3 max-w-xs ml-auto">
+                            <p class="text-sm">J'ai un problème avec mon serveur cloud</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">10:25 AM</p>
+                    </div>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Vous" class="w-8 h-8 rounded-full mt-1">
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Support" class="w-8 h-8 rounded-full mt-1">
+                    <div>
+                        <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                            <p class="text-sm">Pouvez-vous me décrire le problème plus en détail ?</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">10:26 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t">
+                <div class="flex items-center space-x-2">
+                    <div class="flex-1 relative">
+                        <input type="text" placeholder="Tapez votre message..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-10">
+                        <div class="absolute right-2 top-2 flex space-x-1">
+                            <button class="text-gray-500 hover:text-primary">
+                                <i class="far fa-smile"></i>
+                            </button>
+                            <button class="text-gray-500 hover:text-primary">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="bg-primary text-white p-2 rounded-lg hover:bg-primary-dark transition-colors">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <button class="text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors" onclick="insertQuickMessage('Problème de connexion')">
+                        Problème de connexion
+                    </button>
+                    <button class="text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors" onclick="insertQuickMessage('Besoin d\'aide technique')">
+                        Besoin d'aide technique
+                    </button>
+                    <button class="text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors" onclick="insertQuickMessage('Question sur la facturation')">
+                        Question sur la facturation
+                    </button>
+                    <button class="text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors" onclick="insertQuickMessage('Demande de fonctionnalité')">
+                        Demande de fonctionnalité
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Chat Modal -->
-    <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="chatModalLabel">Chat en direct</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center py-4">
-                        <i class="fas fa-comment-dots fa-4x text-primary mb-3"></i>
-                        <h5>Connectez-vous pour accéder au chat</h5>
-                        <p class="text-muted">Discutez en temps réel avec nos experts</p>
-                        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fas fa-sign-in-alt me-2"></i> Se connecter
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap 5 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1116,30 +1040,233 @@
         
         // Animation de la navbar au scroll
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                navbar.classList.add('shadow-lg');
+                navbar.classList.remove('bg-dark/95');
+                navbar.classList.add('bg-dark');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.remove('bg-dark');
+                navbar.classList.add('bg-dark/95');
+            }
+        });
+        
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            const isOpen = mobileMenu.classList.contains('max-h-0');
+            
+            if (isOpen) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-screen', 'py-4');
+                line1.classList.add('translate-y-1.5', 'rotate-45');
+                line2.classList.add('opacity-0');
+                line3.classList.add('-translate-y-1.5', '-rotate-45');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-screen', 'py-4');
+                line1.classList.remove('translate-y-1.5', 'rotate-45');
+                line2.classList.remove('opacity-0');
+                line3.classList.remove('-translate-y-1.5', '-rotate-45');
             }
         });
         
         // Animation des éléments au scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .partner-logo, .testimonial-card, .blog-card, .product-card, .login-section, .section-title');
+            const elements = document.querySelectorAll('.animate-card');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.2;
                 
                 if (elementPosition < screenPosition) {
-                    element.classList.add('animated');
+                    element.classList.add('show');
                 }
             });
         }
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+        
+        // Gestion des modales
+        const loginButtons = document.querySelectorAll('.btn-login, #login-btn, #mobile-login-btn');
+        const loginModal = document.getElementById('login-modal');
+        const closeLoginModal = document.getElementById('close-login-modal');
+        const registerModal = document.getElementById('register-modal');
+        const closeRegisterModal = document.getElementById('close-register-modal');
+        const openRegisterModal = document.getElementById('open-register-modal');
+        const openLoginModalFromRegister = document.getElementById('open-login-modal-from-register');
+        const chatIcon = document.getElementById('chat-icon');
+        const chatModal = document.getElementById('chat-modal');
+        const chatModalConnected = document.getElementById('chat-modal-connected');
+        const closeChatModal = document.getElementById('close-chat-modal');
+        const closeChatModalConnected = document.getElementById('close-chat-modal-connected');
+        const openLoginModalFromChat = document.getElementById('open-login-modal-from-chat');
+        
+        // Gestion de la connexion
+        const loginForm = document.getElementById('login-form');
+        const userMenuContainer = document.getElementById('user-menu-container');
+        const mobileUserMenuContainer = document.getElementById('mobile-user-menu-container');
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenu = document.getElementById('user-menu');
+        const logoutBtn = document.getElementById('logout-btn');
+        const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+        
+        // Identifiants par défaut
+        const DEFAULT_EMAIL = 'admin@example.com';
+        const DEFAULT_PASSWORD = 'password123';
+        
+        // État de connexion
+        let isLoggedIn = false;
+        
+        // Vérifier si l'utilisateur est déjà connecté
+        function checkLoginStatus() {
+            const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (loggedIn) {
+                setLoggedInState(true);
+            }
+        }
+        
+        // Mettre à jour l'interface en fonction de l'état de connexion
+        function setLoggedInState(loggedIn) {
+            isLoggedIn = loggedIn;
+            if (loggedIn) {
+                // Cacher le bouton de connexion et afficher le menu utilisateur
+                document.getElementById('login-btn').classList.add('hidden');
+                document.getElementById('mobile-login-btn').classList.add('hidden');
+                userMenuContainer.classList.remove('hidden');
+                mobileUserMenuContainer.classList.remove('hidden');
+                
+                // Mettre à jour le localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+            } else {
+                // Afficher le bouton de connexion et cacher le menu utilisateur
+                document.getElementById('login-btn').classList.remove('hidden');
+                document.getElementById('mobile-login-btn').classList.remove('hidden');
+                userMenuContainer.classList.add('hidden');
+                mobileUserMenuContainer.classList.add('hidden');
+                
+                // Mettre à jour le localStorage
+                localStorage.setItem('isLoggedIn', 'false');
+            }
+        }
+        
+        // Gestion de la soumission du formulaire de connexion
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Vérification simple des identifiants
+            if (email === DEFAULT_EMAIL && password === DEFAULT_PASSWORD) {
+                // Connexion réussie
+                setLoggedInState(true);
+                
+                // Fermer la modale de connexion
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+                
+                // Afficher un message de bienvenue
+                alert('Connexion réussie ! Bienvenue, John Doe.');
+            } else {
+                // Identifiants incorrects
+                alert('Email ou mot de passe incorrect. Utilisez admin@example.com / password123 pour cette démo.');
+            }
+        });
+        
+        // Gestion du menu utilisateur
+        userMenuButton.addEventListener('click', function() {
+            userMenu.classList.toggle('hidden');
+        });
+        
+        // Fermer le menu utilisateur quand on clique ailleurs
+        document.addEventListener('click', function(e) {
+            if (!userMenu.contains(e.target) && e.target !== userMenuButton) {
+                userMenu.classList.add('hidden');
+            }
+        });
+        
+        // Déconnexion
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            setLoggedInState(false);
+            userMenu.classList.add('hidden');
+        });
+        
+        mobileLogoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            setLoggedInState(false);
+        });
+        
+        // Gestion du chat connecté
+        chatIcon.addEventListener('click', function() {
+            if (isLoggedIn) {
+                chatModalConnected.classList.remove('hidden');
+                chatModalConnected.classList.add('flex');
+            } else {
+                chatModal.classList.remove('hidden');
+                chatModal.classList.add('flex');
+            }
+        });
+        
+        closeChatModalConnected.addEventListener('click', function() {
+            chatModalConnected.classList.add('hidden');
+            chatModalConnected.classList.remove('flex');
+        });
+        
+        // Fonction pour insérer un message rapide
+        window.insertQuickMessage = function(message) {
+            const input = chatModalConnected.querySelector('input[type="text"]');
+            input.value = message;
+            input.focus();
+        };
+        
+        // Ouvrir modale login
+        loginButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.classList.remove('hidden');
+                loginModal.classList.add('flex');
+            });
+        });
+        
+        // Fermer modale login
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.classList.add('hidden');
+            loginModal.classList.remove('flex');
+        });
+        
+        // Fermer modale chat
+        closeChatModal.addEventListener('click', function() {
+            chatModal.classList.add('hidden');
+            chatModal.classList.remove('flex');
+        });
+        
+        // Fermer les modales en cliquant à l'extérieur
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+            }
+            if (e.target === chatModal) {
+                chatModal.classList.add('hidden');
+                chatModal.classList.remove('flex');
+            }
+            if (e.target === chatModalConnected) {
+                chatModalConnected.classList.add('hidden');
+                chatModalConnected.classList.remove('flex');
+            }
+        });
+        
+        // Vérifier l'état de connexion au chargement
+        checkLoginStatus();
     </script>
 </body>
 </html>
