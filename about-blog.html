@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions - Article de Blog</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .prose :where(img):not(:where([class~="not-prose"] *)) {
+                @apply rounded-lg shadow-md w-full max-w-2xl mx-auto my-6;
+            }
+            .prose :where(h1):not(:where([class~="not-prose"] *)) {
+                @apply text-3xl md:text-4xl font-bold mb-6 mt-8 text-gray-900;
+            }
+            .prose :where(h2):not(:where([class~="not-prose"] *)) {
+                @apply text-2xl md:text-3xl font-bold mb-4 mt-6 text-gray-800;
+            }
+            .prose :where(p):not(:where([class~="not-prose"] *)) {
+                @apply text-gray-700 mb-4 leading-relaxed;
+            }
+            .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+                @apply border-l-4 border-primary pl-4 italic text-gray-600 my-4;
+            }
+            .prose :where(ul):not(:where([class~="not-prose"] *)) {
+                @apply list-disc pl-5 mb-4;
+            }
+            .prose :where(li):not(:where([class~="not-prose"] *)) {
+                @apply mb-2;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <!-- Header/Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center text-gray-900 font-bold text-xl">
+                    <i class="fas fa-laptop-code mr-2 text-primary"></i>
+                    <span class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Admisoft</span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Accueil</a>
+                    <a href="index.html#blog" class="text-gray-700 hover:text-primary transition-colors">Blog</a>
+                    <a href="index.html#marketplace" class="text-gray-700 hover:text-primary transition-colors">Marketplace</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Connexion
+                    </a>
+                </div>
+                
+                <button class="lg:hidden focus:outline-none" id="mobile-menu-button">
+                    <div class="space-y-2">
+                        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300" id="line1"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300" id="line2"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300" id="line3"></span>
+                    </div>
+                </button>
+            </div>
+            
+            <div class="lg:hidden bg-white absolute left-0 w-full overflow-hidden transition-all duration-300 max-h-0" id="mobile-menu">
+                <div class="px-4 py-3 space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-primary transition-colors">Accueil</a>
+                    <a href="index.html#blog" class="block text-gray-700 hover:text-primary transition-colors">Blog</a>
+                    <a href="index.html#marketplace" class="block text-gray-700 hover:text-primary transition-colors">Marketplace</a>
+                    <a href="index.html#contact" class="block text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    <a href="#" class="block w-full px-4 py-2 bg-primary text-white rounded-lg text-center hover:bg-primary-dark transition-colors">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Connexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="pt-24 pb-16">
+        <article class="container mx-auto px-4 max-w-4xl">
+            <!-- Article Header -->
+            <header class="mb-12 text-center">
+                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                    Cybersécurité
+                </span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                    Comment protéger votre entreprise contre les ransomwares
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-gray-600">
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Auteur" class="w-8 h-8 rounded-full mr-2">
+                        <span>Jean Dupont</span>
+                    </div>
+                    <span>•</span>
+                    <span>Publié le 15 juin 2023</span>
+                    <span>•</span>
+                    <span>8 min de lecture</span>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="mb-10">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Protection contre les ransomwares" 
+                     class="w-full h-auto rounded-xl shadow-lg">
+                <figcaption class="text-center text-sm text-gray-500 mt-2">Illustration d'un système de sécurité informatique</figcaption>
+            </figure>
+
+            <!-- Article Content -->
+            <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+                <p class="lead">Les attaques par ransomware sont en hausse constante ces dernières années, représentant une menace majeure pour les entreprises de toutes tailles. Dans cet article, nous explorons les meilleures pratiques pour protéger votre organisation contre ces attaques malveillantes.</p>
+                
+                <h2>Comprendre la menace des ransomwares</h2>
+                
+                <p>Un ransomware est un type de logiciel malveillant qui crypte les fichiers d'une victime, rendant ses données inaccessibles. Les attaquants exigent ensuite une rançon en échange de la clé de décryptage.</p>
+                
+                <blockquote>
+                    "En 2022, les attaques par ransomware ont coûté aux entreprises plus de 20 milliards de dollars à l'échelle mondiale, selon les dernières estimations."
+                </blockquote>
+                
+                <p>Les vecteurs d'attaque les plus courants incluent :</p>
+                
+                <ul>
+                    <li>Pièces jointes malveillantes dans les emails</li>
+                    <li>Liens frauduleux dans les messages</li>
+                    <li>Exploitation des vulnérabilités logicielles</li>
+                    <li>Accès à distance non sécurisé</li>
+                </ul>
+                
+                <h2>Nos 10 recommandations pour se protéger</h2>
+                
+                <h3>1. Sauvegardes régulières et isolées</h3>
+                <p>La meilleure défense contre les ransomwares est d'avoir des sauvegardes récentes et isolées de toutes vos données critiques. Suivez la règle du 3-2-1 :</p>
+                <ul>
+                    <li>3 copies de vos données</li>
+                    <li>2 supports différents (disque dur + cloud par exemple)</li>
+                    <li>1 copie stockée hors site</li>
+                </ul>
+                
+                <figure class="my-8">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" 
+                         alt="Sauvegarde de données" 
+                         class="w-full h-auto rounded-lg">
+                    <figcaption class="text-center text-sm text-gray-500 mt-2">Un système de sauvegarde robuste est essentiel</figcaption>
+                </figure>
+                
+                <h3>2. Mises à jour logicielles systématiques</h3>
+                <p>Maintenez tous vos systèmes d'exploitation et logiciels à jour. Les cybercriminels exploitent souvent des vulnérabilités connues pour lesquelles des correctifs existent déjà.</p>
+                
+                <h3>3. Formation des employés</h3>
+                <p>Organisez des sessions de formation régulières pour votre personnel sur :</p>
+                <ul>
+                    <li>La reconnaissance des emails de phishing</li>
+                    <li>Les bonnes pratiques de sécurité</li>
+                    <li>Les procédures à suivre en cas de suspicion d'attaque</li>
+                </ul>
+                
+                <h3>4. Solution antivirus de nouvelle génération</h3>
+                <p>Investissez dans une solution antivirus moderne capable de détecter et bloquer les ransomwares en temps réel, avec des fonctionnalités comme :</p>
+                <ul>
+                    <li>Protection contre les exploits</li>
+                    <li>Détection comportementale</li>
+                    <li>Isolation des menaces</li>
+                </ul>
+                
+                <h2>Que faire en cas d'attaque ?</h2>
+                
+                <p>Si malgré toutes vos précautions vous êtes victime d'une attaque :</p>
+                
+                <ol class="list-decimal pl-5 mb-6">
+                    <li class="mb-2">Isolez immédiatement les systèmes infectés du réseau</li>
+                    <li class="mb-2">Contactez votre équipe informatique ou un expert en cybersécurité</li>
+                    <li class="mb-2">Ne payez pas la rançon (cela ne garantit pas la récupération des données et finance les cybercriminels)</li>
+                    <li class="mb-2">Restorez vos systèmes à partir des sauvegardes propres</li>
+                    <li>Signalez l'incident aux autorités compétentes</li>
+                </ol>
+                
+                <div class="bg-blue-50 border-l-4 border-primary p-4 my-6 rounded-r">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-lightbulb text-primary text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-primary">Conseil d'expert</h3>
+                            <div class="mt-2 text-sm text-blue-700">
+                                <p>Mettez en place un plan de réponse aux incidents détaillé et testez-le régulièrement avec des simulations d'attaque. Cela réduira considérablement votre temps de réaction en cas de véritable attaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Conclusion</h2>
+                
+                <p>La protection contre les ransomwares nécessite une approche multicouche combinant solutions techniques, formation du personnel et bonnes pratiques organisationnelles. En mettant en œuvre les recommandations de cet article, vous réduirez significativement le risque pour votre entreprise.</p>
+                
+                <p>Pour une protection complète, nos experts en cybersécurité peuvent réaliser un audit de votre infrastructure et vous proposer des solutions sur mesure adaptées à votre activité.</p>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-sm">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Jean Dupont" class="w-16 h-16 rounded-full">
+                    <div class="ml-4">
+                        <h3 class="font-bold text-lg">Jean Dupont</h3>
+                        <p class="text-gray-600">Expert en cybersécurité chez Admisoft</p>
+                        <p class="text-gray-700 mt-2">Jean accompagne les entreprises dans la sécurisation de leurs systèmes d'information depuis plus de 10 ans. Il est certifié CISSP et CISM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold mb-8">Articles similaires</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Article 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Article 1" 
+                                 class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <span class="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded mb-2">
+                                Cloud
+                            </span>
+                            <a href="#">
+                                <h3 class="font-bold text-xl mb-2 hover:text-primary transition-colors">Sécuriser son infrastructure cloud en 2023</h3>
+                            </a>
+                            <p class="text-gray-600 text-sm mb-4">Découvrez les meilleures pratiques pour sécuriser vos déploiements cloud.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <span>10 min de lecture</span>
+                                <span class="mx-2">•</span>
+                                <span>12 juin 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1622473590773-f588134b6ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1070&q=80" 
+                                 alt="Article 2" 
+                                 class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <span class="inline-block px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded mb-2">
+                                RGPD
+                            </span>
+                            <a href="#">
+                                <h3 class="font-bold text-xl mb-2 hover:text-primary transition-colors">Mise en conformité RGPD : par où commencer ?</h3>
+                            </a>
+                            <p class="text-gray-600 text-sm mb-4">Un guide étape par étape pour se mettre en conformité avec le RGPD.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <span>15 min de lecture</span>
+                                <span class="mx-2">•</span>
+                                <span>5 juin 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Article 3" 
+                                 class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <span class="inline-block px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded mb-2">
+                                Authentification
+                            </span>
+                            <a href="#">
+                                <h3 class="font-bold text-xl mb-2 hover:text-primary transition-colors">Pourquoi et comment mettre en place l'authentification à deux facteurs</h3>
+                            </a>
+                            <p class="text-gray-600 text-sm mb-4">Augmentez significativement votre sécurité avec cette méthode simple.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <span>6 min de lecture</span>
+                                <span class="mx-2">•</span>
+                                <span>28 mai 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="mt-16 bg-white p-6 rounded-xl shadow-sm">
+                <h2 class="text-2xl font-bold mb-6">Commentaires (3)</h2>
+                
+                <!-- Comment 1 -->
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <div class="flex items-start">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sophie Martin" class="w-10 h-10 rounded-full mr-4">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <h4 class="font-bold mr-2">Sophie Martin</h4>
+                                <span class="text-xs text-gray-500">2 jours ago</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">Très bon article, complet et précis. La partie sur les sauvegardes est particulièrement utile.</p>
+                            <button class="text-sm text-primary hover:text-primary-dark">Répondre</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comment 2 -->
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <div class="flex items-start">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Thomas Leroy" class="w-10 h-10 rounded-full mr-4">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <h4 class="font-bold mr-2">Thomas Leroy</h4>
+                                <span class="text-xs text-gray-500">5 jours ago</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">Auriez-vous des recommandations spécifiques pour les solutions antivirus nouvelle génération ?</p>
+                            <button class="text-sm text-primary hover:text-primary-dark">Répondre</button>
+                            
+                            <!-- Reply -->
+                            <div class="mt-4 pl-4 border-l-2 border-gray-200">
+                                <div class="flex items-start pt-4">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Jean Dupont" class="w-8 h-8 rounded-full mr-3">
+                                    <div>
+                                        <div class="flex items-center mb-1">
+                                            <h4 class="font-bold mr-2">Jean Dupont</h4>
+                                            <span class="text-xs text-gray-500">Auteur</span>
+                                        </div>
+                                        <p class="text-gray-700 mb-2">Bonjour Thomas, nous recommandons souvent des solutions comme CrowdStrike, SentinelOne ou Bitdefender GravityZone, selon le budget et les besoins spécifiques.</p>
+                                        <button class="text-sm text-primary hover:text-primary-dark">Répondre</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comment 3 -->
+                <div class="mb-6">
+                    <div class="flex items-start">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Pierre Dubois" class="w-10 h-10 rounded-full mr-4">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <h4 class="font-bold mr-2">Pierre Dubois</h4>
+                                <span class="text-xs text-gray-500">1 semaine ago</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">Merci pour cet article très complet. Nous avons justement subi une attaque l'an dernier, ces conseils auraient été précieux !</p>
+                            <button class="text-sm text-primary hover:text-primary-dark">Répondre</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comment Form -->
+                <div class="mt-8">
+                    <h3 class="font-bold text-lg mb-4">Laisser un commentaire</h3>
+                    <form>
+                        <div class="mb-4">
+                            <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Votre commentaire..."></textarea>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nom">
+                            </div>
+                            <div>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Email">
+                            </div>
+                        </div>
+                        <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                            Publier le commentaire
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-2xl font-bold mb-4">Abonnez-vous à notre newsletter</h2>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Recevez nos derniers articles et conseils directement dans votre boîte mail.</p>
+            <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+                <input type="email" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Votre email">
+                <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                    S'abonner
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl mr-2 text-primary"></i>
+                        <span class="text-xl font-bold bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Admisoft</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre partenaire en solutions informatiques professionnelles.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Entreprise</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Équipe</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Carrières</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ressources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Légal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">CGU</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 Admisoft. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            const isOpen = mobileMenu.classList.contains('max-h-0');
+            
+            if (isOpen) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-screen', 'py-4');
+                line1.classList.add('translate-y-1.5', 'rotate-45');
+                line2.classList.add('opacity-0');
+                line3.classList.add('-translate-y-1.5', '-rotate-45');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-screen', 'py-4');
+                line1.classList.remove('translate-y-1.5', 'rotate-45');
+                line2.classList.remove('opacity-0');
+                line3.classList.remove('-translate-y-1.5', '-rotate-45');
+            }
+        });
+    </script>
+</body>
+</html>
