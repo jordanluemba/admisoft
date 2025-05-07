@@ -1228,7 +1228,168 @@ h6,
 
 
 
- 
+
+
+/* Style pour la section Projets */
+ .project-filters {
+     margin-bottom: 40px;
+ }
+
+ .filter-btn {
+     background: transparent;
+     border: 2px solid rgba(75, 108, 183, 0.2);
+     color: #4b6cb7;
+     padding: 8px 20px;
+     border-radius: 30px;
+     margin: 0 5px 10px;
+     font-weight: 500;
+     transition: all 0.3s ease;
+ }
+
+ .filter-btn:hover, .filter-btn.active {
+     background: #4b6cb7;
+     color: white;
+     border-color: #4b6cb7;
+     transform: translateY(-2px);
+ }
+
+ .project-card {
+     background: white;
+     border-radius: 12px;
+     overflow: hidden;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     height: 100%;
+ }
+
+ .project-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 30px rgba(75, 108, 183, 0.2);
+ }
+
+ .project-image {
+     height: 250px;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .project-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+
+ .project-card:hover .project-image img {
+     transform: scale(1.05);
+ }
+
+ .project-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(10, 26, 58, 0.85);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     opacity: 0;
+     transition: opacity 0.4s ease;
+     padding: 20px;
+ }
+
+ .project-card:hover .project-overlay {
+     opacity: 1;
+ }
+
+ .overlay-content {
+     text-align: center;
+     color: white;
+     transform: translateY(20px);
+     transition: transform 0.4s ease;
+ }
+
+ .project-card:hover .overlay-content {
+     transform: translateY(0);
+ }
+
+ .overlay-content h3 {
+     font-size: 1.3rem;
+     margin-bottom: 10px;
+     color: white;
+ }
+
+ .overlay-content p {
+     font-size: 0.9rem;
+     margin-bottom: 20px;
+     opacity: 0.9;
+ }
+
+ .btn-view-project {
+     display: inline-block;
+     color: white;
+     border: 2px solid white;
+     padding: 8px 20px;
+     border-radius: 30px;
+     font-weight: 500;
+     transition: all 0.3s ease;
+ }
+
+ .btn-view-project:hover {
+     background: white;
+     color: #4b6cb7;
+ }
+
+ .btn-view-project i {
+     margin-left: 5px;
+     transition: transform 0.3s ease;
+ }
+
+ .btn-view-project:hover i {
+     transform: translateX(5px);
+ }
+
+ .project-info {
+     padding: 20px;
+     background: white;
+ }
+
+ .project-category {
+     color: #4b6cb7;
+     font-size: 0.8rem;
+     font-weight: 600;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     display: block;
+     margin-bottom: 5px;
+ }
+
+ .project-title {
+     font-size: 1.2rem;
+     font-weight: 700;
+     color: #182848;
+     margin-bottom: 0;
+ }
+
+ .subheading {
+     color: #6c757d;
+     font-size: 1.1rem;
+     max-width: 700px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ @media (max-width: 768px) {
+     .filter-btn {
+         margin-bottom: 10px;
+     }
+     
+     .project-image {
+         height: 200px;
+     }
+ }
+
 /* Style pour la section Blog */
  .blog-container {
      position: relative;
