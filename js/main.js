@@ -175,6 +175,38 @@ document.addEventListener('DOMContentLoaded', function() {
  * *******
  */
 
+
+
+// Script pour le slider de témoignages
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.testimonial-slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    // Gestion des événements pour les boutons de navigation
+    nextBtn.addEventListener('click', function() {
+        slider.scrollBy({ left: 380, behavior: 'smooth' });
+    });
+    
+    prevBtn.addEventListener('click', function() {
+        slider.scrollBy({ left: -380, behavior: 'smooth' });
+    });
+    
+    // Animation au survol des cartes
+    const cards = document.querySelectorAll('.testimonial-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('.testimonial-bg').style.width = '150px';
+            this.querySelector('.testimonial-bg').style.height = '150px';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('.testimonial-bg').style.width = '100px';
+            this.querySelector('.testimonial-bg').style.height = '100px';
+        });
+    });
+});
+
 // Animation au survol des badges
 document.querySelectorAll('.member-badge').forEach(badge => {
     badge.addEventListener('mouseenter', function() {
