@@ -246,3 +246,200 @@
 </body>
 
 </html>
+
+
+
+
+<!-- Contact Start - Style Créatif -->
+<div class="container-xxl py-5" id="contact">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <p class="section-title text-secondary justify-content-center"><span></span>Contact<span></span></p>
+            <h1 class="text-center mb-5">Travaillons ensemble !</h1>
+        </div>
+        
+        <div class="row g-5 align-items-center contact-creative">
+            <!-- Carte de contact animée -->
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
+                <div class="contact-card rounded-4 p-4 p-sm-5 shadow">
+                    <div class="contact-card-inner">
+                        <div class="contact-pattern"></div>
+                        <div class="contact-content">
+                            <h3 class="text-white mb-4">Envoyez-nous un message</h3>
+                            
+                            <div class="d-flex mb-4">
+                                <div class="contact-icon me-4">
+                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Notre adresse</h5>
+                                    <p class="text-white-50">123 Gombe, Kinshasa, RDC</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-4">
+                                <div class="contact-icon me-4">
+                                    <i class="fas fa-phone-alt fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Téléphone</h5>
+                                    <p class="text-white-50">+243 859 632 254</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <div class="contact-icon me-4">
+                                    <i class="fas fa-envelope fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Email</h5>
+                                    <p class="text-white-50">AdmiSoft@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulaire créatif -->
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                <div class="h-100 bg-light rounded-4 p-4 p-sm-5">
+                    <form class="creative-form">
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control" id="name" placeholder=" " required>
+                            <label for="name">Votre nom complet</label>
+                            <div class="form-line"></div>
+                        </div>
+                        
+                        <div class="form-floating mb-4">
+                            <input type="email" class="form-control" id="email" placeholder=" " required>
+                            <label for="email">Votre email</label>
+                            <div class="form-line"></div>
+                        </div>
+                        
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control" id="subject" placeholder=" ">
+                            <label for="subject">Sujet</label>
+                            <div class="form-line"></div>
+                        </div>
+                        
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" placeholder=" " id="message" style="height: 120px"></textarea>
+                            <label for="message">Votre message</label>
+                            <div class="form-line textarea-line"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-hover-effect py-3 px-5 rounded-pill w-100">
+                            <span class="btn-text">Envoyer le message</span>
+                            <i class="fas fa-paper-plane btn-icon"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Styles pour la section contact créative */
+    .contact-creative {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .contact-card {
+        background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+        opacity: 0.3;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .creative-form .form-control {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .creative-form .form-control:focus {
+        box-shadow: none;
+        border-color: #4b6cb7;
+    }
+    
+    .form-line {
+        height: 2px;
+        width: 0;
+        background: #4b6cb7;
+        transition: width 0.3s ease;
+        margin-top: -2px;
+    }
+    
+    .form-floating:focus-within .form-line {
+        width: 100%;
+    }
+    
+    .textarea-line {
+        margin-top: -1px;
+    }
+    
+    .btn-hover-effect {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hover-effect .btn-icon {
+        position: absolute;
+        right: -30px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hover-effect:hover .btn-text {
+        transform: translateX(-10px);
+    }
+    
+    .btn-hover-effect:hover .btn-icon {
+        right: 20px;
+    }
+</style>
+
+<script>
+    // Animation pour les éléments de formulaire
+    document.querySelectorAll('.form-floating input, .form-floating textarea').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentNode.querySelector('.form-line').style.width = '100%';
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentNode.querySelector('.form-line').style.width = '0';
+            }
+        });
+    });
+</script>
