@@ -170,3 +170,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Faire défiler les messages vers le bas au chargement
     chatMessages.scrollTop = chatMessages.scrollHeight;
 });
+
+
+
+
+// Animation pour les éléments de formulaire
+document.querySelectorAll('.form-floating input, .form-floating textarea').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentNode.querySelector('.form-line').style.width = '100%';
+    });
+    
+    input.addEventListener('blur', function() {
+        if (!this.value) {
+            this.parentNode.querySelector('.form-line').style.width = '0';
+        }
+    });
+});
