@@ -171,8 +171,20 @@ document.addEventListener('DOMContentLoaded', function() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
+/*******
+ * *******
+ */
 
-
+// Animation au survol des badges
+document.querySelectorAll('.member-badge').forEach(badge => {
+    badge.addEventListener('mouseenter', function() {
+        this.style.transform = 'rotate(15deg) scale(1.1)';
+    });
+    
+    badge.addEventListener('mouseleave', function() {
+        this.style.transform = 'rotate(0) scale(1)';
+    });
+});
 
 // Animation pour les éléments de formulaire
 document.querySelectorAll('.form-floating input, .form-floating textarea').forEach(input => {
