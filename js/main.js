@@ -187,40 +187,15 @@ document.querySelectorAll('.form-floating input, .form-floating textarea').forEa
     });
 });
 
-// Année dynamique
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+// Année dynamique dans le copyright
+document.getElementById('year').textContent = new Date().getFullYear();
     
-// Back to top button
-    window.addEventListener('scroll', function() {
-        const backToTop = document.querySelector('.back-to-top');
-        if (window.pageYOffset > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-    
-    // Tooltip pour les icônes sociales
-    const socialIcons = document.querySelectorAll('.social-icon');
-    socialIcons.forEach(icon => {
-        const tooltip = icon.getAttribute('data-tooltip');
-        if (tooltip) {
-            icon.addEventListener('mouseenter', function(e) {
-                const tooltipElement = document.createElement('div');
-                tooltipElement.className = 'social-tooltip';
-                tooltipElement.textContent = tooltip;
-                document.body.appendChild(tooltipElement);
-                
-                const rect = icon.getBoundingClientRect();
-                tooltipElement.style.left = `${rect.left + rect.width/2 - tooltipElement.offsetWidth/2}px`;
-                tooltipElement.style.top = `${rect.top - 40}px`;
-            });
-            
-            icon.addEventListener('mouseleave', function() {
-                const tooltip = document.querySelector('.social-tooltip');
-                if (tooltip) {
-                    tooltip.remove();
-                }
-            });
-        }
-    });
+// Bouton retour en haut
+window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.pageYOffset > 300) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
