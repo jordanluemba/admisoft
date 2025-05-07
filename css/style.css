@@ -1220,3 +1220,92 @@ h6,
 }
 
 /* Fin chat */
+
+
+
+    /* Styles pour la section contact créative */
+    .contact-creative {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .contact-card {
+        background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+        opacity: 0.3;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .creative-form .form-control {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .creative-form .form-control:focus {
+        box-shadow: none;
+        border-color: #4b6cb7;
+    }
+    
+    .form-line {
+        height: 2px;
+        width: 0;
+        background: #4b6cb7;
+        transition: width 0.3s ease;
+        margin-top: -2px;
+    }
+    
+    .form-floating:focus-within .form-line {
+        width: 100%;
+    }
+    
+    .textarea-line {
+        margin-top: -1px;
+    }
+    
+    .btn-hover-effect {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hover-effect .btn-icon {
+        position: absolute;
+        right: -30px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hover-effect:hover .btn-text {
+        transform: translateX(-10px);
+    }
+    
+    .btn-hover-effect:hover .btn-icon {
+        right: 20px;
+    }
