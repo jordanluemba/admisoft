@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AdmiSoft</title>
+    <title>AdmiSoft - Solutions Digitales Innovantes</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="AdmiSoft, solutions informatiques, développement web, applications mobiles, intelligence artificielle" name="keywords">
+    <meta content="AdmiSoft transforme vos idées en solutions digitales performantes avec une expertise technique inégalée." name="description">
 
     <!-- Favicon -->
     <link href="img3.png" rel="icon">
@@ -14,1296 +14,1898 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --accent-color: #ff6b6b;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            background-color: #f9f9ff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .logo-style {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-style::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+
+        .nav-item {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            transition: all 0.3s;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(78, 84, 200, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-header {
+            background: var(--gradient);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+        }
+
+        .hero-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero-img {
+            animation: float 6s ease-in-out infinite;
+            max-width: 100%;
+            height: auto;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span::before,
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .section-title span::before {
+            right: 100%;
+            margin-right: 15px;
+        }
+
+        .section-title span::after {
+            left: 100%;
+            margin-left: 15px;
+        }
+
+        /* About Section */
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+        }
+
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Services Section */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: none;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover .service-icon {
+            background: white !important;
+            color: var(--primary-color) !important;
+        }
+
+        .service-card:hover h5,
+        .service-card:hover p,
+        .service-card:hover a {
+            color: white !important;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(78, 84, 200, 0.1);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 30px;
+            transition: all 0.3s;
+        }
+
+        /* Facts Section */
+        .facts-container {
+            background: var(--gradient);
+            border-radius: 15px;
+            padding: 60px 30px;
+            box-shadow: 0 10px 30px rgba(78, 84, 200, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facts-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .fact-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .fact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-item i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .fact-item h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Projects Section */
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(78, 84, 200, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .project-overlay a:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: rotate(360deg);
+        }
+
+        .project-info {
+            background: white;
+            padding: 20px;
+        }
+
+        .project-category {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Marketplace Section */
+        .marketplace-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .marketplace-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .marketplace-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .marketplace-category {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .marketplace-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .marketplace-rating {
+            color: #ffc107;
+        }
+
+        .marketplace-btn {
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        /* Testimonials Section */
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .testimonial-author h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author span {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        /* Team Section */
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-info span {
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .team-social {
+            margin-top: 15px;
+        }
+
+        .team-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(78, 84, 200, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+
+        .team-social a:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            padding-left: 20px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(78, 84, 200, 0.25);
+        }
+
+        textarea.form-control {
+            height: auto;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 80px 0 0;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+            text-decoration: none;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+        }
+
+        .footer-gallery img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .footer-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(78, 84, 200, 0.4);
+        }
+
+        /* Chat Widget */
+        .chat-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 5px 20px rgba(78, 84, 200, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(78, 84, 200, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0); }
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--gradient);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+            position: relative;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .received {
+            background: white;
+            border-top-left-radius: 0;
+            align-self: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .sent {
+            background: var(--primary-color);
+            color: white;
+            border-top-right-radius: 0;
+            align-self: flex-end;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: 1px solid #e9ecef;
+            border-radius: 50px;
+            padding: 10px 15px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chat-input button:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Animations */
+        .wow {
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 991.98px) {
+            .hero-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-header {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title span::before,
+            .section-title span::after {
+                width: 30px;
+            }
+            
+            .chat-container {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0 logo-style">AdmiSoft</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Accueil</a>
-                        <a href="#apropos" class="nav-item nav-link">A propos</a>
-                        <a href="#services" class="nav-item nav-link">Services</a>
-                        <a href="#projets" class="nav-item nav-link">Projets</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <a href="#temoignage" class="nav-item nav-link">Témoignage</a>
-                        <a href="#contact" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <a href="" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
-                </div>
-                
-            </nav>
-
-            <div class="container-xxl bg-primary hero-header">
-                <div class="container px-lg-5">
-                    <div class="row g-5 align-items-end">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated slideInDown">Solutions informatiques sur mesure pour votre entreprise</h1>
-                            <p class="text-white pb-3 animated slideInDown">Nous transformons vos idées en réalité numérique avec des technologies de pointe et une expertise inégalée.</p>
-                            <a href="" class="btn btn-secondary py-sm-3 mt-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Découvrir nos services</a>
-                            <a href="" class="btn btn-light py-sm-3 px-sm-5 mt-3 rounded-pill animated slideInRight">Nous contacter</a>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid animated zoomIn" src="img/hero.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar & Hero End -->
-
-
-
-
-        <!-- About Start -->
-        <div class="container-xxl py-5" id="apropos">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="section-title text-secondary justify-content-center"><span></span>A propos<span></span></p>
-
-                        <h1 class="mb-5">Chez AdmiSoft,</h1>
-                        <p class="mb-4">Nous sommes des experts en solutions informatiques depuis 2024. Notre mission est d'accompagner nos clients dans leur transformation numérique grâce à des services personnalisés, allant du développement de logiciels à la cybersécurité.</p>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Digital Marketing</p>
-                                <p class="mb-2">85%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">SEO & Backlinks</p>
-                                <p class="mb-2">90%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Design & Development</p>
-                                <p class="mb-2">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Voir plus</a>
-                    </div>
-                    <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img2.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-
-        <!-- Facts Start -->
-        <div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">1</h1>
-                        <p class="text-white mb-0">année d'expérience</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-white mb-0">Experts techniques</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10</h1>
-                        <p class="text-white mb-0">Clients satisfaits</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10</h1>
-                        <p class="text-white mb-0">Projets réalisés</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Facts End -->
-
-
-        <!-- Service Start -->
-        <div class="container-xxl py-5" id="services">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Nos Services<span></span></p>
-                    <h4 class="text-center mb-5">Nous offrons une gamme complète de services informatiques pour répondre à tous vos besoins technologiques.</h4>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-code fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Développement Web</h5>
-                            <p class="m-0">Création de sites web et applications sur mesure avec les dernières technologies pour une performance optimale</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-mobile-alt fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Applications Mobiles</h5>
-                            <p class="m-0">Conception d'applications iOS et Android intuitives et performantes pour atteindre vos utilisateurs partout.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-cloud fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Solutions Cloud</h5>
-                            <p class="m-0">Migration, gestion et optimisation de vos infrastructures cloud pour une scalabilité et une sécurité maximales.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-shield-alt fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Cybersécurité</h5>
-                            <p class="m-0">Protection avancée de vos données et systèmes contre les menaces cybernétiques avec des solutions sur mesure.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-robot fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Intelligence Artificielle</h5>
-                            <p class="m-0">Intégration de solutions d'IA et de machine learning pour automatiser et optimiser vos processus métiers.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-chart-line fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Analyse de Données</h5>
-                            <p class="m-0">Exploitation de vos données pour en extraire des insights actionnables et prendre des décisions éclairées.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
-
-
-        <!-- Newsletter Start -->
-        <div class="container-xxl bg-primary newsletter py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 text-center">
-                        <p class="section-title text-white justify-content-center"><span></span>Newsletter<span></span></p>
-                        <h1 class="text-center text-white mb-4">Restez informé(e) !</h1>
-                        <p class="text-white mb-4">Abonnez-vous à notre newsletter pour recevoir les dernières actualités, nos offres exclusives, des astuces utiles et bien plus encore, directement dans votre boîte mail. Ne manquez rien de ce qui compte pour vous !</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Entrer votre e-mail" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter End -->
-
-
-
-
-
-       
-
-            
-<!-- Projets Section - Style Créatif -->
-<div class="container-xxl py-5" id="projets">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Nos Réalisations<span></span></p>
-            <h1 class="text-center mb-5">Projets Récents</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos dernières créations et cas clients</p>
-        </div>
-
-        <!-- Filtres -->
-        <div class="project-filters text-center mb-5">
-            <button class="filter-btn active" data-filter="*">Tous</button>
-            <button class="filter-btn" data-filter=".web">Développement Web</button>
-            <button class="filter-btn" data-filter=".mobile">Applications Mobiles</button>
-            <button class="filter-btn" data-filter=".design">Design UI/UX</button>
-        </div>
-
-        <!-- Grille de projets -->
-        <div class="row g-4 project-grid">
-            <!-- Projet 1 - Web -->
-            <div class="col-lg-4 col-md-6 project-item web">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Site eCommerce" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Plateforme eCommerce</h3>
-                                <p>Solution complète pour boutique en ligne avec paiements sécurisés</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Développement Web</span>
-                        <h4 class="project-title">BelleMode Boutique</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 2 - Mobile -->
-            <div class="col-lg-4 col-md-6 project-item mobile">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="App FitLife" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Application Fitness</h3>
-                                <p>Suivi d'activité et programmes personnalisés</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Application Mobile</span>
-                        <h4 class="project-title">FitLife Pro</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 3 - Design -->
-            <div class="col-lg-4 col-md-6 project-item design">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Design FinXpert" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Interface Financière</h3>
-                                <p>Dashboard analytique pour gestion de portefeuille</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Design UI/UX</span>
-                        <h4 class="project-title">FinXpert Dashboard</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 4 - Web -->
-            <div class="col-lg-4 col-md-6 project-item web">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Site Corporate" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Site Vitrine</h3>
-                                <p>Présentation d'entreprise moderne et responsive</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Développement Web</span>
-                        <h4 class="project-title">Corporate Solutions</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 5 - Mobile -->
-            <div class="col-lg-4 col-md-6 project-item mobile">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1581093450025-7a2cc7a914c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="App Restaurant" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Application de Réservation</h3>
-                                <p>Commande en ligne et système de livraison</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Application Mobile</span>
-                        <h4 class="project-title">FoodExpress</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 6 - Design -->
-            <div class="col-lg-4 col-md-6 project-item design">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Design SaaS" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Interface SaaS</h3>
-                                <p>Solution de gestion de projet collaborative</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Design UI/UX</span>
-                        <h4 class="project-title">TeamFlow Pro</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous nos projets</a>
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-</div>                    
-                        
-<!-- Blog Section - Style Créatif -->
 
-<div class="container-xxl py-5" id="blog">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Notre Blog<span></span></p>
-            <h1 class="text-center mb-5">Dernières Actualités & Conseils</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos articles sur les tendances technologiques et les meilleures pratiques</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1 class="m-0 logo-style">AdmiSoft</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#temoignage">Témoignages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary ms-lg-3">Se connecter</a>
+            </div>
         </div>
+    </nav>
 
-        <div class="row g-4 blog-container">
-            <!-- Article 1 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="SEO 2024" class="img-fluid">
-                        <div class="blog-badge">Tendance</div>
-                        <div class="blog-date">
-                            <span class="day">15</span>
-                            <span class="month">Juin</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">SEO</div>
-                        <h3 class="blog-title">Les nouvelles tendances SEO en 2024</h3>
-                        <p class="blog-excerpt">Découvrez comment les dernières mises à jour des algorithmes impactent votre référencement naturel.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> Hugues Bosolo</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 5 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>SEO</span>
-                            <span>Marketing</span>
-                            <span>Google</span>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="text-white mb-4 animate__animated animate__fadeInDown">Solutions informatiques sur mesure pour votre entreprise</h1>
+                    <p class="text-white mb-5 animate__animated animate__fadeInDown animate__delay-1s">Nous transformons vos idées en réalité numérique avec des technologies de pointe et une expertise inégalée.</p>
+                    <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#services" class="btn btn-primary me-3">Découvrir nos services</a>
+                        <a href="#contact" class="btn btn-secondary">Nous contacter</a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Article 2 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="UI/UX Design" class="img-fluid">
-                        <div class="blog-badge">Design</div>
-                        <div class="blog-date">
-                            <span class="day">28</span>
-                            <span class="month">Mai</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">UI/UX</div>
-                        <h3 class="blog-title">Principes fondamentaux du design d'interface</h3>
-                        <p class="blog-excerpt">Les règles essentielles pour créer des interfaces utilisateur intuitives et esthétiques.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> Hélène Paloyi</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 7 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>Design</span>
-                            <span>UI/UX</span>
-                            <span>Créativité</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Article 3 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cybersécurité" class="img-fluid">
-                        <div class="blog-badge">Sécurité</div>
-                        <div class="blog-date">
-                            <span class="day">10</span>
-                            <span class="month">Mai</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Cybersécurité</div>
-                        <h3 class="blog-title">Protéger son entreprise contre les ransomwares</h3>
-                        <p class="blog-excerpt">Les meilleures pratiques pour se prémunir contre les attaques de ransomware en 2024.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> David Mbuyi</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 8 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>Sécurité</span>
-                            <span>Ransomware</span>
-                            <span>Protection</span>
-                        </div>
-                    </div>
+                <div class="col-lg-6 animate__animated animate__fadeInRight animate__delay-1s">
+                    <img src="img/hero.png" alt="Solutions digitales" class="img-fluid hero-img">
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="text-center mt-5">
-            <a href="blog.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous les articles</a>
+    <!-- About Section -->
+    <section class="py-5" id="apropos">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="section-title text-center text-lg-start"><span></span>A propos<span></span></p>
+                    <h1 class="mb-4">Chez AdmiSoft,</h1>
+                    <p class="mb-4">Nous sommes des experts en solutions informatiques depuis 2024. Notre mission est d'accompagner nos clients dans leur transformation numérique grâce à des services personnalisés, allant du développement de logiciels à la cybersécurité.</p>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Digital Marketing</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary wow animate__animated animate__slideInLeft" data-wow-delay="0.3s" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>SEO & Backlinks</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary wow animate__animated animate__slideInLeft" data-wow-delay="0.4s" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Design & Development</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary wow animate__animated animate__slideInLeft" data-wow-delay="0.5s" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary">Voir plus</a>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="img2.png" alt="A propos AdmiSoft" class="img-fluid about-img">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Marketplace Section - Style Créatif -->
-
-<div class="container-xxl py-5" id="marketplace">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Marketplace<span></span></p>
-            <h1 class="text-center mb-5">Nos Solutions Clés en Main</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos produits et services prêts à l'emploi</p>
-        </div>
-
-        <!-- Filtres -->
-        <div class="marketplace-filters text-center mb-5">
-            <button class="filter-btn active" data-filter="*">Tous</button>
-            <button class="filter-btn" data-filter=".logiciels">Logiciels</button>
-            <button class="filter-btn" data-filter=".templates">Templates</button>
-            <button class="filter-btn" data-filter=".formations">Formations</button>
-        </div>
-
-        <!-- Produits -->
-        <div class="row g-4 marketplace-container">
-            <!-- Produit 1 - Logiciel -->
-            <div class="col-lg-4 col-md-6 marketplace-item logiciels">
-                <div class="product-card">
-                    <div class="product-badge">Nouveau</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="CRM AdmiSoft Pro" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
+    <!-- Facts Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="facts-container wow fadeIn" data-wow-delay="0.1s">
+                <div class="row text-center">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="fact-item">
+                            <i class="fas fa-certificate"></i>
+                            <h1 class="counter" data-count="1">0</h1>
+                            <p>année d'expérience</p>
                         </div>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Logiciel de gestion</div>
-                        <h3 class="product-title">CRM AdmiSoft Pro</h3>
-                        <p class="product-description">Solution complète de gestion de la relation client avec automatisation des processus.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$299</span>
-                                <span class="original-price">$499</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(24)</span>
-                            </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="fact-item">
+                            <i class="fas fa-users-cog"></i>
+                            <h1 class="counter" data-count="5">0</h1>
+                            <p>Experts techniques</p>
                         </div>
                     </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 2 - Template -->
-            <div class="col-lg-4 col-md-6 marketplace-item templates">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Template eCommerce Premium" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                        <div class="fact-item">
+                            <i class="fas fa-users"></i>
+                            <h1 class="counter" data-count="10">0</h1>
+                            <p>Clients satisfaits</p>
                         </div>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Template WordPress</div>
-                        <h3 class="product-title">eCommerce Premium</h3>
-                        <p class="product-description">Template complet pour boutique en ligne avec intégration WooCommerce.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$149</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(18)</span>
-                            </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="fact-item">
+                            <i class="fas fa-check"></i>
+                            <h1 class="counter" data-count="10">0</h1>
+                            <p>Projets réalisés</p>
                         </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 3 - Formation -->
-            <div class="col-lg-4 col-md-6 marketplace-item formations">
-                <div class="product-card">
-                    <div class="product-badge bestseller">Best-seller</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Formation SEO" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Formation en ligne</div>
-                        <h3 class="product-title">Maîtrisez le SEO en 30 jours</h3>
-                        <p class="product-description">Formation complète avec certifications et accompagnement personnalisé.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$199</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(42)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 4 - Logiciel -->
-            <div class="col-lg-4 col-md-6 marketplace-item logiciels">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ERP AdmiSoft" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Logiciel d'entreprise</div>
-                        <h3 class="product-title">ERP AdmiSoft</h3>
-                        <p class="product-description">Solution tout-en-un pour la gestion intégrée de votre entreprise.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$599</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(15)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 5 - Template -->
-            <div class="col-lg-4 col-md-6 marketplace-item templates">
-                <div class="product-card">
-                    <div class="product-badge discount">-30%</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Template Corporate Pro" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Template HTML</div>
-                        <h3 class="product-title">Corporate Pro</h3>
-                        <p class="product-description">Template professionnel pour sites vitrines d'entreprise.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$89</span>
-                                <span class="original-price">$129</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(31)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 6 - Formation -->
-            <div class="col-lg-4 col-md-6 marketplace-item formations">
-                <div class="product-card">
-                    <div class="product-badge">Promo</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Formation JavaScript Avancé" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Formation développeur</div>
-                        <h3 class="product-title">JavaScript Avancé</h3>
-                        <p class="product-description">Maîtrisez les concepts avancés de JavaScript et ses frameworks.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$149</span>
-                                <span class="original-price">$249</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(56)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous les produits</a>
-        </div>
-    </div>
-</div>
-
-<!-- Témoignages - Style Créatif -->
-
-<div class="container-xxl py-5" id="testimonials">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Témoignages<span></span></p>
-            <h1 class="text-center mb-5">Ce que disent nos clients</h1>
-            <p class="text-center mb-5 subheading">Ils nous ont fait confiance et partagent leur expérience</p>
-        </div>
-
-        <div class="testimonial-slider">
-            <!-- Témoignage 1 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">AdmiSoft a révolutionné notre présence en ligne avec une plateforme e-commerce sur mesure. Leur équipe a été réactive et professionnelle tout au long du projet.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-1.jpg" alt="Andrea Kapinga" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Andrea Kapinga</h5>
-                            <span>Directrice Marketing, BelleMode</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
-            </div>
-
-            <!-- Témoignage 2 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">La migration vers le cloud réalisée par AdmiSoft a considérablement amélioré notre agilité et réduit nos coûts. Un partenaire technologique de confiance.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-2.jpg" alt="Thomas Matonge" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Thomas Matonge</h5>
-                            <span>Directeur Technique, FinXpert</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
-            </div>
-
-            <!-- Témoignage 3 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">L'application mobile développée par AdmiSoft a dépassé nos attentes en termes d'UX et de performance. Nos utilisateurs sont ravis de l'expérience.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-3.jpg" alt="Elodie Mvungu" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Elodie Mvungu</h5>
-                            <span>PDG, FitLife</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
-            </div>
-        </div>
-
-        <!-- Contrôles du slider -->
-        <div class="testimonial-controls">
-            <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-dots"></div>
-            <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-</div>
-
-<!-- Team Section - Style Créatif -->
-<div class="container-xxl py-5" id="team">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Notre Équipe<span></span></p>
-            <h1 class="text-center mb-5">Rencontrez nos experts</h1>
-            <p class="text-center mb-5 subheading">Une équipe passionnée qui donne vie à vos projets</p>
-        </div>
-
-        <div class="row g-4 team-grid">
-            <!-- Membre 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-1.jpg" alt="Roger Kalombo" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Roger Kalombo</h4>
-                        <p>CEO & Fondateur</p>
-                        <div class="member-skills">
-                            <span>Stratégie</span>
-                            <span>Management</span>
-                            <span>Innovation</span>
-                        </div>
-                    </div>
-                    <div class="member-badge">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Membre 2 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-2.jpg" alt="Hélène Paloyi" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Hélène Paloyi</h4>
-                        <p>Web Designer</p>
-                        <div class="member-skills">
-                            <span>UI/UX</span>
-                            <span>Illustration</span>
-                            <span>Branding</span>
-                        </div>
-                    </div>
-                    <div class="member-badge creative">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Membre 3 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-3.jpg" alt="Hugues Bosolo" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Hugues Bosolo</h4>
-                        <p>SEO Expert</p>
-                        <div class="member-skills">
-                            <span>SEO</span>
-                            <span>Analytics</span>
-                            <span>Growth</span>
-                        </div>
-                    </div>
-                    <div class="member-badge tech">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Membre 4 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-4.jpg" alt="David Mbuyi" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-stack-overflow"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>David Mbuyi</h4>
-                        <p>Développeur Fullstack</p>
-                        <div class="member-skills">
-                            <span>JavaScript</span>
-                            <span>Node.js</span>
-                            <span>React</span>
-                        </div>
-                    </div>
-                    <div class="member-badge dev">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="team-cta text-center mt-5 wow fadeInUp" data-wow-delay="0.3s">
-            <p class="cta-text">Vous souhaitez rejoindre notre équipe talentueuse ?</p>
-            <a href="#contact" class="btn btn-primary btn-join px-4 py-2 rounded-pill">Nous recrutons !</a>
-        </div>
-    </div>
-</div>
-
-<!-- Contact Start - Style Créatif -->
-
-<div class="container-xxl py-5" id="contact">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Contact<span></span></p>
-            <h1 class="text-center mb-5">Travaillons ensemble !</h1>
-        </div>
-        
-        <div class="row g-5 align-items-center contact-creative">
-            <!-- Carte de contact animée -->
-            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
-                <div class="contact-card rounded-4 p-4 p-sm-5 shadow">
-                    <div class="contact-card-inner">
-                        <div class="contact-pattern"></div>
-                        <div class="contact-content">
-                            <h3 class="text-white mb-4">Envoyez-nous un message</h3>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Notre adresse</h5>
-                                    <p class="text-white-50">123 Gombe, Kinshasa, RDC</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-phone-alt fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Téléphone</h5>
-                                    <p class="text-white-50">+243 859 632 254</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-envelope fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Email</h5>
-                                    <p class="text-white-50">AdmiSoft@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="services">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Nos Services<span></span></p>
+                <h1 class="mb-5">Nous offrons une gamme complète de services informatiques</h1>
             </div>
             
-            <!-- Formulaire créatif -->
-            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
-                <div class="h-100 bg-light rounded-4 p-4 p-sm-5">
-                    <form class="creative-form">
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="name" placeholder=" " required>
-                            <label for="name">Votre nom complet</label>
-                            <div class="form-line"></div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
                         </div>
-                        
-                        <div class="form-floating mb-4">
-                            <input type="email" class="form-control" id="email" placeholder=" " required>
-                            <label for="email">Votre email</label>
-                            <div class="form-line"></div>
-                        </div>
-                        
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="subject" placeholder=" ">
-                            <label for="subject">Sujet</label>
-                            <div class="form-line"></div>
-                        </div>
-                        
-                        <div class="form-floating mb-4">
-                            <textarea class="form-control" placeholder=" " id="message" style="height: 120px"></textarea>
-                            <label for="message">Votre message</label>
-                            <div class="form-line textarea-line"></div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-hover-effect py-3 px-5 rounded-pill w-100">
-                            <span class="btn-text">Envoyer le message</span>
-                            <i class="fas fa-paper-plane btn-icon"></i>
-                        </button>
-                    </form>
+                        <h5>Développement Web</h5>
+                        <p>Création de sites web et applications sur mesure avec les dernières technologies pour une performance optimale.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-        
-<!-- Footer Start - Style Créatif -->
- 
-<footer class="footer-creative">
-    <div class="footer-wave">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
-        </svg>
-    </div>
-    
-    <div class="container-xxl py-5 px-lg-5">
-        <div class="row g-5">
-            <!-- Colonne Logo & Description -->
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-logo mb-4">
-                    <h2 class="text-white">AdmiSoft</h2>
-                    <div class="logo-decoration"></div>
-                </div>
-                <p class="text-white-50">Nous transformons vos idées en réalité numérique avec des technologies de pointe et une expertise inégalée.</p>
-                <div class="social-icons mt-4">
-                    <a href="#" class="icon-circle"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="icon-circle"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="icon-circle"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="icon-circle"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="icon-circle"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <!-- Colonne Liens rapides -->
-            <div class="col-lg-2 col-md-6">
-                <h3 class="footer-heading">Liens rapides</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Projets</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Colonne Services -->
-            <div class="col-lg-2 col-md-6">
-                <h3 class="footer-heading">Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Développement Web</a></li>
-                    <li><a href="#">Applications Mobiles</a></li>
-                    <li><a href="#">Solutions Cloud</a></li>
-                    <li><a href="#">Cybersécurité</a></li>
-                    <li><a href="#">IA & Data</a></li>
-                </ul>
-            </div>
-
-            <!-- Colonne Contact -->
-            <div class="col-lg-4 col-md-6">
-                <h3 class="footer-heading">Contactez-nous</h3>
-                <ul class="footer-contact">
-                    <li class="d-flex">
-                        <i class="fas fa-map-marker-alt mt-1 me-3"></i>
-                        <span>123 Gombe, Kinshasa, RDC</span>
-                    </li>
-                    <li class="d-flex">
-                        <i class="fas fa-phone-alt mt-1 me-3"></i>
-                        <span>+243 859 632 254</span>
-                    </li>
-                    <li class="d-flex">
-                        <i class="fas fa-envelope mt-1 me-3"></i>
-                        <span>AdmiSoft@gmail.com</span>
-                    </li>
-                </ul>
                 
-                <!-- Newsletter -->
-                <div class="footer-newsletter mt-4">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Votre email">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5>Applications Mobiles</h5>
+                        <p>Conception d'applications iOS et Android intuitives et performantes pour atteindre vos utilisateurs partout.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h5>Solutions Cloud</h5>
+                        <p>Migration, gestion et optimisation de vos infrastructures cloud pour une scalabilité et une sécurité maximales.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Cybersécurité</h5>
+                        <p>Protection avancée de vos données et systèmes contre les menaces cybernétiques avec des solutions sur mesure.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h5>Intelligence Artificielle</h5>
+                        <p>Intégration de solutions d'IA et de machine learning pour automatiser et optimiser vos processus métiers.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>Analyse de Données</h5>
+                        <p>Exploitation de vos données pour en extraire des insights actionnables et prendre des décisions éclairées.</p>
+                        <a href="#" class="text-primary text-decoration-none">En savoir plus <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="footer-bottom mt-5 pt-4 border-top border-light">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 text-white-50">&copy; <span id="year"></span> AdmiSoft. Tous droits réservés.</p>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5" style="background: var(--gradient);">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="section-title text-white"><span></span>Newsletter<span></span></p>
+                    <h1 class="text-white mb-4">Restez informé(e) !</h1>
+                    <p class="text-white mb-5">Abonnez-vous à notre newsletter pour recevoir les dernières actualités, nos offres exclusives, des astuces utiles et bien plus encore, directement dans votre boîte mail.</p>
+                    
+                    <div class="position-relative mx-auto" style="max-width: 500px;">
+                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Entrer votre e-mail">
+                        <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 m-1">S'abonner</button>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="footer-legal">
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions d'utilisation</a></li>
-                        <li><a href="#">Mentions légales</a></li>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-5" id="projets">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Nos Projets<span></span></p>
+                <h1 class="mb-5">Voici une sélection de projets qui illustrent notre expertise</h1>
+            </div>
+            
+            <div class="row mt-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 text-center">
+                    <ul class="list-inline mb-5" id="portfolio-filters">
+                        <li class="list-inline-item active" data-filter="*">Tout</li>
+                        <li class="list-inline-item" data-filter=".programmation">Programmation</li>
+                        <li class="list-inline-item" data-filter=".maintenance">Maintenance</li>
                     </ul>
                 </div>
             </div>
+            
+            <div class="row g-4 portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item programmation wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-1.jpg" alt="Projet 1">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-1.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">UI / UX Design</p>
+                            <h5>Digital Agency Website</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item maintenance wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-2.jpg" alt="Projet 2">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-2.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">Développement Web</p>
+                            <h5>E-commerce Platform</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item programmation wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-3.jpg" alt="Projet 3">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">Application Mobile</p>
+                            <h5>Fitness Tracker App</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item maintenance wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-4.jpg" alt="Projet 4">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-4.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">Système de Gestion</p>
+                            <h5>ERP Custom Solution</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item programmation wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-5.jpg" alt="Projet 5">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-5.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">Intelligence Artificielle</p>
+                            <h5>Chatbot Intelligent</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item maintenance wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="project-card">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid project-img" src="img/portfolio-6.jpg" alt="Projet 6">
+                            <div class="project-overlay">
+                                <a href="img/portfolio-6.jpg" data-lightbox="portfolio"><i class="fas fa-eye"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-category">Analyse de Données</p>
+                            <h5>Business Analytics Dashboard</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <!-- Bouton retour en haut -->
-    <div class="back-to-top">
-        <a href="#" class="btn btn-icon btn-primary rounded-circle">
-            <i class="fas fa-arrow-up"></i>
-        </a>
-    </div>
-</footer>
+    </section>
 
+    <!-- Marketplace Section -->
+    <section class="py-5 bg-light" id="marketplace">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Marketplace<span></span></p>
+                <h1 class="mb-5">Nos solutions clés en main</h1>
+                <p class="mb-5">Découvrez nos produits et services prêts à l'emploi pour booster votre entreprise</p>
+            </div>
+            
+            <!-- Filtres -->
+            <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 text-center">
+                    <ul class="list-inline mb-5" id="marketplace-filters">
+                        <li class="list-inline-item active" data-filter="*">Tous</li>
+                        <li class="list-inline-item" data-filter=".logiciels">Logiciels</li>
+                        <li class="list-inline-item" data-filter=".templates">Templates</li>
+                        <li class="list-inline-item" data-filter=".formations">Formations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Produits -->
+            <div class="row g-4 marketplace-container">
+                <!-- Produit 1 -->
+                <div class="col-lg-4 col-md-6 marketplace-item logiciels wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="marketplace-card">
+                        <img src="img/marketplace-1.jpg" class="marketplace-img" alt="CRM AdmiSoft">
+                        <div class="card-body">
+                            <span class="marketplace-category">Logiciel de gestion</span>
+                            <h5 class="mt-2 mb-3">CRM AdmiSoft Pro</h5>
+                            <p class="card-text">Solution complète de gestion de la relation client avec automatisation des processus.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$299</span>
+                                    <span class="text-decoration-line-through text-muted ms-2">$499</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Back to Top -->
-        <div class="chat-icon" id="chatIcon">
-            <i class="fas fa-comment-dots fa-2x"></i>
+                <!-- Produit 2 -->
+                <div class="col-lg-4 col-md-6 marketplace-item templates wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="marketplace-card">
+                        <img src="concept01.png" class="marketplace-img" alt="Template eCommerce">
+                        <div class="card-body">
+                            <span class="marketplace-category">Template WordPress</span>
+                            <h5 class="mt-2 mb-3">eCommerce Premium</h5>
+                            <p class="card-text">Template complet pour boutique en ligne avec intégration WooCommerce.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$149</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="col-lg-4 col-md-6 marketplace-item formations wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="marketplace-card">
+                        <img src="chemise.jpg" class="marketplace-img" alt="Formation SEO">
+                        <div class="card-body">
+                            <span class="marketplace-category">Formation en ligne</span>
+                            <h5 class="mt-2 mb-3">Maîtrisez le SEO en 30 jours</h5>
+                            <p class="card-text">Formation complète avec certifications et accompagnement personnalisé.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$199</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="col-lg-4 col-md-6 marketplace-item logiciels wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="marketplace-card">
+                        <img src="img/marketplace-4.jpg" class="marketplace-img" alt="ERP AdmiSoft">
+                        <div class="card-body">
+                            <span class="marketplace-category">Logiciel d'entreprise</span>
+                            <h5 class="mt-2 mb-3">ERP AdmiSoft</h5>
+                            <p class="card-text">Solution tout-en-un pour la gestion intégrée de votre entreprise.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$599</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 5 -->
+                <div class="col-lg-4 col-md-6 marketplace-item templates wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="marketplace-card">
+                        <img src="img/marketplace-5.jpg" class="marketplace-img" alt="Template Corporate">
+                        <div class="card-body">
+                            <span class="marketplace-category">Template HTML</span>
+                            <h5 class="mt-2 mb-3">Corporate Pro</h5>
+                            <p class="card-text">Template professionnel pour sites vitrines d'entreprise.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$89</span>
+                                    <span class="text-decoration-line-through text-muted ms-2">$129</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="col-lg-4 col-md-6 marketplace-item formations wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="marketplace-card">
+                        <img src="img/marketplace-6.jpg" class="marketplace-img" alt="Formation JavaScript">
+                        <div class="card-body">
+                            <span class="marketplace-category">Formation développeur</span>
+                            <h5 class="mt-2 mb-3">JavaScript Avancé</h5>
+                            <p class="card-text">Maîtrisez les concepts avancés de JavaScript et ses frameworks.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="marketplace-price">$149</span>
+                                    <span class="text-decoration-line-through text-muted ms-2">$249</span>
+                                </div>
+                                <div class="marketplace-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary marketplace-btn">Acheter maintenant</button>
+                                <button class="btn btn-outline-primary marketplace-btn">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+                <a href="#" class="btn btn-primary py-3 px-5 rounded-pill">Voir tous les produits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5" id="temoignage">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Témoignage<span></span></p>
+                <h1 class="mb-5">Ce que disent nos clients !</h1>
+            </div>
+            
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-content">AdmiSoft a révolutionné notre présence en ligne avec une plateforme e-commerce sur mesure. Leur équipe a été réactive et professionnelle tout au long du projet.</p>
+                    <div class="testimonial-author d-flex align-items-center">
+                        <img src="img/testimonial-1.jpg" alt="Andréa KAPINGA">
+                        <div class="ms-3">
+                            <h5>Andréa KAPINGA</h5>
+                            <span>Directrice Marketing, BelleMode</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-content">La migration vers le cloud réalisée par TechVision a considérablement amélioré notre agilité et réduit nos coûts. Un partenaire technologique de confiance.</p>
+                    <div class="testimonial-author d-flex align-items-center">
+                        <img src="img/testimonial-2.jpg" alt="Thomas MATONGE">
+                        <div class="ms-3">
+                            <h5>Thomas MATONGE</h5>
+                            <span>Directeur Technique, FinXpert</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-content">L'application mobile développée par TechVision a dépassé nos attentes en termes d'UX et de performance. Nos utilisateurs sont ravis de l'expérience.</p>
+                    <div class="testimonial-author d-flex align-items-center">
+                        <img src="img/testimonial-3.jpg" alt="Elodie MVUNGU">
+                        <div class="ms-3">
+                            <h5>Elodie MVUNGU</h5>
+                            <span>PDG, FitLife</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Notre équipe<span></span></p>
+                <h1 class="mb-5">Les membres de notre équipe</h1>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-card">
+                        <img src="img/team-1.jpg" class="team-img" alt="ROGER KALOMBO">
+                        <div class="team-info">
+                            <h5>ROGER KALOMBO</h5>
+                            <span>CEO & Foundateur</span>
+                            <div class="team-social mt-3">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-card">
+                        <img src="img/team-2.jpg" class="team-img" alt="HELENE PALOYI">
+                        <div class="team-info">
+                            <h5>HELENE PALOYI</h5>
+                            <span>Web Designer</span>
+                            <div class="team-social mt-3">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-card">
+                        <img src="img/team-3.jpg" class="team-img" alt="HUGUES BOSOLO">
+                        <div class="team-info">
+                            <h5>HUGUES BOSOLO</h5>
+                            <span>SEO Expert</span>
+                            <div class="team-social mt-3">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title"><span></span>Nous contacter<span></span></p>
+                <h1 class="mb-5">Prêt à transformer votre entreprise ?</h1>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="contact-form">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Votre Nom">
+                                        <label for="name">Votre Nom</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Votre Email">
+                                        <label for="email">Votre Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Sujet">
+                                        <label for="subject">Sujet</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Laissez un message ici" id="message" style="height: 150px"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100" style="min-height: 400px;">
+                        <iframe class="rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8053164833436!2d15.315742614762672!3d-4.322879997029138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a31389e0a5a9f%3A0x1a6a31389e0a5a9f!2sGombe%2C%20Kinshasa%2C%20R%C3%A9publique%20D%C3%A9mocratique%20du%20Congo!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Adresse</h3>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>123 GOMBE, KINSHASA, RDC</p>
+                    <p><i class="fas fa-phone-alt me-2"></i>+243 859 632 254</p>
+                    <p><i class="fas fa-envelope me-2"></i>AdmiSoft@gmail.com</p>
+                    <div class="footer-social mt-4">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Lien rapide</h3>
+                    <div class="footer-links">
+                        <a href="#apropos">A propos</a>
+                        <a href="#services">Nos services</a>
+                        <a href="#projets">Nos projets</a>
+                        <a href="#temoignage">Témoignages</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Gallerie</h3>
+                    <div class="row g-2 footer-gallery">
+                        <div class="col-4">
+                            <img src="Presntation.png" alt="Gallery 1">
+                        </div>
+                        <div class="col-4">
+                            <img src="Concept04.png" alt="Gallery 2">
+                        </div>
+                        <div class="col-4">
+                            <img src="Concept03.png" alt="Gallery 3">
+                        </div>
+                        <div class="col-4">
+                            <img src="Concept02.png" alt="Gallery 4">
+                        </div>
+                        <div class="col-4">
+                            <img src="Concept01.png" alt="Gallery 5">
+                        </div>
+                        <div class="col-4">
+                            <img src="img/marketplace-1.jpg" alt="Gallery 6">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p>Abonnez-vous à notre newsletter pour recevoir les dernières actualités et bien plus encore, directement dans votre boîte mail.</p>
+                    <div class="position-relative mt-4">
+                        <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Votre Email" style="height: 48px;">
+                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 px-4" style="height: 48px;"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <!-- Container du chat -->
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <span>AdmiSoft</span>
-                <button class="close-chat" id="closeChat">&times;</button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <!-- Messages pré-remplis -->
-                <div class="message received">
-                    Bonjour ! Comment puis-je vous aider aujourd'hui ?
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">&copy; <a class="text-white" href="#">JORDEV</a>, Tous droits reservés.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="mb-0">Conçu par <a class="text-white" href="#">AdmiSoft</a></p>
+                    </div>
                 </div>
-                <div class="message sent">
-                    Bonjour, je souhaite avoir des informations sur vos services.
-                </div>
-                <div class="message received">
-                    Bien sûr ! Nous proposons plusieurs services. Lequel vous intéresse ?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="messageInput" placeholder="Tapez votre message...">
-                <button class="btn btn-primary" id="sendMessage">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
             </div>
         </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Chat Widget -->
+    <div class="chat-icon" id="chatIcon">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <span>AdmiSoft</span>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message received">
+                Bonjour ! Comment puis-je vous aider aujourd'hui ?
+            </div>
+            <div class="message sent">
+                Bonjour, je souhaite avoir des informations sur vos services.
+            </div>
+            <div class="message received">
+                Bien sûr ! Nous proposons plusieurs services. Lequel vous intéresse ?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Tapez votre message...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
     <script>
-        // Gestion du chat
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatIcon = document.getElementById('chatIcon');
-            const chatContainer = document.getElementById('chatContainer');
-            const closeChat = document.getElementById('closeChat');
-            const messageInput = document.getElementById('messageInput');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatMessages = document.getElementById('chatMessages');
+        // Spinner
+        var spinner = function() {
+            setTimeout(function() {
+                if ($('#spinner').length > 0) {
+                    $('#spinner').removeClass('show');
+                }
+            }, 1);
+        };
+        spinner();
+        
+        // Init WOW.js
+        new WOW().init();
+        
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+        
+        // Back to top button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+        
+        $('.back-to-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+            return false;
+        });
+        
+        // Counter Up
+        $('.counter').counterUp({
+            delay: 10,
+            time: 2000
+        });
+        
+        // Testimonial carousel
+        $('.testimonial-carousel').owlCarousel({
+            autoplay: true,
+            smartSpeed: 1000,
+            margin: 30,
+            dots: true,
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                }
+            }
+        });
+        
+        // Portfolio isotope and filter
+        $(window).on('load', function() {
+            var portfolioIsotope = $('.portfolio-container').isotope({
+                itemSelector: '.portfolio-item',
+                layoutMode: 'fitRows'
+            });
+            
+            $('#portfolio-filters li').on('click', function() {
+                $("#portfolio-filters li").removeClass('active');
+                $(this).addClass('active');
+                
+                portfolioIsotope.isotope({filter: $(this).data('filter')});
+            });
+        });
+        
+        // Marketplace isotope and filter
+        $(window).on('load', function() {
+            var marketplaceIsotope = $('.marketplace-container').isotope({
+                itemSelector: '.marketplace-item',
+                layoutMode: 'fitRows'
+            });
+            
+            $('#marketplace-filters li').on('click', function() {
+                $("#marketplace-filters li").removeClass('active');
+                $(this).addClass('active');
+                
+                marketplaceIsotope.isotope({filter: $(this).data('filter')});
+            });
+        });
+        
+        // Chat Widget
+        $(document).ready(function() {
+            const chatIcon = $('#chatIcon');
+            const chatContainer = $('#chatContainer');
+            const closeChat = $('#closeChat');
+            const messageInput = $('#messageInput');
+            const sendMessage = $('#sendMessage');
+            const chatMessages = $('#chatMessages');
             
             // Ouvrir le chat
-            chatIcon.addEventListener('click', function() {
-                chatContainer.style.display = 'flex';
+            chatIcon.on('click', function() {
+                chatContainer.css('display', 'flex');
             });
             
             // Fermer le chat
-            closeChat.addEventListener('click', function() {
-                chatContainer.style.display = 'none';
+            closeChat.on('click', function() {
+                chatContainer.hide();
             });
             
             // Envoyer un message
             function sendNewMessage() {
-                const messageText = messageInput.value.trim();
+                const messageText = messageInput.val().trim();
                 if (messageText) {
                     // Ajouter le message envoyé
-                    const sentMessage = document.createElement('div');
-                    sentMessage.className = 'message sent';
-                    sentMessage.textContent = messageText;
-                    chatMessages.appendChild(sentMessage);
+                    const sentMessage = $('<div class="message sent">' + messageText + '</div>');
+                    chatMessages.append(sentMessage);
                     
                     // Réponse automatique après un délai
-                    setTimeout(() => {
+                    setTimeout(function() {
                         const responses = [
                             "Merci pour votre message. Comment puis-je vous aider ?",
                             "Je vais vérifier cela pour vous.",
@@ -1313,54 +1915,31 @@
                         ];
                         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
                         
-                        const receivedMessage = document.createElement('div');
-                        receivedMessage.className = 'message received';
-                        receivedMessage.textContent = randomResponse;
-                        chatMessages.appendChild(receivedMessage);
+                        const receivedMessage = $('<div class="message received">' + randomResponse + '</div>');
+                        chatMessages.append(receivedMessage);
                         
                         // Faire défiler vers le bas
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                        chatMessages.scrollTop(chatMessages[0].scrollHeight);
                     }, 1000);
                     
                     // Effacer le champ de saisie
-                    messageInput.value = '';
+                    messageInput.val('');
                     
                     // Faire défiler vers le bas
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    chatMessages.scrollTop(chatMessages[0].scrollHeight);
                 }
             }
             
             // Envoyer avec le bouton
-            sendMessage.addEventListener('click', sendNewMessage);
+            sendMessage.on('click', sendNewMessage);
             
             // Envoyer avec Entrée
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
+            messageInput.on('keypress', function(e) {
+                if (e.which === 13) {
                     sendNewMessage();
                 }
             });
-            
-            // Faire défiler les messages vers le bas au chargement
-            chatMessages.scrollTop = chatMessages.scrollHeight;
         });
-
-    $(document).ready(function(){
-        // Filtrage des produits
-        $('#marketplace-filters li').on('click', function(){
-            $('#marketplace-filters li').removeClass('active');
-            $(this).addClass('active');
-            
-            const filter = $(this).data('filter');
-            $('.marketplace-container').isotope({ filter: filter });
-        });
-
-        // Initialisation d'Isotope
-        $('.marketplace-container').isotope({
-            itemSelector: '.marketplace-item',
-            layoutMode: 'fitRows'
-        });
-    });
     </script>
 </body>
-
 </html>
