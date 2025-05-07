@@ -186,3 +186,16 @@ document.querySelectorAll('.form-floating input, .form-floating textarea').forEa
         }
     });
 });
+
+// Année dynamique dans le copyright
+document.getElementById('year').textContent = new Date().getFullYear();
+    
+// Bouton retour en haut
+window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.pageYOffset > 300) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
