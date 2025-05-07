@@ -1228,6 +1228,208 @@ h6,
 
 
 
+ 
+/* Style pour la section Blog */
+ .blog-container {
+     position: relative;
+ }
+
+ .blog-card {
+     background: white;
+     border-radius: 12px;
+     overflow: hidden;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     position: relative;
+     height: 100%;
+ }
+
+ .blog-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 30px rgba(75, 108, 183, 0.15);
+ }
+
+ .blog-image {
+     height: 220px;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .blog-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+
+ .blog-card:hover .blog-image img {
+     transform: scale(1.05);
+ }
+
+ .blog-badge {
+     position: absolute;
+     top: 15px;
+     left: 15px;
+     background: #4b6cb7;
+     color: white;
+     padding: 5px 15px;
+     border-radius: 30px;
+     font-size: 0.8rem;
+     font-weight: 600;
+     z-index: 2;
+ }
+
+ .blog-date {
+     position: absolute;
+     bottom: 15px;
+     right: 15px;
+     background: white;
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+     z-index: 2;
+ }
+
+ .blog-date .day {
+     font-size: 1.3rem;
+     font-weight: 700;
+     color: #182848;
+     line-height: 1;
+ }
+
+ .blog-date .month {
+     font-size: 0.7rem;
+     text-transform: uppercase;
+     color: #4b6cb7;
+     font-weight: 600;
+     margin-top: 2px;
+ }
+
+ .blog-content {
+     padding: 25px;
+     position: relative;
+     z-index: 2;
+     background: white;
+ }
+
+ .blog-category {
+     color: #4b6cb7;
+     font-size: 0.8rem;
+     font-weight: 600;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     margin-bottom: 10px;
+     display: inline-block;
+ }
+
+ .blog-title {
+     font-size: 1.2rem;
+     font-weight: 700;
+     margin-bottom: 15px;
+     color: #182848;
+     line-height: 1.4;
+ }
+
+ .blog-excerpt {
+     color: #6c757d;
+     font-size: 0.95rem;
+     margin-bottom: 20px;
+     line-height: 1.6;
+ }
+
+ .blog-meta {
+     display: flex;
+     justify-content: space-between;
+     color: #6c757d;
+     font-size: 0.85rem;
+ }
+
+ .blog-meta i {
+     margin-right: 5px;
+     color: #4b6cb7;
+ }
+
+ .blog-hover-content {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     padding: 25px;
+     background: linear-gradient(to top, rgba(10, 26, 58, 0.9), transparent);
+     opacity: 0;
+     transform: translateY(20px);
+     transition: all 0.4s ease;
+     z-index: 3;
+ }
+
+ .blog-card:hover .blog-hover-content {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ .btn-read-more {
+     display: inline-block;
+     color: white;
+     font-weight: 600;
+     margin-bottom: 15px;
+     transition: all 0.3s ease;
+ }
+
+ .btn-read-more:hover {
+     color: #4b6cb7;
+ }
+
+ .btn-read-more i {
+     margin-left: 5px;
+     transition: transform 0.3s ease;
+ }
+
+ .btn-read-more:hover i {
+     transform: translateX(5px);
+ }
+
+ .blog-tags {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+ }
+
+ .blog-tags span {
+     background: rgba(255, 255, 255, 0.2);
+     color: white;
+     padding: 4px 12px;
+     border-radius: 20px;
+     font-size: 0.7rem;
+     font-weight: 500;
+ }
+
+ .subheading {
+     color: #6c757d;
+     font-size: 1.1rem;
+     max-width: 700px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ @media (max-width: 992px) {
+     .blog-image {
+         height: 200px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .blog-card {
+         max-width: 400px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ }
+
 /* Style pour la section Marketplace */
  .marketplace-filters {
      margin-bottom: 40px;
