@@ -39,6 +39,132 @@
         height: 200px; /* Hauteur fixe pour toutes les images */
         object-fit: cover; /* Recadrage pour remplir l'espace */
     }
+    .testimonials-pro {
+  background: #f7f9fc;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid #0d6efd;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.testimonial-text::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font-size: 2rem;
+  color: #0d6efd;
+  line-height: 1;
+}
+.team-member .hover-opacity-100 {
+  transition: all 0.3s ease;
+}
+.team-member:hover .hover-opacity-100 {
+  opacity: 1 !important;
+}
+.object-fit-cover {
+  object-fit: cover;
+}
+/* Dégradé coloré pour les titres et boutons */
+.text-gradient {
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #182848, #4b6cb7);
+  transform: translateY(-2px);
+}
+.icon-box {
+  background: #0d6efd;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+    .facts-section {
+        background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    }
+    
+    
+    
+    .fact-card {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        background-color: rgba(255,255,255,0.15) !important;
+    }
+    
+    .bg-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
+        background-size: 30px 30px;
+    }
+
+    .services-section {
+        position: relative;
+        background-color: #f8f9fa;
+    }
+    
+    .service-card {
+        transition: all 0.3s ease;
+        border-radius: 12px !important;
+    }
+    
+    .hover-lift:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+    }
+    
+    .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .icon-wrapper {
+        transform: scale(1.1);
+    }
+    
+    .bg-purple {
+        background-color: #6f42c1 !important;
+    }
+    
+    .text-purple {
+        color: #6f42c1 !important;
+    }
+
     </style>
 </head>
 
@@ -99,174 +225,281 @@
 
 
 
-        <!-- About Start -->
-        <div class="container-xxl py-5" id="apropos">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="section-title text-secondary justify-content-center"><span></span>A propos<span></span></p>
-
-                        <h1 class="mb-5">Chez AdmiSoft,</h1>
-                        <p class="mb-4">Nous sommes des experts en solutions informatiques depuis 2024. Notre mission est d'accompagner nos clients dans leur transformation numérique grâce à des services personnalisés, allant du développement de logiciels à la cybersécurité.</p>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Digital Marketing</p>
-                                <p class="mb-2">85%</p>
+        <!-- About Start - Version Bootstrap Modernisée -->
+<section class="about-section py-5 bg-light" id="apropos">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <!-- Image Column -->
+            <div class="col-lg-6 order-lg-2">
+                <div class="position-relative">
+                    <img src="img2.png" class="img-fluid rounded-4 shadow-lg" alt="AdmiSoft">
+                    <div class="position-absolute top-0 start-0 bg-primary bg-opacity-10 rounded-4 w-100 h-100"></div>
+                </div>
+            </div>
+            
+            <!-- Content Column -->
+            <div class="col-lg-6 order-lg-1">
+                <div class="pe-lg-5">
+                    <span class="text-uppercase text-primary fw-bold d-block mb-2">À propos de nous</span>
+                    <h2 class="display-5 fw-bold mb-4">Chez AdmiSoft,</h2>
+                    <p class="lead mb-4">Nous sommes des experts en solutions informatiques depuis 2024. Notre mission est d'accompagner nos clients dans leur transformation numérique grâce à des services personnalisés, allant du développement de logiciels à la cybersécurité.</p>
+                    
+                    <!-- Skills Progress Bars - Version améliorée -->
+                    <div class="skills-container mb-4">
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-medium">Marketing Digital</span>
+                                <span class="text-primary">85%</span>
                             </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">SEO & Backlinks</p>
-                                <p class="mb-2">90%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Design & Development</p>
-                                <p class="mb-2">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 85%"></div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Voir plus</a>
+                        
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-medium">SEO & Backlinks</span>
+                                <span class="text-primary">90%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-medium">Design & Développement</span>
+                                <span class="text-primary">95%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 95%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img2.png">
+                    
+                    <a href="#" class="btn btn-primary btn-lg px-4 py-2 rounded-pill mt-2">
+                        Voir plus <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About End -->
+
+
+        <!-- Facts Start - Version Modernisée -->
+<section class="facts-section py-5 bg-primary position-relative overflow-hidden">
+    <div class="container py-5">
+        <div class="row g-4 g-lg-5 justify-content-center">
+            <!-- Animated Background Elements -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10">
+                <div class="bg-pattern"></div>
+            </div>
+            
+            <!-- Fact Item 1 -->
+            <div class="col-md-6 col-lg-3 text-center">
+                <div class="fact-card p-4 rounded-4 bg-white bg-opacity-10 hover-scale">
+                    <div class="fact-icon mb-3">
+                        <i class="bi bi-award-fill display-6 text-light"></i>
+                    </div>
+                    <h2 class="text-white mb-2 display-5 fw-bold counter" data-count="1">0</h2>
+                    <p class="text-light mb-0 fs-5">Année d'expérience</p>
+                </div>
+            </div>
+            
+            <!-- Fact Item 2 -->
+            <div class="col-md-6 col-lg-3 text-center">
+                <div class="fact-card p-4 rounded-4 bg-white bg-opacity-10 hover-scale">
+                    <div class="fact-icon mb-3">
+                        <i class="bi bi-people-fill display-6 text-light"></i>
+                    </div>
+                    <h2 class="text-white mb-2 display-5 fw-bold counter" data-count="5">0</h2>
+                    <p class="text-light mb-0 fs-5">Experts techniques</p>
+                </div>
+            </div>
+            
+            <!-- Fact Item 3 -->
+            <div class="col-md-6 col-lg-3 text-center">
+                <div class="fact-card p-4 rounded-4 bg-white bg-opacity-10 hover-scale">
+                    <div class="fact-icon mb-3">
+                        <i class="bi bi-emoji-smile-fill display-6 text-light"></i>
+                    </div>
+                    <h2 class="text-white mb-2 display-5 fw-bold counter" data-count="10">0</h2>
+                    <p class="text-light mb-0 fs-5">Clients satisfaits</p>
+                </div>
+            </div>
+            
+            <!-- Fact Item 4 -->
+            <div class="col-md-6 col-lg-3 text-center">
+                <div class="fact-card p-4 rounded-4 bg-white bg-opacity-10 hover-scale">
+                    <div class="fact-icon mb-3">
+                        <i class="bi bi-check-circle-fill display-6 text-light"></i>
+                    </div>
+                    <h2 class="text-white mb-2 display-5 fw-bold counter" data-count="10">0</h2>
+                    <p class="text-light mb-0 fs-5">Projets réalisés</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Facts End -->
+
+
+        <!-- Services Start - Version Modernisée -->
+<section class="services-section py-5 bg-light" id="services">
+    <div class="container py-5">
+        <div class="text-center mb-5 wow fadeInUp">
+            <span class="badge bg-primary bg-opacity-10 text-primary mb-3 fw-semibold">Nos Services</span>
+            <h2 class="display-5 fw-bold mb-3">Solutions Technologiques Complètes</h2>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                Nous offrons une gamme complète de services informatiques pour répondre à tous vos besoins technologiques et accélérer votre transformation digitale.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Service 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-4">
+                            <i class="bi bi-code-slash display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Développement Web</h3>
+                        <p class="text-muted mb-4">
+                            Création de sites web et applications sur mesure avec les dernières technologies pour une performance optimale.
+                        </p>
+                        <a href="#" class="btn btn-link text-primary p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-4">
+                            <i class="bi bi-phone display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Applications Mobiles</h3>
+                        <p class="text-muted mb-4">
+                            Conception d'applications iOS et Android intuitives et performantes pour atteindre vos utilisateurs partout.
+                        </p>
+                        <a href="#" class="btn btn-link text-success p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-info bg-opacity-10 text-info rounded-circle mx-auto mb-4">
+                            <i class="bi bi-cloud display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Solutions Cloud</h3>
+                        <p class="text-muted mb-4">
+                            Migration, gestion et optimisation de vos infrastructures cloud pour une scalabilité et une sécurité maximales.
+                        </p>
+                        <a href="#" class="btn btn-link text-info p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4">
+                            <i class="bi bi-shield-lock display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Cybersécurité</h3>
+                        <p class="text-muted mb-4">
+                            Protection avancée de vos données et systèmes contre les menaces cybernétiques avec des solutions sur mesure.
+                        </p>
+                        <a href="#" class="btn btn-link text-warning p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-danger bg-opacity-10 text-danger rounded-circle mx-auto mb-4">
+                            <i class="bi bi-robot display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Intelligence Artificielle</h3>
+                        <p class="text-muted mb-4">
+                            Intégration de solutions d'IA et de machine learning pour automatiser et optimiser vos processus métiers.
+                        </p>
+                        <a href="#" class="btn btn-link text-danger p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-purple bg-opacity-10 text-purple rounded-circle mx-auto mb-4">
+                            <i class="bi bi-bar-chart-line display-6"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Analyse de Données</h3>
+                        <p class="text-muted mb-4">
+                            Exploitation de vos données pour en extraire des insights actionnables et prendre des décisions éclairées.
+                        </p>
+                        <a href="#" class="btn btn-link text-purple p-0">
+                            En savoir plus <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+    </div>
+</section>
 
 
-        <!-- Facts Start -->
-        <div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">1</h1>
-                        <p class="text-white mb-0">année d'expérience</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-white mb-0">Experts techniques</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10</h1>
-                        <p class="text-white mb-0">Clients satisfaits</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10</h1>
-                        <p class="text-white mb-0">Projets réalisés</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Facts End -->
-
-
-        <!-- Service Start -->
-        <div class="container-xxl py-5" id="services">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Nos Services<span></span></p>
-                    <h4 class="text-center mb-5">Nous offrons une gamme complète de services informatiques pour répondre à tous vos besoins technologiques.</h4>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-code fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Développement Web</h5>
-                            <p class="m-0">Création de sites web et applications sur mesure avec les dernières technologies pour une performance optimale</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-mobile-alt fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Applications Mobiles</h5>
-                            <p class="m-0">Conception d'applications iOS et Android intuitives et performantes pour atteindre vos utilisateurs partout.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-cloud fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Solutions Cloud</h5>
-                            <p class="m-0">Migration, gestion et optimisation de vos infrastructures cloud pour une scalabilité et une sécurité maximales.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-shield-alt fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Cybersécurité</h5>
-                            <p class="m-0">Protection avancée de vos données et systèmes contre les menaces cybernétiques avec des solutions sur mesure.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-robot fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Intelligence Artificielle</h5>
-                            <p class="m-0">Intégration de solutions d'IA et de machine learning pour automatiser et optimiser vos processus métiers.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item d-flex flex-column text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fas fa-chart-line fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">Analyse de Données</h5>
-                            <p class="m-0">Exploitation de vos données pour en extraire des insights actionnables et prendre des décisions éclairées.</p>
-                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
+<!-- Services End -->
 
 
         <!-- Newsletter Start -->
-        <div class="container-xxl bg-primary newsletter py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 text-center">
-                        <p class="section-title text-white justify-content-center"><span></span>Newsletter<span></span></p>
-                        <h1 class="text-center text-white mb-4">Restez informé(e) !</h1>
-                        <p class="text-white mb-4">Abonnez-vous à notre newsletter pour recevoir les dernières actualités, nos offres exclusives, des astuces utiles et bien plus encore, directement dans votre boîte mail. Ne manquez rien de ce qui compte pour vous !</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Entrer votre e-mail" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
+<section class="container-xxl bg-primary newsletter py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-7">
+                <p class="text-white fw-bold text-uppercase mb-3">Newsletter</p>
+                <h1 class="text-white mb-4">Restez informé(e) !</h1>
+                <p class="text-white mb-4">
+                    Abonnez-vous à notre newsletter pour recevoir les dernières actualités, nos offres exclusives, des astuces utiles et bien plus encore, directement dans votre boîte mail. Ne manquez rien de ce qui compte pour vous !
+                </p>
+                <form class="position-relative">
+                    <div class="input-group">
+                        <input type="email" class="form-control border-0 rounded-pill ps-4 pe-5" placeholder="Entrer votre e-mail" style="height: 48px;">
+                        <button type="submit" class="btn btn-primary position-absolute top-0 end-0 mt-1 me-2 rounded-circle">
+                            <i class="fa fa-paper-plane text-white fs-4"></i>
+                        </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <!-- Newsletter End -->
+    </div>
+</section>
+<!-- Newsletter End -->
 
 
 
@@ -343,7 +576,6 @@
         </div>
     </div>
 </section>
-          
                         
 <!-- Section Blog -->
 <section class="py-5 bg-light" id="blog">
@@ -389,7 +621,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="position-relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid blog-image" alt="Cybersécurité">
+                        <img src="https://images.unsplash.com/photo-1591696205602-2d384c9e9a35?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid blog-image" alt="Cybersécurité">
                     </div>
                     <div class="card-body">
                         <h6 class="text-primary text-uppercase mb-2">Cybersécurité</h6>
@@ -407,607 +639,362 @@
     </div>
 </section>
 
-    
-
-
+<!-- Marketplace Section - Bootstrap Stylisé -->
+<section class="py-5 bg-light" id="marketplace">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <p class="text-secondary fw-semibold small text-uppercase mb-1">Marketplace</p>
+        <h2 class="fw-bold mb-3">Nos Solutions Clés en Main</h2>
+        <p class="text-muted">Découvrez nos produits et services prêts à l'emploi</p>
+      </div>
   
-
-<!-- Marketplace Section - Style Créatif -->
-
-<div class="container-xxl py-5" id="marketplace">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Marketplace<span></span></p>
-            <h1 class="text-center mb-5">Nos Solutions Clés en Main</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos produits et services prêts à l'emploi</p>
+      <!-- Filtres -->
+      <div class="text-center mb-4">
+        <div class="btn-group" role="group" aria-label="Filtres produits">
+          <button type="button" class="btn btn-outline-primary active" data-filter="*">Tous</button>
+          <button type="button" class="btn btn-outline-primary" data-filter=".logiciels">Logiciels</button>
+          <button type="button" class="btn btn-outline-primary" data-filter=".templates">Templates</button>
+          <button type="button" class="btn btn-outline-primary" data-filter=".formations">Formations</button>
         </div>
-
-        <!-- Filtres -->
-        <div class="marketplace-filters text-center mb-5">
-            <button class="filter-btn active" data-filter="*">Tous</button>
-            <button class="filter-btn" data-filter=".logiciels">Logiciels</button>
-            <button class="filter-btn" data-filter=".templates">Templates</button>
-            <button class="filter-btn" data-filter=".formations">Formations</button>
+      </div>
+  
+      <!-- Produits -->
+      <div class="row g-4">
+        <!-- Produit 1 - Logiciel -->
+        <div class="col-lg-4 col-md-6 marketplace-item logiciels">
+          <div class="card h-100 shadow-sm">
+            <div class="position-relative">
+              <span class="badge bg-success position-absolute top-0 start-0 m-2">Nouveau</span>
+              <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="CRM AdmiSoft Pro">
+              <a href="#" class="position-absolute top-0 end-0 m-2 text-white" data-bs-toggle="tooltip" title="Voir détails">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Logiciel de gestion</small>
+              <h5 class="card-title mt-2">CRM AdmiSoft Pro</h5>
+              <p class="card-text flex-grow-1">Solution complète de gestion de la relation client avec automatisation des processus.</p>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="fw-bold text-primary">$299</span>
+                  <span class="text-decoration-line-through text-muted">$499</span>
+                </div>
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star-half-alt text-warning"></i>
+                  <span class="text-muted ms-1">(24)</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-primary btn-sm">
+                  <i class="fas fa-shopping-cart me-1"></i> Ajouter
+                </button>
+                <button class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" title="Ajouter aux favoris">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- Produits -->
-        <div class="row g-4 marketplace-container">
-            <!-- Produit 1 - Logiciel -->
-            <div class="col-lg-4 col-md-6 marketplace-item logiciels">
-                <div class="product-card">
-                    <div class="product-badge">Nouveau</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="CRM AdmiSoft Pro" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Logiciel de gestion</div>
-                        <h3 class="product-title">CRM AdmiSoft Pro</h3>
-                        <p class="product-description">Solution complète de gestion de la relation client avec automatisation des processus.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$299</span>
-                                <span class="original-price">$499</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(24)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
+  
+        <!-- Produit 2 - Template -->
+        <div class="col-lg-4 col-md-6 marketplace-item templates">
+          <div class="card h-100 shadow-sm">
+            <div class="position-relative">
+              <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2">Populaire</span>
+              <img src="https://images.unsplash.com/photo-1587574293340-ec07253e5c47?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Template Bootstrap Modern UI">
+              <a href="#" class="position-absolute top-0 end-0 m-2 text-white" data-bs-toggle="tooltip" title="Voir détails">
+                <i class="fas fa-eye"></i>
+              </a>
             </div>
-
-            <!-- Produit 2 - Template -->
-            <div class="col-lg-4 col-md-6 marketplace-item templates">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Template eCommerce Premium" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Template WordPress</div>
-                        <h3 class="product-title">eCommerce Premium</h3>
-                        <p class="product-description">Template complet pour boutique en ligne avec intégration WooCommerce.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$149</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(18)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Template HTML</small>
+              <h5 class="card-title mt-2">Bootstrap Modern UI</h5>
+              <p class="card-text flex-grow-1">Template responsive avec design épuré et composants Bootstrap 5.</p>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="fw-bold text-primary">$49</span>
                 </div>
-            </div>
-
-            <!-- Produit 3 - Formation -->
-            <div class="col-lg-4 col-md-6 marketplace-item formations">
-                <div class="product-card">
-                    <div class="product-badge bestseller">Best-seller</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Formation SEO" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Formation en ligne</div>
-                        <h3 class="product-title">Maîtrisez le SEO en 30 jours</h3>
-                        <p class="product-description">Formation complète avec certifications et accompagnement personnalisé.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$199</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(42)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <span class="text-muted ms-1">(18)</span>
                 </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-primary btn-sm">
+                  <i class="fas fa-shopping-cart me-1"></i> Ajouter
+                </button>
+                <button class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" title="Ajouter aux favoris">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
             </div>
-
-            <!-- Produit 4 - Logiciel -->
-            <div class="col-lg-4 col-md-6 marketplace-item logiciels">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ERP AdmiSoft" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Logiciel d'entreprise</div>
-                        <h3 class="product-title">ERP AdmiSoft</h3>
-                        <p class="product-description">Solution tout-en-un pour la gestion intégrée de votre entreprise.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$599</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(15)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 5 - Template -->
-            <div class="col-lg-4 col-md-6 marketplace-item templates">
-                <div class="product-card">
-                    <div class="product-badge discount">-30%</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Template Corporate Pro" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Template HTML</div>
-                        <h3 class="product-title">Corporate Pro</h3>
-                        <p class="product-description">Template professionnel pour sites vitrines d'entreprise.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$89</span>
-                                <span class="original-price">$129</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(31)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 6 - Formation -->
-            <div class="col-lg-4 col-md-6 marketplace-item formations">
-                <div class="product-card">
-                    <div class="product-badge">Promo</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Formation JavaScript Avancé" class="img-fluid">
-                        <div class="image-overlay">
-                            <a href="#" class="quick-view" data-bs-toggle="tooltip" title="Voir détails">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Formation développeur</div>
-                        <h3 class="product-title">JavaScript Avancé</h3>
-                        <p class="product-description">Maîtrisez les concepts avancés de JavaScript et ses frameworks.</p>
-                        <div class="product-meta">
-                            <div class="product-price">
-                                <span class="current-price">$149</span>
-                                <span class="original-price">$249</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(56)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                        <button class="btn-wishlist" data-bs-toggle="tooltip" title="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous les produits</a>
+  
+        <!-- Produit 3 - Formation -->
+        <div class="col-lg-4 col-md-6 marketplace-item formations">
+          <div class="card h-100 shadow-sm">
+            <div class="position-relative">
+              <span class="badge bg-info text-dark position-absolute top-0 start-0 m-2">Promo</span>
+              <img src="https://images.unsplash.com/photo-1591696205602-2d384c9e9a35?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Formation Laravel API Pro">
+              <a href="#" class="position-absolute top-0 end-0 m-2 text-white" data-bs-toggle="tooltip" title="Voir détails">
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Formation vidéo</small>
+              <h5 class="card-title mt-2">Laravel API Pro</h5>
+              <p class="card-text flex-grow-1">Apprenez à créer des API RESTful sécurisées avec Laravel 10.</p>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="fw-bold text-primary">$89</span>
+                  <span class="text-decoration-line-through text-muted">$129</span>
+                </div>
+                <div>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star-half-alt text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <span class="text-muted ms-1">(42)</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-primary btn-sm">
+                  <i class="fas fa-shopping-cart me-1"></i> Ajouter
+                </button>
+                <button class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" title="Ajouter aux favoris">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-
-<!-- Témoignages - Style Créatif -->
-
-<div class="container-xxl py-5" id="testimonials">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Témoignages<span></span></p>
-            <h1 class="text-center mb-5">Ce que disent nos clients</h1>
-            <p class="text-center mb-5 subheading">Ils nous ont fait confiance et partagent leur expérience</p>
-        </div>
-
-        <div class="testimonial-slider">
-            <!-- Témoignage 1 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">AdmiSoft a révolutionné notre présence en ligne avec une plateforme e-commerce sur mesure. Leur équipe a été réactive et professionnelle tout au long du projet.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-1.jpg" alt="Andrea Kapinga" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Andrea Kapinga</h5>
-                            <span>Directrice Marketing, BelleMode</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
+  </section>
+  
+<!-- Témoignages Section Pro -->
+<section class="testimonials-pro py-5" id="testimonials">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h6 class="text-accent fw-bold">Témoignages</h6>
+        <h2 class="display-5 fw-semibold">Ils nous recommandent avec fierté</h2>
+        <p class="text-muted">Des clients satisfaits qui partagent leur expérience avec notre équipe.</p>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card shadow-sm p-4 h-100 position-relative">
+            <p class="testimonial-text">“L’équipe d’AdmiSoft a su traduire nos idées en une plateforme fluide et performante. Je les recommande vivement.”</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="img/testimonial-1.jpg" alt="Andrea Kapinga" class="rounded-circle me-3" width="50">
+              <div>
+                <h6 class="mb-0 fw-bold">Andrea Kapinga</h6>
+                <small class="text-muted">CEO, BelleMode</small>
+              </div>
             </div>
-
-            <!-- Témoignage 2 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">La migration vers le cloud réalisée par AdmiSoft a considérablement amélioré notre agilité et réduit nos coûts. Un partenaire technologique de confiance.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-2.jpg" alt="Thomas Matonge" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Thomas Matonge</h5>
-                            <span>Directeur Technique, FinXpert</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
-            </div>
-
-            <!-- Témoignage 3 -->
-            <div class="testimonial-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-text">L'application mobile développée par AdmiSoft a dépassé nos attentes en termes d'UX et de performance. Nos utilisateurs sont ravis de l'expérience.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="img/testimonial-3.jpg" alt="Elodie Mvungu" class="img-fluid">
-                            <div class="image-border"></div>
-                        </div>
-                        <div class="author-info">
-                            <h5>Elodie Mvungu</h5>
-                            <span>PDG, FitLife</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-bg"></div>
-            </div>
+          </div>
         </div>
-
-        <!-- Contrôles du slider -->
-        <div class="testimonial-controls">
-            <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-dots"></div>
-            <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+  
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card shadow-sm p-4 h-100 position-relative">
+            <p class="testimonial-text">“Grâce à leur solution mobile, notre croissance a connu une hausse significative. Sérieux, pro et à l’écoute.”</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="img/testimonial-2.jpg" alt="Thomas Matonge" class="rounded-circle me-3" width="50">
+              <div>
+                <h6 class="mb-0 fw-bold">Thomas Matonge</h6>
+                <small class="text-muted">CTO, FinXpert</small>
+              </div>
+            </div>
+          </div>
         </div>
+  
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card shadow-sm p-4 h-100 position-relative">
+            <p class="testimonial-text">“Excellente collaboration avec AdmiSoft. Leurs solutions sont stables, scalables, et parfaitement conçues.”</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="img/testimonial-3.jpg" alt="Elodie Mvungu" class="rounded-circle me-3" width="50">
+              <div>
+                <h6 class="mb-0 fw-bold">Elodie Mvungu</h6>
+                <small class="text-muted">PDG, FitLife</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-<!-- Team Section - Style Créatif -->
-<div class="container-xxl py-5" id="team">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Notre Équipe<span></span></p>
-            <h1 class="text-center mb-5">Rencontrez nos experts</h1>
-            <p class="text-center mb-5 subheading">Une équipe passionnée qui donne vie à vos projets</p>
+  </section>
+  
+<!-- Section Équipe avec Bootstrap -->
+<section id="team" class="container-xxl py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <p class="text-secondary text-uppercase fw-semibold mb-2">Notre Équipe</p>
+        <h1 class="fw-bold">Rencontrez nos experts</h1>
+        <p class="text-muted subheading">Une équipe passionnée qui donne vie à vos projets</p>
+      </div>
+  
+      <div class="row g-3">
+        <!-- Membre 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow-sm border-0 h-100 team-member position-relative">
+            <div class="position-relative overflow-hidden" style="height: 280px;">
+              <img src="img/team-1.jpg" class="card-img-top h-100 object-fit-cover" alt="Roger Kalombo">
+              <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-end justify-content-center opacity-0 hover-opacity-100 transition">
+                <div class="d-flex gap-2 mb-3">
+                  <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold mb-1">Roger Kalombo</h5>
+              <p class="text-primary fw-semibold">CEO & Fondateur</p>
+              <div class="d-flex justify-content-center flex-wrap gap-2">
+                <span class="badge bg-primary bg-opacity-10 text-primary">Stratégie</span>
+                <span class="badge bg-primary bg-opacity-10 text-primary">Management</span>
+                <span class="badge bg-primary bg-opacity-10 text-primary">Innovation</span>
+              </div>
+            </div>
+            <div class="position-absolute top-0 end-0 translate-middle badge rounded-circle bg-primary text-white p-3">
+              <i class="fas fa-crown"></i>
+            </div>
+          </div>
         </div>
-
-        <div class="row g-4 team-grid">
-            <!-- Membre 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-1.jpg" alt="Roger Kalombo" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Roger Kalombo</h4>
-                        <p>CEO & Fondateur</p>
-                        <div class="member-skills">
-                            <span>Stratégie</span>
-                            <span>Management</span>
-                            <span>Innovation</span>
-                        </div>
-                    </div>
-                    <div class="member-badge">
-                        <i class="fas fa-crown"></i>
-                    </div>
+        <!-- Membre 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100 team-member position-relative">
+              <div class="position-relative overflow-hidden" style="height: 280px;">
+                <img src="img/team-1.jpg" class="card-img-top h-100 object-fit-cover" alt="Roger Kalombo">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-end justify-content-center opacity-0 hover-opacity-100 transition">
+                  <div class="d-flex gap-2 mb-3">
+                    <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fas fa-envelope"></i></a>
+                  </div>
                 </div>
-            </div>
-
-            <!-- Membre 2 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-2.jpg" alt="Hélène Paloyi" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Hélène Paloyi</h4>
-                        <p>Web Designer</p>
-                        <div class="member-skills">
-                            <span>UI/UX</span>
-                            <span>Illustration</span>
-                            <span>Branding</span>
-                        </div>
-                    </div>
-                    <div class="member-badge creative">
-                        <i class="fas fa-palette"></i>
-                    </div>
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold mb-1">Roger Kalombo</h5>
+                <p class="text-primary fw-semibold">CEO & Fondateur</p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                  <span class="badge bg-primary bg-opacity-10 text-primary">Stratégie</span>
+                  <span class="badge bg-primary bg-opacity-10 text-primary">Management</span>
+                  <span class="badge bg-primary bg-opacity-10 text-primary">Innovation</span>
                 </div>
+              </div>
+              <div class="position-absolute top-0 end-0 translate-middle badge rounded-circle bg-primary text-white p-3">
+                <i class="fas fa-crown"></i>
+              </div>
             </div>
-
-            <!-- Membre 3 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-3.jpg" alt="Hugues Bosolo" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>Hugues Bosolo</h4>
-                        <p>SEO Expert</p>
-                        <div class="member-skills">
-                            <span>SEO</span>
-                            <span>Analytics</span>
-                            <span>Growth</span>
-                        </div>
-                    </div>
-                    <div class="member-badge tech">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Membre 4 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="img/team-4.jpg" alt="David Mbuyi" class="img-fluid">
-                        <div class="image-overlay"></div>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-stack-overflow"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>David Mbuyi</h4>
-                        <p>Développeur Fullstack</p>
-                        <div class="member-skills">
-                            <span>JavaScript</span>
-                            <span>Node.js</span>
-                            <span>React</span>
-                        </div>
-                    </div>
-                    <div class="member-badge dev">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="team-cta text-center mt-5 wow fadeInUp" data-wow-delay="0.3s">
-            <p class="cta-text">Vous souhaitez rejoindre notre équipe talentueuse ?</p>
-            <a href="#contact" class="btn btn-primary btn-join px-4 py-2 rounded-pill">Nous recrutons !</a>
-        </div>
+          </div>
+  
+        <!-- Répéter pour chaque membre avec les bonnes données -->
+        <!-- ... Membre 2, 3, 4 (tu peux reprendre la même structure que ci-dessus en changeant juste les données et icônes de badge) -->
+  
+      </div>
+  
+      <!-- CTA -->
+      <div class="text-center mt-5">
+        <p class="text-muted mb-3">Vous souhaitez rejoindre notre équipe talentueuse ?</p>
+        <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2">Nous recrutons !</a>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Contact Start - Style Créatif -->
 
-<div class="container-xxl py-5" id="contact">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Contact<span></span></p>
-            <h1 class="text-center mb-5">Travaillons ensemble !</h1>
-        </div>
-        
-        <div class="row g-5 align-items-center contact-creative">
-            <!-- Carte de contact animée -->
-            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
-                <div class="contact-card rounded-4 p-4 p-sm-5 shadow">
-                    <div class="contact-card-inner">
-                        <div class="contact-pattern"></div>
-                        <div class="contact-content">
-                            <h3 class="text-white mb-4">Envoyez-nous un message</h3>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Notre adresse</h5>
-                                    <p class="text-white-50">123 Gombe, Kinshasa, RDC</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-phone-alt fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Téléphone</h5>
-                                    <p class="text-white-50">+243 859 632 254</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex">
-                                <div class="contact-icon me-4">
-                                    <i class="fas fa-envelope fa-2x text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white">Email</h5>
-                                    <p class="text-white-50">AdmiSoft@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Formulaire créatif -->
-            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
-                <div class="h-100 bg-light rounded-4 p-4 p-sm-5">
-                    <form class="creative-form">
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="name" placeholder=" " required>
-                            <label for="name">Votre nom complet</label>
-                            <div class="form-line"></div>
-                        </div>
-                        
-                        <div class="form-floating mb-4">
-                            <input type="email" class="form-control" id="email" placeholder=" " required>
-                            <label for="email">Votre email</label>
-                            <div class="form-line"></div>
-                        </div>
-                        
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="subject" placeholder=" ">
-                            <label for="subject">Sujet</label>
-                            <div class="form-line"></div>
-                        </div>
-                        
-                        <div class="form-floating mb-4">
-                            <textarea class="form-control" placeholder=" " id="message" style="height: 120px"></textarea>
-                            <label for="message">Votre message</label>
-                            <div class="form-line textarea-line"></div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-hover-effect py-3 px-5 rounded-pill w-100">
-                            <span class="btn-text">Envoyer le message</span>
-                            <i class="fas fa-paper-plane btn-icon"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+<!-- contact -->
+  <section class="container py-5" id="contact">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Contactez-Nous</h2>
+      <p class="text-muted">Nous sommes disponibles pour discuter de vos projets ou collaborations.</p>
     </div>
-</div>
+  
+    <div class="row g-4">
+      <!-- Contact Info -->
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm h-100 rounded-4 bg-light">
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-4 text-primary">Nos Coordonnées</h5>
+  
+            <div class="d-flex align-items-start mb-4">
+              <div class="icon-box me-3">
+                <i class="fas fa-map-marker-alt fa-lg text-white"></i>
+              </div>
+              <div>
+                <h6 class="mb-1 fw-semibold">Adresse</h6>
+                <p class="text-muted mb-0">123 Gombe, Kinshasa, RDC</p>
+              </div>
+            </div>
+  
+            <div class="d-flex align-items-start mb-4">
+              <div class="icon-box me-3">
+                <i class="fas fa-phone fa-lg text-white"></i>
+              </div>
+              <div>
+                <h6 class="mb-1 fw-semibold">Téléphone</h6>
+                <p class="text-muted mb-0">+243 859 632 254</p>
+              </div>
+            </div>
+  
+            <div class="d-flex align-items-start">
+              <div class="icon-box me-3">
+                <i class="fas fa-envelope fa-lg text-white"></i>
+              </div>
+              <div>
+                <h6 class="mb-1 fw-semibold">Email</h6>
+                <p class="text-muted mb-0">AdmiSoft@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm rounded-4">
+          <div class="card-body p-4 p-md-5">
+            <form>
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control" id="name" placeholder="Votre nom" required />
+                <label for="name">Nom complet</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="email" class="form-control" id="email" placeholder="Votre email" required />
+                <label for="email">Adresse email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control" id="subject" placeholder="Sujet" />
+                <label for="subject">Sujet</label>
+              </div>
+              <div class="form-floating mb-4">
+                <textarea class="form-control" id="message" placeholder="Votre message" style="height: 150px"></textarea>
+                <label for="message">Message</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-paper-plane me-2"></i> Envoyer
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
         
 <!-- Footer Start - Style Créatif -->
  
@@ -1248,6 +1235,35 @@
         $('.marketplace-container').isotope({
             itemSelector: '.marketplace-item',
             layoutMode: 'fitRows'
+        });
+    });
+    
+    // Animation des compteurs
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    updateCount();
+                }
+            });
+            
+            observer.observe(counter);
         });
     });
     </script>
