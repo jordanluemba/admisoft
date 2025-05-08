@@ -175,6 +175,28 @@ document.addEventListener('DOMContentLoaded', function() {
  * *******
  */
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('#navbarCollapse');
+
+    navbarToggler.addEventListener('click', function () {
+        // Toggle the "X" icon
+        this.classList.toggle('collapsed');
+        this.innerHTML = this.classList.contains('collapsed')
+            ? '<span>&times;</span>' // X icon
+            : '<span class="navbar-toggler-icon"></span>'; // Hamburger icon
+    });
+
+    // Close the menu when a link is clicked (optional)
+    navbarCollapse.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            navbarToggler.classList.remove('collapsed');
+            navbarToggler.innerHTML = '<span class="navbar-toggler-icon"></span>';
+            navbarCollapse.classList.remove('show');
+        }
+    });
+});
     document.getElementById("current-year").textContent = new Date().getFullYear();
 
 

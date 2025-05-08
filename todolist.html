@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Tasks - Gestionnaire de tâches spatial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cosmic-purple: #6a0dad;
+            --cosmic-blue: #1e00ff;
+            --cosmic-pink: #ff00c8;
+            --cosmic-dark: #0f0526;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--cosmic-dark), #1a0933);
+            color: white;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .cosmic-card {
+            background: rgba(15, 5, 38, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(106, 13, 173, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .cosmic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(106, 13, 173, 0.3);
+        }
+        
+        .btn-cosmic {
+            background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-blue));
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-cosmic:hover {
+            background: linear-gradient(45deg, var(--cosmic-blue), var(--cosmic-pink));
+            color: white;
+        }
+        
+        .task-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--cosmic-purple);
+        }
+        
+        .task-item.completed {
+            opacity: 0.7;
+            border-left-color: #00ff88;
+        }
+        
+        .task-item.high-priority {
+            border-left-color: var(--cosmic-pink);
+        }
+        
+        .task-item.medium-priority {
+            border-left-color: #ffcc00;
+        }
+        
+        .task-item.low-priority {
+            border-left-color: #00ccff;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--cosmic-purple), var(--cosmic-pink));
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(106, 13, 173, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(106, 13, 173, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(106, 13, 173, 0); }
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Étoiles de fond -->
+    <div id="stars-container"></div>
+    
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <div class="d-inline-block position-relative">
+                    <div class="floating" style="width: 80px; height: 80px; background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-pink)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-rocket fa-2x"></i>
+                    </div>
+                    <div class="pulse" style="position: absolute; top: -10px; right: -10px; width: 30px; height: 30px; background: var(--cosmic-pink); border-radius: 50%;"></div>
+                </div>
+                <h1 class="mt-3 display-4 fw-bold" style="background: linear-gradient(45deg, #fff, #b5a1ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cosmic Tasks</h1>
+                <p class="text-muted">Votre gestionnaire de tâches intergalactique</p>
+            </div>
+        </div>
+        
+        <!-- Stats et ajout de tâche -->
+        <div class="row mb-4">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="cosmic-card p-4 h-100">
+                    <h5 class="mb-3"><i class="fas fa-chart-pie me-2"></i> Statistiques</h5>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="h2" id="total-tasks">0</div>
+                            <small class="text-muted">Total</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="h2 text-success" id="completed-tasks">0</div>
+                            <small class="text-muted">Terminées</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="h2 text-warning" id="pending-tasks">0</div>
+                            <small class="text-muted">En cours</small>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress" style="height: 8px; background: rgba(255,255,255,0.1);">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="cosmic-card p-4 h-100">
+                    <h5 class="mb-3"><i class="fas fa-plus-circle me-2"></i> Nouvelle tâche</h5>
+                    <form id="task-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control bg-dark text-white border-dark" id="task-input" placeholder="Quelle est votre mission ?" required>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <select class="form-select bg-dark text-white border-dark" id="priority-select">
+                                    <option value="low">Priorité faible</option>
+                                    <option value="medium" selected>Priorité moyenne</option>
+                                    <option value="high">Priorité haute</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-cosmic w-100">
+                                    <i class="fas fa-paper-plane me-1"></i> Envoyer
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Filtres -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="cosmic-card p-3">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <button class="btn btn-sm btn-dark filter-btn active" data-filter="all">
+                            <i class="fas fa-list me-1"></i> Toutes
+                        </button>
+                        <button class="btn btn-sm btn-dark filter-btn" data-filter="pending">
+                            <i class="fas fa-hourglass-half me-1"></i> En cours
+                        </button>
+                        <button class="btn btn-sm btn-dark filter-btn" data-filter="completed">
+                            <i class="fas fa-check-circle me-1"></i> Terminées
+                        </button>
+                        <button class="btn btn-sm btn-dark filter-btn" data-filter="high">
+                            <i class="fas fa-exclamation-triangle me-1"></i> Urgent
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Liste des tâches -->
+        <div class="row">
+            <div class="col-12">
+                <div class="cosmic-card p-4">
+                    <h5 class="mb-3"><i class="fas fa-tasks me-2"></i> Vos missions</h5>
+                    
+                    <div id="task-list">
+                        <!-- Les tâches seront ajoutées ici dynamiquement -->
+                        <div class="text-center py-5">
+                            <i class="fas fa-meteor fa-3x mb-3" style="color: var(--cosmic-purple);"></i>
+                            <p class="text-muted">Aucune mission en cours. Prêt pour le décollage !</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Créer des étoiles de fond
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Position aléatoire
+                const size = Math.random() * 3;
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}px`;
+                star.style.top = `${posY}px`;
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // Gestion des tâches
+        let tasks = JSON.parse(localStorage.getItem('cosmic-tasks')) || [];
+        let currentFilter = 'all';
+        
+        // Éléments DOM
+        const taskForm = document.getElementById('task-form');
+        const taskInput = document.getElementById('task-input');
+        const prioritySelect = document.getElementById('priority-select');
+        const taskList = document.getElementById('task-list');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        // Stats
+        const totalTasksEl = document.getElementById('total-tasks');
+        const completedTasksEl = document.getElementById('completed-tasks');
+        const pendingTasksEl = document.getElementById('pending-tasks');
+        const progressBar = document.getElementById('progress-bar');
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            renderTasks();
+            updateStats();
+        });
+        
+        // Ajouter une tâche
+        taskForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const text = taskInput.value.trim();
+            const priority = prioritySelect.value;
+            
+            if (text) {
+                const newTask = {
+                    id: Date.now(),
+                    text,
+                    priority,
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                };
+                
+                tasks.unshift(newTask);
+                saveTasks();
+                taskInput.value = '';
+                renderTasks();
+                updateStats();
+                
+                // Animation
+                const taskElement = document.querySelector(`[data-id="${newTask.id}"]`);
+                if (taskElement) {
+                    taskElement.style.transform = 'scale(0.9)';
+                    taskElement.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        taskElement.style.transform = 'scale(1)';
+                        taskElement.style.opacity = '1';
+                        taskElement.style.transition = 'all 0.3s ease';
+                    }, 10);
+                }
+            }
+        });
+        
+        // Filtrer les tâches
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                renderTasks();
+            });
+        });
+        
+        // Basculer l'état d'une tâche
+        function toggleTaskCompletion(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.completed = !task.completed;
+                saveTasks();
+                renderTasks();
+                updateStats();
+            }
+        }
+        
+        // Modifier une tâche
+        function editTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                const newText = prompt('Modifier la tâche:', task.text);
+                if (newText !== null && newText.trim() !== '') {
+                    task.text = newText.trim();
+                    saveTasks();
+                    renderTasks();
+                }
+            }
+        }
+        
+        // Supprimer une tâche
+        function deleteTask(taskId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
+                tasks = tasks.filter(t => t.id !== taskId);
+                saveTasks();
+                renderTasks();
+                updateStats();
+            }
+        }
+        
+        // Sauvegarder les tâches
+        function saveTasks() {
+            localStorage.setItem('cosmic-tasks', JSON.stringify(tasks));
+        }
+        
+        // Afficher les tâches
+        function renderTasks() {
+            // Filtrer selon la sélection
+            let filteredTasks = tasks;
+            if (currentFilter === 'completed') {
+                filteredTasks = tasks.filter(t => t.completed);
+            } else if (currentFilter === 'pending') {
+                filteredTasks = tasks.filter(t => !t.completed);
+            } else if (currentFilter === 'high') {
+                filteredTasks = tasks.filter(t => t.priority === 'high');
+            }
+            
+            if (filteredTasks.length === 0) {
+                let message = '';
+                let icon = 'fas fa-meteor';
+                
+                if (currentFilter === 'all') {
+                    message = 'Aucune mission en cours. Prêt pour le décollage !';
+                } else if (currentFilter === 'completed') {
+                    message = 'Aucune mission terminée. Continuez vos efforts !';
+                    icon = 'fas fa-check-circle';
+                } else if (currentFilter === 'pending') {
+                    message = 'Toutes vos missions sont terminées. Félicitations !';
+                    icon = 'fas fa-star';
+                } else if (currentFilter === 'high') {
+                    message = 'Aucune mission urgente. Profitez-en !';
+                    icon = 'fas fa-exclamation-triangle';
+                }
+                
+                taskList.innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="${icon} fa-3x mb-3" style="color: var(--cosmic-purple);"></i>
+                        <p class="text-muted">${message}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            taskList.innerHTML = '';
+            
+            filteredTasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.className = `task-item mb-3 p-3 rounded ${task.completed ? 'completed' : ''} ${task.priority}-priority`;
+                taskElement.dataset.id = task.id;
+                
+                // Icône de priorité
+                let priorityIcon = '';
+                let priorityClass = '';
+                
+                if (task.priority === 'high') {
+                    priorityIcon = '<i class="fas fa-exclamation-triangle text-danger me-1"></i>';
+                    priorityClass = 'badge bg-danger bg-opacity-20';
+                } else if (task.priority === 'medium') {
+                    priorityIcon = '<i class="fas fa-equals text-warning me-1"></i>';
+                    priorityClass = 'badge bg-warning bg-opacity-20';
+                } else {
+                    priorityIcon = '<i class="fas fa-arrow-down text-info me-1"></i>';
+                    priorityClass = 'badge bg-info bg-opacity-20';
+                }
+                
+                // Date formatée
+                const date = new Date(task.createdAt);
+                const formattedDate = date.toLocaleDateString('fr-FR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                taskElement.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <button class="complete-btn btn btn-sm me-3" style="width: 28px; height: 28px;">
+                                <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center ${task.completed ? 'bg-success' : 'border border-secondary'}">
+                                    ${task.completed ? '<i class="fas fa-check text-white"></i>' : ''}
+                                </div>
+                            </button>
+                            <div>
+                                <div class="${task.completed ? 'text-decoration-line-through text-muted' : ''}">${task.text}</div>
+                                <div class="d-flex align-items-center mt-1">
+                                    <span class="${priorityClass} me-2">
+                                        ${priorityIcon}
+                                        ${task.priority === 'high' ? 'Urgent' : task.priority === 'medium' ? 'Moyenne' : 'Faible'}
+                                    </span>
+                                    <small class="text-muted">${formattedDate}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="edit-btn btn btn-sm btn-outline-light me-1">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-btn btn btn-sm btn-outline-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                taskList.appendChild(taskElement);
+                
+                // Ajouter les event listeners
+                taskElement.querySelector('.complete-btn').addEventListener('click', () => toggleTaskCompletion(task.id));
+                taskElement.querySelector('.edit-btn').addEventListener('click', () => editTask(task.id));
+                taskElement.querySelector('.delete-btn').addEventListener('click', () => deleteTask(task.id));
+            });
+        }
+        
+        // Mettre à jour les statistiques
+        function updateStats() {
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const pending = total - completed;
+            const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+            
+            totalTasksEl.textContent = total;
+            completedTasksEl.textContent = completed;
+            pendingTasksEl.textContent = pending;
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
+        }
+    </script>
+</body>
+</html>
