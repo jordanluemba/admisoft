@@ -30,6 +30,16 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .project-image {
+        height: 200px; /* Hauteur fixe pour toutes les images */
+        object-fit: cover; /* Recadrage pour remplir l'espace */
+    }
+    .blog-image {
+        height: 200px; /* Hauteur fixe pour toutes les images */
+        object-fit: cover; /* Recadrage pour remplir l'espace */
+    }
+    </style>
 </head>
 
 <body>
@@ -265,252 +275,127 @@
        
 
             
-<!-- Projets Section - Style Créatif -->
-<div class="container-xxl py-5" id="projets">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Nos Réalisations<span></span></p>
-            <h1 class="text-center mb-5">Projets Récents</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos dernières créations et cas clients</p>
+<!-- Section Projets -->
+<section class="py-5 bg-light" id="projets">
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="text-secondary fw-bold">Nos Réalisations</p>
+            <h1 class="mb-3">Projets Récents</h1>
+            <p class="text-muted">Découvrez nos dernières créations et cas clients</p>
         </div>
 
         <!-- Filtres -->
-        <div class="project-filters text-center mb-5">
-            <button class="filter-btn active" data-filter="*">Tous</button>
-            <button class="filter-btn" data-filter=".web">Développement Web</button>
-            <button class="filter-btn" data-filter=".mobile">Applications Mobiles</button>
-            <button class="filter-btn" data-filter=".design">Design UI/UX</button>
+        <div class="text-center mb-4">
+            <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tous</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="web">Développement Web</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="mobile">Applications Mobiles</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="design">Design UI/UX</button>
         </div>
 
-        <!-- Grille de projets -->
-        <div class="row g-4 project-grid">
-            <!-- Projet 1 - Web -->
-            <div class="col-lg-4 col-md-6 project-item web">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Site eCommerce" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Plateforme eCommerce</h3>
-                                <p>Solution complète pour boutique en ligne avec paiements sécurisés</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+        <!-- Grille des projets -->
+        <div class="row g-4" id="projectGrid">
+            <!-- Projet 1 -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="web">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid project-image" alt="eCommerce">
                     </div>
-                    <div class="project-info">
-                        <span class="project-category">Développement Web</span>
-                        <h4 class="project-title">BelleMode Boutique</h4>
+                    <div class="card-body">
+                        <h5 class="card-title">BelleMode Boutique</h5>
+                        <p class="card-text text-muted">Plateforme eCommerce avec paiements sécurisés</p>
+                        <span class="badge bg-primary">Développement Web</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Projet 2 - Mobile -->
-            <div class="col-lg-4 col-md-6 project-item mobile">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="App FitLife" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Application Fitness</h3>
-                                <p>Suivi d'activité et programmes personnalisés</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+            <!-- Projet 2 -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="mobile">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid project-image" alt="App FitLife">
                     </div>
-                    <div class="project-info">
-                        <span class="project-category">Application Mobile</span>
-                        <h4 class="project-title">FitLife Pro</h4>
+                    <div class="card-body">
+                        <h5 class="card-title">FitLife Pro</h5>
+                        <p class="card-text text-muted">Suivi d'activité et programmes personnalisés</p>
+                        <span class="badge bg-success">Application Mobile</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Projet 3 - Design -->
-            <div class="col-lg-4 col-md-6 project-item design">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Design FinXpert" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Interface Financière</h3>
-                                <p>Dashboard analytique pour gestion de portefeuille</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+            <!-- Projet 3 -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="design">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid project-image" alt="Design FinXpert">
                     </div>
-                    <div class="project-info">
-                        <span class="project-category">Design UI/UX</span>
-                        <h4 class="project-title">FinXpert Dashboard</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 4 - Web -->
-            <div class="col-lg-4 col-md-6 project-item web">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Site Corporate" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Site Vitrine</h3>
-                                <p>Présentation d'entreprise moderne et responsive</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Développement Web</span>
-                        <h4 class="project-title">Corporate Solutions</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 5 - Mobile -->
-            <div class="col-lg-4 col-md-6 project-item mobile">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1581093450025-7a2cc7a914c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="App Restaurant" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Application de Réservation</h3>
-                                <p>Commande en ligne et système de livraison</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Application Mobile</span>
-                        <h4 class="project-title">FoodExpress</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 6 - Design -->
-            <div class="col-lg-4 col-md-6 project-item design">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Design SaaS" class="img-fluid">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
-                                <h3>Interface SaaS</h3>
-                                <p>Solution de gestion de projet collaborative</p>
-                                <a href="#" class="btn-view-project">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Design UI/UX</span>
-                        <h4 class="project-title">TeamFlow Pro</h4>
+                    <div class="card-body">
+                        <h5 class="card-title">FinXpert Dashboard</h5>
+                        <p class="card-text text-muted">Dashboard analytique pour portefeuille</p>
+                        <span class="badge bg-warning text-dark">Design UI/UX</span>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Bouton -->
         <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous nos projets</a>
+            <a href="#" class="btn btn-primary px-5 py-3 rounded-pill">Voir tous nos projets</a>
         </div>
     </div>
-</div>                    
+</section>
+          
                         
-<!-- Blog Section - Style Créatif -->
-
-<div class="container-xxl py-5" id="blog">
-    <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>Notre Blog<span></span></p>
-            <h1 class="text-center mb-5">Dernières Actualités & Conseils</h1>
-            <p class="text-center mb-5 subheading">Découvrez nos articles sur les tendances technologiques et les meilleures pratiques</p>
+<!-- Section Blog -->
+<section class="py-5 bg-light" id="blog">
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="text-secondary fw-bold">Notre Blog</p>
+            <h1 class="mb-3">Dernières Actualités & Conseils</h1>
+            <p class="text-muted">Découvrez nos articles sur les tendances technologiques et les meilleures pratiques</p>
         </div>
 
-        <div class="row g-4 blog-container">
+        <div class="row g-4">
             <!-- Article 1 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="SEO 2024" class="img-fluid">
-                        <div class="blog-badge">Tendance</div>
-                        <div class="blog-date">
-                            <span class="day">15</span>
-                            <span class="month">Juin</span>
-                        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid blog-image" alt="SEO 2024">
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-category">SEO</div>
-                        <h3 class="blog-title">Les nouvelles tendances SEO en 2024</h3>
-                        <p class="blog-excerpt">Découvrez comment les dernières mises à jour des algorithmes impactent votre référencement naturel.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> Hugues Bosolo</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 5 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>SEO</span>
-                            <span>Marketing</span>
-                            <span>Google</span>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="text-primary text-uppercase mb-2">SEO</h6>
+                        <h5 class="card-title">Les nouvelles tendances SEO en 2024</h5>
+                        <p class="card-text text-muted">Découvrez comment les dernières mises à jour des algorithmes impactent votre référencement naturel.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire la suite</a>
                     </div>
                 </div>
             </div>
 
             <!-- Article 2 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="UI/UX Design" class="img-fluid">
-                        <div class="blog-badge">Design</div>
-                        <div class="blog-date">
-                            <span class="day">28</span>
-                            <span class="month">Mai</span>
-                        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid blog-image" alt="UI/UX Design">
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-category">UI/UX</div>
-                        <h3 class="blog-title">Principes fondamentaux du design d'interface</h3>
-                        <p class="blog-excerpt">Les règles essentielles pour créer des interfaces utilisateur intuitives et esthétiques.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> Hélène Paloyi</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 7 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>Design</span>
-                            <span>UI/UX</span>
-                            <span>Créativité</span>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="text-primary text-uppercase mb-2">UI/UX</h6>
+                        <h5 class="card-title">Principes fondamentaux du design d'interface</h5>
+                        <p class="card-text text-muted">Les règles essentielles pour créer des interfaces utilisateur intuitives et esthétiques.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire la suite</a>
                     </div>
                 </div>
             </div>
 
             <!-- Article 3 -->
-            <div class="col-lg-4 col-md-6 blog-item">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cybersécurité" class="img-fluid">
-                        <div class="blog-badge">Sécurité</div>
-                        <div class="blog-date">
-                            <span class="day">10</span>
-                            <span class="month">Mai</span>
-                        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top img-fluid blog-image" alt="Cybersécurité">
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Cybersécurité</div>
-                        <h3 class="blog-title">Protéger son entreprise contre les ransomwares</h3>
-                        <p class="blog-excerpt">Les meilleures pratiques pour se prémunir contre les attaques de ransomware en 2024.</p>
-                        <div class="blog-meta">
-                            <span class="author"><i class="fas fa-user"></i> David Mbuyi</span>
-                            <span class="read-time"><i class="fas fa-clock"></i> 8 min</span>
-                        </div>
-                    </div>
-                    <div class="blog-hover-content">
-                        <a href="#" class="btn-read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
-                        <div class="blog-tags">
-                            <span>Sécurité</span>
-                            <span>Ransomware</span>
-                            <span>Protection</span>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="text-primary text-uppercase mb-2">Cybersécurité</h6>
+                        <h5 class="card-title">Protéger son entreprise contre les ransomwares</h5>
+                        <p class="card-text text-muted">Les meilleures pratiques pour se prémunir contre les attaques de ransomware en 2024.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire la suite</a>
                     </div>
                 </div>
             </div>
@@ -520,7 +405,12 @@
             <a href="blog.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous les articles</a>
         </div>
     </div>
-</div>
+</section>
+
+    
+
+
+  
 
 <!-- Marketplace Section - Style Créatif -->
 
