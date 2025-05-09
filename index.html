@@ -30,6 +30,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Dans la section <head> -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .project-image {
         height: 200px; /* Hauteur fixe pour toutes les images */
@@ -165,6 +168,49 @@
         color: #6f42c1 !important;
     }
 
+    /* Ajoutez dans votre <style> */
+[data-aos] {
+  transition-property: transform, opacity;
+}
+
+/* Effet personnalisé "float" */
+[data-aos="float"] {
+  transform: translateY(50px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="float"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Animation au survol */
+.service-card:hover {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 400px;
+  position: relative;
+}
     </style>
 </head>
 
@@ -1267,6 +1313,24 @@
         });
     });
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  // Animation du header
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.classList.add('navbar-scrolled');
+  } else {
+    navbar.classList.remove('navbar-scrolled');
+  }
+});
+
+</script>
 </body>
 
 </html>
