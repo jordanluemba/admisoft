@@ -1,137 +1,41 @@
-<!-- Section Projets -->
-<section class="py-5 bg-light" id="projets">
-  <div class="container">
-    <div class="text-center mb-5">
-      <p class="text-secondary fw-bold">Nos Réalisations</p>
-      <h1 class="mb-3">Projets Récents</h1>
-      <p class="text-muted">Découvrez nos dernières créations et cas clients</p>
-    </div>
-
-    <!-- Filtres -->
-    <div class="text-center mb-4">
-      <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tous</button>
-      <button class="btn btn-outline-primary filter-btn" data-filter="web">Développement Web</button>
-      <button class="btn btn-outline-primary filter-btn" data-filter="mobile">Applications Mobiles</button>
-      <button class="btn btn-outline-primary filter-btn" data-filter="design">Design UI/UX</button>
-    </div>
-
-    <!-- Grille des projets -->
-    <div class="row g-4" id="projectGrid">
-      <!-- Projet 1 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="web">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="eCommerce">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">BelleMode Boutique</h5>
-            <p class="card-text text-muted">Plateforme eCommerce avec paiements sécurisés</p>
-            <span class="badge bg-primary">Développement Web</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet 2 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="mobile">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="App FitLife">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">FitLife Pro</h5>
-            <p class="card-text text-muted">Suivi d'activité et programmes personnalisés</p>
-            <span class="badge bg-success">Application Mobile</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet 3 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="design">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Design FinXpert">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">FinXpert Dashboard</h5>
-            <p class="card-text text-muted">Dashboard analytique pour portefeuille</p>
-            <span class="badge bg-warning text-dark">Design UI/UX</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet 4 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="web">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Site Corporate">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Corporate Solutions</h5>
-            <p class="card-text text-muted">Site vitrine d'entreprise moderne et responsive</p>
-            <span class="badge bg-primary">Développement Web</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet 5 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="mobile">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1581093450025-7a2cc7a914c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="App Restaurant">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">FoodExpress</h5>
-            <p class="card-text text-muted">Application de commande et livraison</p>
-            <span class="badge bg-success">Application Mobile</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet 6 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="design">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Design SaaS">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">TeamFlow Pro</h5>
-            <p class="card-text text-muted">Interface SaaS pour gestion collaborative</p>
-            <span class="badge bg-warning text-dark">Design UI/UX</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bouton -->
-    <div class="text-center mt-5">
-      <a href="#" class="btn btn-primary px-5 py-3 rounded-pill">Voir tous nos projets</a>
-    </div>
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4 px-lg-5 py-3 py-lg-0">
+  <a href="#" class="navbar-brand">
+      <h1 class="m-0 logo-style">AdmiSoft</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link active" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#apropos">À propos</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#projets">Projets</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#temoignage">Témoignage</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+          </li>
+      </ul>
+      <a href="#" class="btn btn-primary rounded-pill py-2 px-4 d-none d-lg-block">Se connecter</a>
   </div>
-</section>
+</nav>
+<!-- Navbar End -->
 
-<!-- JavaScript de filtrage -->
+<!-- Custom JavaScript for Hamburger Animation -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.project-item');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Toggle active
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-
-        items.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  });
+  
 </script>

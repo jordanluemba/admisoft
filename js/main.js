@@ -1,3 +1,126 @@
+
+        // Gestion du chat
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatIcon = document.getElementById('chatIcon');
+            const chatContainer = document.getElementById('chatContainer');
+            const closeChat = document.getElementById('closeChat');
+            const messageInput = document.getElementById('messageInput');
+            const sendMessage = document.getElementById('sendMessage');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Ouvrir le chat
+            chatIcon.addEventListener('click', function() {
+                chatContainer.style.display = 'flex';
+            });
+            
+            // Fermer le chat
+            closeChat.addEventListener('click', function() {
+                chatContainer.style.display = 'none';
+            });
+            
+            // Envoyer un message
+            function sendNewMessage() {
+                const messageText = messageInput.value.trim();
+                if (messageText) {
+                    // Ajouter le message envoyé
+                    const sentMessage = document.createElement('div');
+                    sentMessage.className = 'message sent';
+                    sentMessage.textContent = messageText;
+                    chatMessages.appendChild(sentMessage);
+                    
+                    // Réponse automatique après un délai
+                    setTimeout(() => {
+                        const responses = [
+                            "Merci pour votre message. Comment puis-je vous aider ?",
+                            "Je vais vérifier cela pour vous.",
+                            "Nous avons bien reçu votre demande.",
+                            "Un conseiller va vous répondre sous peu.",
+                            "Avez-vous besoin d'autres informations ?"
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        
+                        const receivedMessage = document.createElement('div');
+                        receivedMessage.className = 'message received';
+                        receivedMessage.textContent = randomResponse;
+                        chatMessages.appendChild(receivedMessage);
+                        
+                        // Faire défiler vers le bas
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                    
+                    // Effacer le champ de saisie
+                    messageInput.value = '';
+                    
+                    // Faire défiler vers le bas
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+            
+            // Envoyer avec le bouton
+            sendMessage.addEventListener('click', sendNewMessage);
+            
+            // Envoyer avec Entrée
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendNewMessage();
+                }
+            });
+            
+            // Faire défiler les messages vers le bas au chargement
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+
+    $(document).ready(function(){
+        // Filtrage des produits
+        $('#marketplace-filters li').on('click', function(){
+            $('#marketplace-filters li').removeClass('active');
+            $(this).addClass('active');
+            
+            const filter = $(this).data('filter');
+            $('.marketplace-container').isotope({ filter: filter });
+        });
+
+        // Initialisation d'Isotope
+        $('.marketplace-container').isotope({
+            itemSelector: '.marketplace-item',
+            layoutMode: 'fitRows'
+        });
+    });
+    
+    // Animation des compteurs
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    updateCount();
+                }
+            });
+            
+            observer.observe(counter);
+        });
+    });
+    
+    /***
+     */
+
+
+
 (function ($) {
     "use strict";
 
@@ -394,3 +517,27 @@ window.addEventListener('scroll', function() {
         backToTop.classList.remove('show');
     }
 });
+
+
+/********
+ * ******
+ */
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  // Animation du header
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.classList.add('navbar-scrolled');
+  } else {
+    navbar.classList.remove('navbar-scrolled');
+  }
+});
+
+/******
+ * *****
+ */
+

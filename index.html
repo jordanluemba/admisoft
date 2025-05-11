@@ -33,185 +33,7 @@
 
     <!-- Dans la section <head> -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .project-image {
-        height: 200px; /* Hauteur fixe pour toutes les images */
-        object-fit: cover; /* Recadrage pour remplir l'espace */
-    }
-    .blog-image {
-        height: 200px; /* Hauteur fixe pour toutes les images */
-        object-fit: cover; /* Recadrage pour remplir l'espace */
-    }
-    .testimonials-pro {
-  background: #f7f9fc;
-}
-
-.testimonial-card {
-  background: #fff;
-  border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-left: 4px solid #0d6efd;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-text {
-  font-style: italic;
-  font-size: 1rem;
-  color: #444;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.testimonial-text::before {
-  content: "“";
-  position: absolute;
-  left: 0;
-  top: -5px;
-  font-size: 2rem;
-  color: #0d6efd;
-  line-height: 1;
-}
-.team-member .hover-opacity-100 {
-  transition: all 0.3s ease;
-}
-.team-member:hover .hover-opacity-100 {
-  opacity: 1 !important;
-}
-.object-fit-cover {
-  object-fit: cover;
-}
-/* Dégradé coloré pour les titres et boutons */
-.text-gradient {
-  background: linear-gradient(to right, #4b6cb7, #182848);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.btn-gradient {
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  color: #fff;
-  border: none;
-  transition: 0.3s;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(135deg, #182848, #4b6cb7);
-  transform: translateY(-2px);
-}
-.icon-box {
-  background: #0d6efd;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-}
-    .facts-section {
-        background: linear-gradient(135deg, #0d6efd, #0b5ed7);
-    }
     
-    
-    
-    .fact-card {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        background-color: rgba(255,255,255,0.15) !important;
-    }
-    
-    .bg-pattern {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
-        background-size: 30px 30px;
-    }
-
-    .services-section {
-        position: relative;
-        background-color: #f8f9fa;
-    }
-    
-    .service-card {
-        transition: all 0.3s ease;
-        border-radius: 12px !important;
-    }
-    
-    .hover-lift:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
-    }
-    
-    .icon-wrapper {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
-    
-    .service-card:hover .icon-wrapper {
-        transform: scale(1.1);
-    }
-    
-    .bg-purple {
-        background-color: #6f42c1 !important;
-    }
-    
-    .text-purple {
-        color: #6f42c1 !important;
-    }
-
-    /* Ajoutez dans votre <style> */
-[data-aos] {
-  transition-property: transform, opacity;
-}
-
-/* Effet personnalisé "float" */
-[data-aos="float"] {
-  transform: translateY(50px);
-  opacity: 0;
-  transition-property: transform, opacity;
-}
-
-[data-aos="float"].aos-animate {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Animation au survol */
-.service-card:hover {
-  animation: pulse 0.5s ease;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-
-.navbar-scrolled {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.parallax-section {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 400px;
-  position: relative;
-}
-    </style>
 </head>
 
 <body>
@@ -223,7 +45,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
@@ -268,11 +89,8 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
-
-
         <!-- About Start - Version Bootstrap Modernisée -->
-<section class="about-section py-5 bg-light" id="apropos">
+        <section class="about-section py-5 bg-light" id="apropos">
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <!-- Image Column -->
@@ -330,12 +148,11 @@
             </div>
         </div>
     </div>
-</section>
-<!-- About End -->
-
+        </section>
+        <!-- About End -->
 
         <!-- Facts Start - Version Modernisée -->
-<section class="facts-section py-5 bg-primary position-relative overflow-hidden">
+        <section class="facts-section py-5 bg-primary position-relative overflow-hidden">
     <div class="container py-5">
         <div class="row g-4 g-lg-5 justify-content-center">
             <!-- Animated Background Elements -->
@@ -388,16 +205,11 @@
             </div>
         </div>
     </div>
-</section>
-
-
-
-
-<!-- Facts End -->
-
+        </section>
+        <!-- Facts End -->
 
         <!-- Services Start - Version Modernisée -->
-<section class="services-section py-5 bg-light" id="services">
+        <section class="services-section py-5 bg-light" id="services">
     <div class="container py-5">
         <div class="text-center mb-5 wow fadeInUp">
             <span class="badge bg-primary bg-opacity-10 text-primary mb-3 fw-semibold">Nos Services</span>
@@ -517,14 +329,11 @@
             </div>
         </div>
     </div>
-</section>
-
-
-<!-- Services End -->
-
+        </section>
+        <!-- Services End -->
 
         <!-- Newsletter Start -->
-<section class="container-xxl bg-primary newsletter py-5">
+        <section class="container-xxl bg-primary newsletter py-5">
     <div class="container py-5 px-lg-5">
         <div class="row justify-content-center text-center">
             <div class="col-lg-7">
@@ -544,18 +353,11 @@
             </div>
         </div>
     </div>
-</section>
-<!-- Newsletter End -->
-
-
-
-
-
-       
-
-            
-<!-- Section Projets -->
-<section class="py-5 bg-light" id="projets">
+        </section>
+        <!-- Newsletter End -->
+     
+        <!-- Section Projets -->
+        <section class="py-5 bg-light" id="projets">
     <div class="container">
         <div class="text-center mb-5">
             <p class="text-secondary fw-bold">Nos Réalisations</p>
@@ -621,10 +423,10 @@
             <a href="#" class="btn btn-primary px-5 py-3 rounded-pill">Voir tous nos projets</a>
         </div>
     </div>
-</section>
+        </section>
                         
-<!-- Section Blog -->
-<section class="py-5 bg-light" id="blog">
+        <!-- Section Blog -->
+        <section class="py-5 bg-light" id="blog">
     <div class="container">
         <div class="text-center mb-5">
             <p class="text-secondary fw-bold">Notre Blog</p>
@@ -683,10 +485,10 @@
             <a href="blog.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Voir tous les articles</a>
         </div>
     </div>
-</section>
+        </section>
 
-<!-- Marketplace Section - Bootstrap Stylisé -->
-<section class="py-5 bg-light" id="marketplace">
+        <!-- Marketplace Section - Bootstrap Stylisé -->
+        <section class="py-5 bg-light" id="marketplace">
     <div class="container py-5">
       <div class="text-center mb-5">
         <p class="text-secondary fw-semibold small text-uppercase mb-1">Marketplace</p>
@@ -826,10 +628,10 @@
         </div>
       </div>
     </div>
-  </section>
+        </section>
   
-<!-- Témoignages Section Pro -->
-<section class="testimonials-pro py-5" id="testimonials">
+        <!-- Témoignages Section Pro -->
+        <section class="testimonials-pro py-5" id="testimonials">
     <div class="container">
       <div class="text-center mb-5">
         <h6 class="text-accent fw-bold">Témoignages</h6>
@@ -880,10 +682,10 @@
         </div>
       </div>
     </div>
-  </section>
+        </section>
   
-<!-- Section Équipe avec Bootstrap -->
-<section id="team" class="container-xxl py-5">
+        <!-- Section Équipe avec Bootstrap -->
+        <section id="team" class="container-xxl py-5">
     <div class="container py-5">
       <div class="text-center mb-5">
         <p class="text-secondary text-uppercase fw-semibold mb-2">Notre Équipe</p>
@@ -893,10 +695,11 @@
   
       <div class="row g-3">
         <!-- Membre 1 -->
+         
         <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm border-0 h-100 team-member position-relative">
+          <div class="card shadow-sm border-0 h-100 team-member">
             <div class="position-relative overflow-hidden" style="height: 280px;">
-              <img src="img/team-1.jpg" class="card-img-top h-100 object-fit-cover" alt="Roger Kalombo">
+              <img src="pdg.jpg" class="card-img-top h-100 object-fit-cover" alt="Roger Kalombo">
               <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-end justify-content-center opacity-0 hover-opacity-100 transition">
                 <div class="d-flex gap-2 mb-3">
                   <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
@@ -958,12 +761,10 @@
         <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2">Nous recrutons !</a>
       </div>
     </div>
-  </section>
+        </section>
 
-
-
-<!-- contact -->
-  <section class="container py-5" id="contact">
+        <!-- contact -->
+        <section class="container py-5" id="contact">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Contactez-Nous</h2>
       <p class="text-muted">Nous sommes disponibles pour discuter de vos projets ou collaborations.</p>
@@ -1038,13 +839,10 @@
         </div>
       </div>
     </div>
-  </section>
+        </section>
   
-  
-        
 <!-- Footer Start - Style Créatif -->
- 
-<footer class="footer-creative">
+        <footer class="footer-creative">
     <div class="footer-wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
@@ -1148,8 +946,7 @@
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
-</footer>
-
+        </footer>
 
         <!-- Back to Top -->
         <div class="chat-icon" id="chatIcon">
@@ -1195,142 +992,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        // Gestion du chat
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatIcon = document.getElementById('chatIcon');
-            const chatContainer = document.getElementById('chatContainer');
-            const closeChat = document.getElementById('closeChat');
-            const messageInput = document.getElementById('messageInput');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatMessages = document.getElementById('chatMessages');
-            
-            // Ouvrir le chat
-            chatIcon.addEventListener('click', function() {
-                chatContainer.style.display = 'flex';
-            });
-            
-            // Fermer le chat
-            closeChat.addEventListener('click', function() {
-                chatContainer.style.display = 'none';
-            });
-            
-            // Envoyer un message
-            function sendNewMessage() {
-                const messageText = messageInput.value.trim();
-                if (messageText) {
-                    // Ajouter le message envoyé
-                    const sentMessage = document.createElement('div');
-                    sentMessage.className = 'message sent';
-                    sentMessage.textContent = messageText;
-                    chatMessages.appendChild(sentMessage);
-                    
-                    // Réponse automatique après un délai
-                    setTimeout(() => {
-                        const responses = [
-                            "Merci pour votre message. Comment puis-je vous aider ?",
-                            "Je vais vérifier cela pour vous.",
-                            "Nous avons bien reçu votre demande.",
-                            "Un conseiller va vous répondre sous peu.",
-                            "Avez-vous besoin d'autres informations ?"
-                        ];
-                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                        
-                        const receivedMessage = document.createElement('div');
-                        receivedMessage.className = 'message received';
-                        receivedMessage.textContent = randomResponse;
-                        chatMessages.appendChild(receivedMessage);
-                        
-                        // Faire défiler vers le bas
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 1000);
-                    
-                    // Effacer le champ de saisie
-                    messageInput.value = '';
-                    
-                    // Faire défiler vers le bas
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }
-            }
-            
-            // Envoyer avec le bouton
-            sendMessage.addEventListener('click', sendNewMessage);
-            
-            // Envoyer avec Entrée
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendNewMessage();
-                }
-            });
-            
-            // Faire défiler les messages vers le bas au chargement
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-
-    $(document).ready(function(){
-        // Filtrage des produits
-        $('#marketplace-filters li').on('click', function(){
-            $('#marketplace-filters li').removeClass('active');
-            $(this).addClass('active');
-            
-            const filter = $(this).data('filter');
-            $('.marketplace-container').isotope({ filter: filter });
-        });
-
-        // Initialisation d'Isotope
-        $('.marketplace-container').isotope({
-            itemSelector: '.marketplace-item',
-            layoutMode: 'fitRows'
-        });
-    });
     
-    // Animation des compteurs
-    document.addEventListener('DOMContentLoaded', () => {
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-        
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
-                const increment = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                if(entries[0].isIntersecting) {
-                    updateCount();
-                }
-            });
-            
-            observer.observe(counter);
-        });
-    });
-    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true
-  });
-  // Animation du header
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 100) {
-    navbar.classList.add('navbar-scrolled');
-  } else {
-    navbar.classList.remove('navbar-scrolled');
-  }
-});
 
-</script>
 </body>
-
 </html>
