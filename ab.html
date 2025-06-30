@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovSI Tech - Solutions SaaS pour la digitalisation en Afrique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Poppins"', 'sans-serif'],
+                        display: ['"Bebas Neue"', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wave': 'wave 8s linear infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'parallax': 'parallax linear',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        tilt: {
+                            '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(1deg)' },
+                            '75%': { transform: 'rotate(-1deg)' },
+                        },
+                        parallax: {
+                            from: { transform: 'translateY(0px)' },
+                            to: { transform: 'translateY(-200px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.5s ease, color 0.3s ease;
+        }
+        
+        /* Dark mode transition */
+        .transition-colors {
+            transition-property: background-color, border-color, color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        
+        /* Hero gradient animation */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+        }
+        
+        .light .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+        }
+        
+        /* Floating elements */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float-fast {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Glow effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .light .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Card hover effect */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .light .service-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Testimonial slide */
+        .testimonial-slide {
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        /* Shape dividers */
+        .custom-shape-divider-top-1687543298 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider-top-1687543298 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .custom-shape-divider-top-1687543298 .shape-fill {
+            fill: #0f172a;
+        }
+        
+        .light .custom-shape-divider-top-1687543298 .shape-fill {
+            fill: #ffffff;
+        }
+        
+        /* Parallax effect */
+        .parallax-container {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 200%;
+            background-size: cover;
+            background-position: center;
+            transform-origin: center;
+            z-index: -1;
+            animation: parallax linear;
+            animation-timeline: scroll();
+        }
+        
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+        }
+        
+        /* Animated border */
+        .animated-border {
+            position: relative;
+        }
+        
+        .animated-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f97316, #0ea5e9);
+            transition: width 0.6s ease;
+        }
+        
+        .animated-border:hover::after {
+            width: 100%;
+        }
+        
+        /* 3D card effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        
+        /* Particle background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .light .particle {
+            background: rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Section divider wave */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #0f172a;
+        }
+        
+        .light .wave-divider .shape-fill {
+            fill: #f8fafc;
+        }
+        
+        /* Animated gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        /* Floating circles */
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        /* Glowing button */
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0ea5e9, #f97316, #0ea5e9);
+            background-size: 200% 200%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-button:hover::before {
+            opacity: 1;
+            animation: gradient 3s ease infinite;
+        }
+        
+        /* Animated underline */
+        .underline-animation {
+            position: relative;
+        }
+        
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #0ea5e9, #f97316);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        
+        .underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Neon effect */
+        .neon-text {
+            text-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8, 0 0 15px #38bdf8, 0 0 20px #0ea5e9;
+        }
+        
+        .light .neon-text {
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-dark-900 transition-colors duration-300">
+    <!-- Dark mode toggle -->
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full bg-white dark:bg-dark-800 shadow-lg flex items-center justify-center text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-dark-700 transition-colors">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+    
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle" style="width: 100px; height: 100px; top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 150px; height: 150px; top: 60%; left: 70%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 80px; height: 80px; top: 30%; left: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 120px; height: 120px; top: 80%; left: 30%; animation-delay: 6s;"></div>
+    </div>
+    
+    <!-- Floating circles -->
+    <div class="floating-circle bg-primary-500" style="width: 300px; height: 300px; top: -150px; right: -150px;"></div>
+    <div class="floating-circle bg-secondary-500" style="width: 400px; height: 400px; bottom: -200px; left: -200px; animation-delay: 3s;"></div>
+    
+    <!-- Header -->
+    <header class="bg-white dark:bg-dark-800 shadow-sm sticky top-0 z-40 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-primary-700 dark:bg-primary-600 rounded-lg flex items-center justify-center mr-3 glow">
+                    <span class="text-white font-bold text-xl">IT</span>
+                </div>
+                <span class="text-primary-700 dark:text-white font-bold text-xl">InnovSI Tech</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">Accueil</a>
+                <a href="#about" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">À propos</a>
+                <a href="#services" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">Services</a>
+                <a href="#solutions" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">Solutions</a>
+                <a href="#blog" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">Blog</a>
+                <a href="#contact" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors underline-animation">Contact</a>
+            </nav>
+            
+            <a href="#contact" class="hidden md:block bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-medium transition-colors glow-button">
+                Consultation gratuite
+            </a>
+            
+            <button id="mobile-menu-button" class="md:hidden text-primary-700 dark:text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark-800 py-4 px-4 shadow-lg transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">Accueil</a>
+                <a href="#about" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">À propos</a>
+                <a href="#services" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">Services</a>
+                <a href="#solutions" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">Solutions</a>
+                <a href="#blog" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">Blog</a>
+                <a href="#contact" class="text-primary-700 dark:text-white font-medium hover:text-secondary-500 transition-colors">Contact</a>
+                <a href="#contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-medium transition-colors text-center glow-button">
+                    Consultation gratuite
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white pt-32 pb-20 md:py-40 relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] opacity-10 dark:opacity-20 bg-cover bg-center parallax-bg"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-12 md:mb-0 reveal">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Digitalisez votre entreprise avec nos <span class="gradient-text">solutions SaaS</span> innovantes
+                </h1>
+                <p class="text-xl mb-8 text-blue-100 dark:text-blue-300">
+                    Transformez vos processus métiers avec des solutions cloud adaptées au contexte africain. Boostez votre productivité et votre croissance.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-lg font-medium text-center transition-colors glow-button">
+                        Demander une démo
+                    </a>
+                    <a href="#solutions" class="bg-white dark:bg-dark-700 hover:bg-gray-100 dark:hover:bg-dark-600 text-primary-700 dark:text-white px-8 py-3 rounded-lg font-medium text-center transition-colors">
+                        Nos solutions
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center reveal" style="transition-delay: 0.2s;">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Solutions SaaS innovantes" 
+                         class="rounded-xl shadow-2xl w-full max-w-lg animate-float-fast border-4 border-white dark:border-dark-700">
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary-500 rounded-full opacity-20 animate-pulse-slow"></div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary-500 rounded-full opacity-20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave divider -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-dark-900 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Qui sommes-nous ?</h2>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center reveal">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <div class="relative card-3d">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Équipe InnovSI Tech" 
+                             class="rounded-xl shadow-lg w-full border-4 border-white dark:border-dark-800">
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary-500 rounded-full opacity-20 animate-pulse-slow"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 reveal" style="transition-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold text-primary-700 dark:text-white mb-4">Notre mission</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">
+                        Chez InnovSI Tech, nous accompagnons les entreprises africaines dans leur transformation digitale en développant des solutions SaaS sur mesure, adaptées aux spécificités locales.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-primary-700 dark:text-white mb-4">Notre vision</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">
+                        Devenir le leader des solutions logicielles en Afrique centrale en combinant expertise technologique et compréhension approfondie des besoins des entreprises africaines.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-primary-700 dark:text-white mb-4">Nos valeurs</h3>
+                    <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 0.4s;">
+                        <div class="bg-primary-50 dark:bg-dark-800 p-4 rounded-lg hover:shadow-lg transition">
+                            <i class="fas fa-lightbulb text-secondary-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-primary-700 dark:text-white">Innovation</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Nous repoussons les limites de la technologie pour vous offrir des solutions avant-gardistes.</p>
+                        </div>
+                        <div class="bg-primary-50 dark:bg-dark-800 p-4 rounded-lg hover:shadow-lg transition">
+                            <i class="fas fa-hands-helping text-secondary-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-primary-700 dark:text-white">Collaboration</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Nous travaillons main dans la main avec nos clients pour des résultats optimaux.</p>
+                        </div>
+                        <div class="bg-primary-50 dark:bg-dark-800 p-4 rounded-lg hover:shadow-lg transition">
+                            <i class="fas fa-medal text-secondary-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-primary-700 dark:text-white">Excellence</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Nous visons l'excellence dans chaque aspect de notre travail.</p>
+                        </div>
+                        <div class="bg-primary-50 dark:bg-dark-800 p-4 rounded-lg hover:shadow-lg transition">
+                            <i class="fas fa-globe-africa text-secondary-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-primary-700 dark:text-white">Impact local</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Nous contribuons au développement économique de l'Afrique par la technologie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-dark-800 relative">
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 w-16 h-16 bg-primary-500 rounded-full opacity-10 animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-20 h-20 bg-secondary-500 rounded-full opacity-10 animate-float" style="animation-delay: 2s;"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Nos services</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Nous offrons une gamme complète de services pour accompagner votre transformation digitale
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-dark-700 p-8 rounded-xl shadow-md service-card transition duration-300 reveal">
+                    <div class="w-16 h-16 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-search text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-4 text-center">Analyse des SI</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+                        Audit complet de votre système d'information existant pour identifier les axes d'amélioration et les opportunités de digitalisation.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Cartographie des processus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Analyse des besoins</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Recommandations stratégiques</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-dark-700 p-8 rounded-xl shadow-md service-card transition duration-300 reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-project-diagram text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-4 text-center">Conception de SI</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+                        Design d'architectures système optimisées pour répondre à vos besoins métiers tout en anticipant votre croissance future.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Modélisation des données</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Design UX/UI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Spécifications techniques</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-dark-700 p-8 rounded-xl shadow-md service-card transition duration-300 reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-cloud text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-4 text-center">Développement SaaS</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+                        Création de solutions logicielles cloud-first, sécurisées et évolutives pour digitaliser vos processus métiers.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Développement sur mesure</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Intégrations API</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+                            <span>Maintenance et support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-white dark:bg-dark-900 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Nos solutions SaaS phares</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Découvrez nos produits clés en main pour digitaliser votre entreprise
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Solution 1 -->
+                <div class="bg-gray-50 dark:bg-dark-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition card-3d reveal">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center relative">
+                        <i class="fas fa-cash-register text-white text-6xl z-10"></i>
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">InnoPOS</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Solution de caisse enregistreuse et gestion de stock en temps réel, optimisée pour les commerces africains.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Vente</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Stock</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Reporting</span>
+                        </div>
+                        <a href="#contact" class="inline-block bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-medium transition-colors glow-button">
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Solution 2 -->
+                <div class="bg-gray-50 dark:bg-dark-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition card-3d reveal" style="transition-delay: 0.2s;">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center relative">
+                        <i class="fas fa-truck text-white text-6xl z-10"></i>
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">LogiTrack</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Plateforme de gestion logistique avec suivi GPS pour optimiser vos chaînes d'approvisionnement.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Transport</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Suivi</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Optimisation</span>
+                        </div>
+                        <a href="#contact" class="inline-block bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-medium transition-colors glow-button">
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Solution 3 -->
+                <div class="bg-gray-50 dark:bg-dark-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition card-3d reveal" style="transition-delay: 0.4s;">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center relative">
+                        <i class="fas fa-users text-white text-6xl z-10"></i>
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">RH Connect</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Solution complète de gestion des ressources humaines avec module de paie conforme aux réglementations locales.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Paie</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Congés</span>
+                            <span class="bg-primary-100 dark:bg-dark-700 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm">Évaluation</span>
+                        </div>
+                        <a href="#contact" class="inline-block bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-medium transition-colors glow-button">
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <a href="#contact" class="inline-block bg-primary-700 hover:bg-primary-800 text-white px-8 py-3 rounded-lg font-medium transition-colors glow-button">
+                    Voir toutes nos solutions
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50 dark:bg-dark-800 relative">
+        <!-- Wave divider top -->
+        <div class="custom-shape-divider-top-1687543298">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Pourquoi nous choisir ?</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Ce qui fait la différence chez InnovSI Tech
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white dark:bg-dark-700 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition reveal">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">Expertise locale</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Nous comprenons les défis spécifiques des entreprises africaines et concevons des solutions adaptées.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-700 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition reveal" style="transition-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">Sécurité renforcée</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Nos solutions intègrent les meilleures pratiques de sécurité pour protéger vos données.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-700 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition reveal" style="transition-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">Support réactif</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Une équipe dédiée disponible pour vous accompagner à chaque étape de votre projet.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-700 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition reveal" style="transition-delay: 0.6s;">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-primary-700 dark:text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-white mb-2">Évolutivité garantie</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Nos solutions grandissent avec votre entreprise grâce à une architecture modulaire.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave divider bottom -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Ils nous font confiance</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Découvrez ce que nos clients disent de nous
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto reveal">
+                <div id="testimonial-slider" class="overflow-hidden">
+                    <div class="flex transition-transform duration-500">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-gray-50 dark:bg-dark-800 p-8 rounded-xl shadow-sm">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Client satisfait" class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-secondary-500">
+                                    <div>
+                                        <h4 class="font-bold text-primary-700 dark:text-white">Marie Kabasele</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">Directrice, SuperMarché Kin</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 italic">
+                                    "InnoPOS a révolutionné notre gestion de stock. Les pertes ont diminué de 30% et nous avons gagné en productivité. L'équipe d'InnovSI Tech a su comprendre nos besoins spécifiques et adapter la solution en conséquence."
+                                </p>
+                                <div class="flex mt-4">
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-gray-50 dark:bg-dark-800 p-8 rounded-xl shadow-sm">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client satisfait" class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-secondary-500">
+                                    <div>
+                                        <h4 class="font-bold text-primary-700 dark:text-white">Didier Mbala</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">PDG, TransAfrik Logistics</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 italic">
+                                    "LogiTrack nous a permis d'optimiser nos routes de livraison et de réduire nos coûts de carburant de 22%. Le suivi en temps réel est un game-changer pour notre secteur. Service client toujours disponible et réactif."
+                                </p>
+                                <div class="flex mt-4">
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-gray-50 dark:bg-dark-800 p-8 rounded-xl shadow-sm">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client satisfait" class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-secondary-500">
+                                    <div>
+                                        <h4 class="font-bold text-primary-700 dark:text-white">Sarah Ntumba</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">DRH, Groupe Elikya</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 italic">
+                                    "RH Connect a simplifié toute notre gestion du personnel. Le module de paie est parfaitement adapté à la législation congolaise. La migration depuis notre ancien système s'est faite sans accroc grâce à l'accompagnement de l'équipe."
+                                </p>
+                                <div class="flex mt-4">
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star text-secondary-500"></i>
+                                    <i class="fas fa-star-half-alt text-secondary-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white dark:bg-dark-700 p-2 rounded-full shadow-md text-primary-700 dark:text-white hover:text-secondary-500 transition-colors">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                
+                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white dark:bg-dark-700 p-2 rounded-full shadow-md text-primary-700 dark:text-white hover:text-secondary-500 transition-colors">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-primary-200 dark:bg-dark-600" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-primary-200 dark:bg-dark-600" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-primary-200 dark:bg-dark-600" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gray-50 dark:bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Notre blog</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Conseils et actualités sur la digitalisation en Afrique
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white dark:bg-dark-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-3d reveal">
+                    <img src="https://images.unsplash.com/photo-1454165804606-0a9f5e3c0f38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Article de blog" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-secondary-500 font-medium">Digitalisation</span>
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white my-2">5 étapes pour digitaliser votre PME en RDC</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Découvrez notre guide pratique pour entamer votre transformation digitale sans bouleverser vos opérations.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">15 juin 2023</span>
+                            <a href="#" class="text-primary-700 dark:text-primary-400 font-medium hover:text-secondary-500 transition-colors underline-animation">
+                                Lire l'article <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="bg-white dark:bg-dark-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-3d reveal" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Article de blog" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-secondary-500 font-medium">SaaS</span>
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white my-2">Pourquoi choisir le SaaS pour votre entreprise ?</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Les avantages des solutions cloud pour les entreprises africaines : flexibilité, coûts réduits et accès aux dernières technologies.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">2 juin 2023</span>
+                            <a href="#" class="text-primary-700 dark:text-primary-400 font-medium hover:text-secondary-500 transition-colors underline-animation">
+                                Lire l'article <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white dark:bg-dark-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-3d reveal" style="transition-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Article de blog" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-secondary-500 font-medium">Témoignage</span>
+                        <h3 class="text-xl font-bold text-primary-700 dark:text-white my-2">Comment SuperMarché Kin a boosté ses ventes de 40%</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Étude de cas sur la digitalisation d'un commerce de quartier à Kinshasa et les résultats obtenus.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">20 mai 2023</span>
+                            <a href="#" class="text-primary-700 dark:text-primary-400 font-medium hover:text-secondary-500 transition-colors underline-animation">
+                                Lire l'article <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <a href="#" class="inline-block bg-primary-700 hover:bg-primary-800 text-white px-8 py-3 rounded-lg font-medium transition-colors glow-button">
+                    Voir tous les articles
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-700 dark:text-white mb-4">Contactez-nous</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Prêt à digitaliser votre entreprise ? Parlons-en !
+                </p>
+                <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row reveal">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h3 class="text-2xl font-bold text-primary-700 dark:text-white mb-6">Nos coordonnées</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary-100 dark:bg-dark-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-primary-700 dark:text-primary-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary-700 dark:text-white mb-1">Adresse</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Avenue de la Révolution, Immeuble Elikya<br>
+                                    Kinshasa, République Démocratique du Congo
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary-100 dark:bg-dark-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-primary-700 dark:text-primary-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary-700 dark:text-white mb-1">Téléphone</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    +243 81 234 5678<br>
+                                    +243 89 876 5432
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary-100 dark:bg-dark-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-primary-700 dark:text-primary-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary-700 dark:text-white mb-1">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    contact@innovsitech.cd<br>
+                                    support@innovsitech.cd
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary-100 dark:bg-dark-800 p-3 rounded-lg mr-4">
+                                <i class="fab fa-whatsapp text-primary-700 dark:text-primary-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary-700 dark:text-white mb-1">WhatsApp Business</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    +243 81 234 5678<br>
+                                    <a href="https://wa.me/243812345678" class="text-secondary-500 hover:text-secondary-600 font-medium underline-animation">
+                                        Cliquez pour discuter <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-primary-700 dark:text-white mt-12 mb-6">Nos horaires</h3>
+                    
+                    <div class="bg-primary-50 dark:bg-dark-800 p-6 rounded-lg">
+                        <div class="flex justify-between py-2 border-b border-primary-100 dark:border-dark-700">
+                            <span class="font-medium text-primary-700 dark:text-white">Lundi - Vendredi</span>
+                            <span class="text-gray-600 dark:text-gray-300">8h00 - 17h00</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-primary-100 dark:border-dark-700">
+                            <span class="font-medium text-primary-700 dark:text-white">Samedi</span>
+                            <span class="text-gray-600 dark:text-gray-300">9h00 - 13h00</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="font-medium text-primary-700 dark:text-white">Dimanche</span>
+                            <span class="text-gray-600 dark:text-gray-300">Fermé</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 reveal" style="transition-delay: 0.2s;">
+                    <div class="bg-gray-50 dark:bg-dark-800 p-8 rounded-xl shadow-sm">
+                        <h3 class="text-2xl font-bold text-primary-700 dark:text-white mb-6">Envoyez-nous un message</h3>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Nom complet *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-dark-700 rounded-lg focus:ring-2 focus:ring-primary-700 focus:border-primary-700 outline-none transition bg-white dark:bg-dark-900">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-dark-700 rounded-lg focus:ring-2 focus:ring-primary-700 focus:border-primary-700 outline-none transition bg-white dark:bg-dark-900">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-dark-700 rounded-lg focus:ring-2 focus:ring-primary-700 focus:border-primary-700 outline-none transition bg-white dark:bg-dark-900">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Sujet *</label>
+                                <select id="subject" name="subject" required 
+                                        class="w-full px-4 py-3 border border-gray-300 dark:border-dark-700 rounded-lg focus:ring-2 focus:ring-primary-700 focus:border-primary-700 outline-none transition bg-white dark:bg-dark-900">
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="Demande d'information">Demande d'information</option>
+                                    <option value="Support technique">Support technique</option>
+                                    <option value="Demande de démo">Demande de démo</option>
+                                    <option value="Partenariat">Partenariat</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="w-full px-4 py-3 border border-gray-300 dark:border-dark-700 rounded-lg focus:ring-2 focus:ring-primary-700 focus:border-primary-700 outline-none transition bg-white dark:bg-dark-900"></textarea>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" id="consent" name="consent" required 
+                                       class="w-4 h-4 border border-gray-300 dark:border-dark-700 rounded focus:ring-primary-700 outline-none transition bg-white dark:bg-dark-900">
+                                <label for="consent" class="ml-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    J'accepte que mes données soient utilisées pour répondre à ma demande.
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors glow-button">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/243812345678" class="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl z-40 transition-all animate-bounce">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+    
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-primary-900 font-bold text-xl">IT</span>
+                        </div>
+                        <span class="text-white font-bold text-xl">InnovSI Tech</span>
+                    </div>
+                    
+                    <p class="mb-4 text-primary-200">
+                        Leader des solutions SaaS en RDC, nous accompagnons les entreprises africaines dans leur transformation digitale.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-primary-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-primary-700 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-primary-700 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-primary-700 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Liens rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-primary-200 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#about" class="text-primary-200 hover:text-white transition">À propos</a></li>
+                        <li><a href="#services" class="text-primary-200 hover:text-white transition">Services</a></li>
+                        <li><a href="#solutions" class="text-primary-200 hover:text-white transition">Solutions</a></li>
+                        <li><a href="#blog" class="text-primary-200 hover:text-white transition">Blog</a></li>
+                        <li><a href="#contact" class="text-primary-200 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Nos solutions</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">InnoPOS</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">LogiTrack</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">RH Connect</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">InnoERP</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">EduCloud</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition">Toutes nos solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-primary-200 mb-4">
+                        Abonnez-vous à notre newsletter pour recevoir nos dernières actualités et conseils.
+                    </p>
+                    
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" 
+                               class="px-4 py-3 w-full rounded-l-lg outline-none text-primary-900">
+                        <button type="submit" class="bg-secondary-500 hover:bg-secondary-600 px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane text-white"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 mb-4 md:mb-0">
+                    &copy; 2023 InnovSI Tech. Tous droits réservés.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-primary-200 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-primary-200 hover:text-white transition">Politique de confidentialité</a>
+                    <a href="#" class="text-primary-200 hover:text-white transition">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Testimonial slider
+        const testimonialSlider = document.querySelector('#testimonial-slider .flex');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+        
+        function updateSlider() {
+            testimonialSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-primary-200', 'dark:bg-dark-600');
+                    dot.classList.add('bg-secondary-500');
+                } else {
+                    dot.classList.add('bg-primary-200', 'dark:bg-dark-600');
+                    dot.classList.remove('bg-secondary-500');
+                }
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+        
+        // Auto slide testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    // Optional: Reset animation if you want elements to re-animate when scrolled back up
+                    // reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // Parallax effect for hero section
+        function updateParallax() {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                const scrollPosition = window.pageYOffset;
+                parallaxBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+            }
+        }
+        
+        window.addEventListener('scroll', updateParallax);
+        window.addEventListener('load', updateParallax);
+        
+        // Animated cursor effect (optional)
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.createElement('div');
+            cursor.classList.add('custom-cursor');
+            document.body.appendChild(cursor);
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+            
+            // Add hover effect for interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, input, textarea, .service-card, .card-3d');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('cursor-hover');
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('cursor-hover');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
