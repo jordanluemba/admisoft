@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio Professionnel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-in forwards',
+                        'slide-down': 'slideDown 0.5s ease-out forwards',
+                        'spin-slow': 'spin 3s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Effet de survol personnalisé pour les cartes */
+        .project-card {
+            transition: all 0.3s ease;
+            transform: perspective(1000px) rotateX(0deg) scale(1);
+        }
+        .project-card:hover {
+            transform: perspective(1000px) rotateX(5deg) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Style pour la navigation active */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Animation pour le bouton */
+        .btn-float {
+            transition: all 0.3s ease;
+        }
+        .btn-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Animation du menu hamburger */
+        .hamburger {
+            transition: all 0.3s ease;
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+            background: #3B82F6;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        .open .hamburger-middle {
+            display: none;
+        }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        /* Animation du menu mobile */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Animation des éléments au scroll */
+        [data-animate] {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        [data-animate="fadeInUp"] {
+            transform: translateY(30px);
+        }
+        [data-animate="fadeInLeft"] {
+            transform: translateX(-30px);
+        }
+        [data-animate="fadeInRight"] {
+            transform: translateX(30px);
+        }
+        [data-animate].animated {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        /* Effet de flottement */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-blue-500 dark:text-blue-400">John Doe</a>
+                
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Accueil</a>
+                        <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Projets</a>
+                        <a href="#certifications" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Certifications</a>
+                        <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">À propos</a>
+                        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+                    </nav>
+
+                    <!-- Bouton mode sombre/clair -->
+                    <button id="theme-toggle" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+
+                    <!-- Bouton menu mobile -->
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
+                        <div class="hamburger">
+                            <span class="hamburger-top dark:bg-blue-400"></span>
+                            <span class="hamburger-middle dark:bg-blue-400"></span>
+                            <span class="hamburger-bottom dark:bg-blue-400"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white dark:bg-gray-800 z-40 pt-20 px-6 overflow-y-auto">
+            <div class="flex flex-col space-y-8 py-8">
+                <a href="#home" class="nav-link text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Accueil</a>
+                <a href="#projects" class="nav-link text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Projets</a>
+                <a href="#certifications" class="nav-link text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Certifications</a>
+                <a href="#about" class="nav-link text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">À propos</a>
+                <a href="#contact" class="nav-link text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Accueil -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 pt-20">
+        <div class="container mx-auto px-6 py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-animate="fadeInRight">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-6">
+                        Bonjour, je suis <span class="text-blue-500 dark:text-blue-400">John Doe</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+                        Développeur Full Stack & Designer UI/UX
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+                        Je crée des expériences digitales exceptionnelles qui allient esthétique et performance. Passionné par l'innovation et les technologies web modernes.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-float bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg">
+                            Me contacter
+                        </a>
+                        <a href="#projects" class="btn-float border-2 border-blue-500 dark:border-blue-400 text-blue-500 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 px-8 py-3 rounded-full font-semibold">
+                            Voir mes projets
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-animate="fadeInLeft">
+                    <div class="relative floating">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-blue-400 rounded-full opacity-20 absolute -top-6 -left-6 animate-spin-slow"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-indigo-400 rounded-full opacity-20 absolute -bottom-6 -right-6 animate-spin-slow" style="animation-delay: 0.2s;"></div>
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
+                             alt="Photo de profil" 
+                             class="relative z-10 w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-xl border-4 border-white dark:border-gray-800">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-animate="fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Mes Projets Récents</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Découvrez une sélection de mes réalisations les plus significatives, alliant design moderne et fonctionnalités avancées.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden" data-animate="fadeInUp" data-delay="0.1s">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Plateforme E-commerce</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Une solution e-commerce complète avec paiement sécurisé, gestion de stock et tableau de bord analytique.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs px-3 py-1 rounded-full">Stripe</span>
+                        </div>
+                        <a href="#" class="text-blue-500 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                            Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden" data-animate="fadeInUp" data-delay="0.2s">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Application Mobile de Fitness</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Application cross-platform pour suivre ses séances de sport, avec suivi nutritionnel et communauté.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full">React Native</span>
+                            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs px-3 py-1 rounded-full">GraphQL</span>
+                            <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs px-3 py-1 rounded-full">Firebase</span>
+                        </div>
+                        <a href="#" class="text-blue-500 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                            Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden" data-animate="fadeInUp" data-delay="0.3s">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Dashboard Analytique</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Solution de business intelligence avec visualisation de données en temps réel et rapports personnalisés.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full">Vue.js</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs px-3 py-1 rounded-full">D3.js</span>
+                            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 text-xs px-3 py-1 rounded-full">Django</span>
+                        </div>
+                        <a href="#" class="text-blue-500 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                            Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-animate="fadeInUp" data-delay="0.4s">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-blue-500 dark:border-blue-400 text-blue-500 dark:text-blue-400 rounded-full hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                    Voir tous mes projets <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Certifications -->
+    <section id="certifications" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-animate="fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Mes Certifications</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Mes compétences sont validées par des certifications reconnues dans le domaine du développement et du design.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Certification 1 -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center justify-center hover:shadow-lg transition-shadow" data-animate="fadeInUp" data-delay="0.1s">
+                    <div class="w-20 h-20 mb-4 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                        <i class="fab fa-aws text-blue-500 dark:text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">AWS Certified</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 text-center">Solutions Architect - 2022</p>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center justify-center hover:shadow-lg transition-shadow" data-animate="fadeInUp" data-delay="0.2s">
+                    <div class="w-20 h-20 mb-4 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center">
+                        <i class="fab fa-js-square text-yellow-500 dark:text-yellow-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">JavaScript Expert</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 text-center">Advanced Concepts - 2021</p>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center justify-center hover:shadow-lg transition-shadow" data-animate="fadeInUp" data-delay="0.3s">
+                    <div class="w-20 h-20 mb-4 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
+                        <i class="fab fa-react text-purple-500 dark:text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">React Professional</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 text-center">Hooks & Context API - 2023</p>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center justify-center hover:shadow-lg transition-shadow" data-animate="fadeInUp" data-delay="0.4s">
+                    <div class="w-20 h-20 mb-4 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-green-500 dark:text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">UI/UX Design</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 text-center">User-Centered Design - 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-animate="fadeInRight">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">À propos de moi</h2>
+                    <div class="w-20 h-1 bg-blue-500 mb-6"></div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Passionné par les technologies web depuis plus de 8 ans, j'ai eu l'opportunité de travailler sur des projets variés allant des sites vitrines aux applications web complexes.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Mon approche combine rigueur technique et sensibilité design, avec un focus particulier sur l'expérience utilisateur. Je crois fermement que la technologie doit servir l'humain avant tout.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">
+                        En dehors du code, j'aime partager mes connaissances à travers des articles techniques et des conférences. La veille technologique et l'apprentissage continu font partie intégrante de ma routine.
+                    </p>
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white rounded-full transition-colors">
+                        Télécharger mon CV <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-animate="fadeInLeft">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Mes Compétences</h3>
+                    
+                    <!-- Compétence 1 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Développement Frontend</span>
+                            <span class="text-blue-500 dark:text-blue-400 font-medium">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 2 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Développement Backend</span>
+                            <span class="text-blue-500 dark:text-blue-400 font-medium">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 3 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">UI/UX Design</span>
+                            <span class="text-blue-500 dark:text-blue-400 font-medium">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 4 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Gestion de Projet</span>
+                            <span class="text-blue-500 dark:text-blue-400 font-medium">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-animate="fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Contactez-moi</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Vous avez un projet en tête ou souhaitez discuter d'une opportunité ? N'hésitez pas à me contacter, je serai ravi d'échanger avec vous.
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row" data-animate="fadeInUp" data-delay="0.1s">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Votre nom</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Jean Dupont">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Votre email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="jean@exemple.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Votre message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Dites-moi en quoi puis-je vous aider..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Envoyer le message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Coordonnées</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                                    <i class="fas fa-map-marker-alt text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Adresse</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">123 Rue du Développeur, 75000 Paris</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                                    <i class="fas fa-envelope text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">contact@johndoe.dev</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                                    <i class="fas fa-phone-alt text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Téléphone</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">+33 6 12 34 56 78</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mt-10 mb-6">Réseaux sociaux</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-dribbble text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">John Doe</a>
+                    <p class="mt-2 text-gray-400">Développeur Full Stack & Designer UI/UX</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 John Doe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-600">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuButton.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        // Fermer le menu mobile quand on clique sur un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuButton.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        // Mode sombre/clair
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Vérifier le thème système ou le localStorage
+        const currentTheme = localStorage.getItem('theme') || 
+                            (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        // Navigation active
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Bouton retour en haut
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation au scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const elementDelay = element.getAttribute('data-delay') || 0;
+                
+                if (elementPosition < windowHeight - 100) {
+                    setTimeout(() => {
+                        element.classList.add('animated');
+                    }, elementDelay * 300);
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
