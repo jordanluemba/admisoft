@@ -89,9 +89,9 @@ async function searchLinks(query) {
     const searchTerm = query.toLowerCase().trim();
     return links.filter(link => {
       const titleMatch = link.title.toLowerCase().includes(searchTerm);
-      const tagMatch = link.tags.some(tag => 
+      const tagMatch = link.tags?.some(tag => 
         tag.toLowerCase().includes(searchTerm)
-      );
+      ) ?? false;
       const urlMatch = link.url.toLowerCase().includes(searchTerm);
       return titleMatch || tagMatch || urlMatch;
     });

@@ -76,12 +76,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-/**
- * Keep service worker alive
- * Chrome may suspend service workers after 30 seconds of inactivity
- */
-const keepAlive = () => setInterval(chrome.runtime.getPlatformInfo, 20e3);
-chrome.runtime.onStartup.addListener(keepAlive);
-keepAlive();
-
 console.log('Page Pocket service worker loaded');

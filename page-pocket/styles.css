@@ -103,6 +103,13 @@ textarea.form-input {
   font-family: inherit;
 }
 
+.form-hint {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
 /* Button Styles */
 .btn {
   display: inline-block;
