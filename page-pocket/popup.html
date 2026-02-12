@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Pocket - Save Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <h1>📌 Page Pocket</h1>
+      <p>Save the current page to your vault</p>
+    </div>
+
+    <!-- Message Area -->
+    <div id="messageArea"></div>
+
+    <!-- Form -->
+    <form id="saveForm">
+      <div class="form-group">
+        <label class="form-label" for="pageTitle">Page Title</label>
+        <input 
+          type="text" 
+          id="pageTitle" 
+          class="form-input" 
+          placeholder="Enter page title"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="pageUrl">URL</label>
+        <input 
+          type="url" 
+          id="pageUrl" 
+          class="form-input" 
+          placeholder="https://example.com"
+          required
+          readonly
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="pageTags">Tags (comma separated)</label>
+        <input 
+          type="text" 
+          id="pageTags" 
+          class="form-input" 
+          placeholder="work, important, article"
+        >
+        <small class="form-hint">
+          Separate multiple tags with commas
+        </small>
+      </div>
+
+      <div class="btn-group">
+        <button type="submit" class="btn btn-primary btn-block" id="saveBtn">
+          💾 Save Page
+        </button>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-block" id="viewVaultBtn">
+          📚 View Vault
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/utils.js"></script>
+  <script src="data/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

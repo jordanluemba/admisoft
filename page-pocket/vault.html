@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Pocket - My Vault</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="vault-container">
+    <!-- Header -->
+    <div class="vault-header">
+      <h1>📚 My Page Vault</h1>
+      <p>Your saved pages and links</p>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats" id="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="totalLinks">0</div>
+        <div class="stat-label">Total Links</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalTags">0</div>
+        <div class="stat-label">Unique Tags</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="vault-controls">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search by title, URL, or tags..."
+          autocomplete="off"
+        >
+      </div>
+      
+      <select id="sortSelect" class="sort-select">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+    </div>
+
+    <!-- Links Grid -->
+    <div id="linksContainer">
+      <!-- Links will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/utils.js"></script>
+  <script src="data/storage.js"></script>
+  <script src="vault.js"></script>
+</body>
+</html>
